@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Euphony - Modern Neo-Brutalist Open-Source Music Player | Free Download</title>
+  <meta name="description" content="Download Euphony, the beautiful open-source Material 3 and Neo-Brutalist music player for Android, Windows, Linux, and macOS. Zero ads, zero subscriptions, zero telemetry." />
+  <meta name="keywords" content="Euphony, music player, flutter, open source music player, neo brutalist design, android music app, ad free music player" />
+  <meta name="author" content="Mohammed Nihad V & Community" />
+  
+  <!-- OpenGraph / Social Meta -->
+  <meta property="og:title" content="Euphony - Music Deserves Better Than Interruptions" />
+  <meta property="og:description" content="A modern, beautiful, open-source music player built with Flutter. Built on the radical idea that pressing ▶ Play shouldn't require a subscription." />
+  <meta property="og:image" content="assets/hero_mockup.png" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ======================================================================
+       HEADER & NAVBAR
+       ====================================================================== -->
+  <header class="navbar" id="site-navbar">
+    <div class="nav-container">
+      <a href="#" class="brand" aria-label="Euphony Home">
+        <img src="assets/logo.png" alt="Euphony App Logo" class="brand-logo" />
+        <span>Euphony</span>
+        <span class="brand-badge">v0.1.0</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="#demo" class="nav-link">Interactive Demo</a></li>
+          <li><a href="#philosophy" class="nav-link">Why Free?</a></li>
+          <li><a href="#features" class="nav-link">Features</a></li>
+          <li><a href="#download" class="nav-link">Downloads</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+          <li>
+            <a href="https://github.com/MohammedNihadv/Euphony" target="_blank" rel="noopener noreferrer" class="nav-link">
+              GitHub ★
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- 3-Way Theme Switcher (Desktop) -->
+        <div class="theme-switcher desktop-only-theme" role="group" aria-label="Theme Switcher">
+          <button type="button" class="theme-btn active" id="btn-theme-light" data-theme-value="light" title="Light Theme (Neo-Brutalist Paper)">Light</button>
+          <button type="button" class="theme-btn" id="btn-theme-dark" data-theme-value="dark" title="Dark Theme (Slate Navy)">Dark</button>
+          <button type="button" class="theme-btn" id="btn-theme-amoled" data-theme-value="amoled" title="AMOLED Pure Black">AMOLED</button>
+        </div>
+
+        <a href="#download" class="btn-nav-download" id="btn-nav-cta">
+          <span>📥 Download App</span>
+        </a>
+
+        <!-- Mobile Hamburger Toggle Button -->
+        <button type="button" class="hamburger-btn" id="btn-hamburger" aria-label="Toggle Mobile Menu" aria-expanded="false">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Drawer (Neo-Brutalist Dropdown) -->
+    <div class="mobile-menu-drawer" id="mobile-menu" aria-hidden="true">
+      <div class="mobile-menu-content">
+        <!-- Mobile Theme Switcher -->
+        <div class="mobile-theme-section">
+          <span class="mobile-menu-label">SELECT THEME:</span>
+          <div class="theme-switcher mobile-theme-switcher" role="group" aria-label="Mobile Theme Switcher">
+            <button type="button" class="theme-btn active" data-theme-value="light" title="Light Theme">☀️ Light</button>
+            <button type="button" class="theme-btn" data-theme-value="dark" title="Dark Theme">🌙 Dark</button>
+            <button type="button" class="theme-btn" data-theme-value="amoled" title="AMOLED Pure Black">🖤 AMOLED</button>
+          </div>
+        </div>
+
+        <!-- Mobile Nav Links -->
+        <nav aria-label="Mobile Navigation" class="mobile-nav">
+          <a href="#demo" class="mobile-nav-link">🎧 Interactive Demo</a>
+          <a href="#philosophy" class="mobile-nav-link">💡 Why Free?</a>
+          <a href="#features" class="mobile-nav-link">✨ Features</a>
+          <a href="#download" class="mobile-nav-link">📥 Universal Downloads</a>
+          <a href="#faq" class="mobile-nav-link">❓ FAQ</a>
+          <a href="https://github.com/MohammedNihadv/Euphony" target="_blank" rel="noopener noreferrer" class="mobile-nav-link github-link">
+            ★ Star on GitHub
+          </a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ======================================================================
+         HERO SECTION
+         ====================================================================== -->
+    <section class="hero" id="hero-section">
+      <div class="hero-container">
+        <div class="hero-content">
+          <div class="hero-badges">
+            <span class="badge yellow">🚫 Zero Ads</span>
+            <span class="badge purple">🔓 100% Open Source</span>
+            <span class="badge pink">⚡ Built with Flutter</span>
+            <span class="badge">🎨 Material 3 + Neo-Brutalist</span>
+          </div>
+
+          <!-- Single H1 heading for semantic SEO -->
+          <h1 class="hero-title">
+            Music deserves <span class="hero-title-highlight">better</span> than interruptions.
+          </h1>
+
+          <p class="hero-subtitle">
+            A modern, open-source music player built with Flutter. Built on the radical idea that pressing <strong>▶ Play</strong> shouldn't require a subscription.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#download" class="btn-primary" id="hero-download-btn">
+              <span>🚀 Download <span id="hero-os-name">Free</span></span>
+            </a>
+            <a href="#demo" class="btn-secondary" id="hero-demo-btn">
+              <span>🎧 Experience UI Live</span>
+            </a>
+          </div>
+
+          <div class="os-indicator-badge">
+            <span>✨ Automatically highlighting installer for:</span>
+            <strong id="hero-os-detected">All Supported OS</strong>
+          </div>
+        </div>
+
+        <!-- Hero Visual Illustration -->
+        <div class="hero-visual">
+          <div class="hero-card">
+            <img src="assets/hero_mockup.png" alt="Euphony Neo-Brutalist Music Player UI Mockup" class="hero-image" />
+            <div class="floating-pill floating-pill-1">
+              <span>🎵 No Subscriptions</span>
+            </div>
+            <div class="floating-pill floating-pill-2">
+              <span>🚫 Zero Telemetry</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         TICKER TAPE
+         ====================================================================== -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span class="ticker-item">✦ MUSIC DESERVES BETTER ✦</span>
+        <span class="ticker-item">NO ADS EVER ✦</span>
+        <span class="ticker-item">100% OPEN SOURCE UNDER MIT LICENSE ✦</span>
+        <span class="ticker-item">SHUFFLE IS NOT A PREMIUM FEATURE ✦</span>
+        <span class="ticker-item">MATERIAL 3 NEO-BRUTALISM ✦</span>
+        <span class="ticker-item">NO TELEMETRY ✦</span>
+        <span class="ticker-item">YOUR MUSIC LIBRARY, YOUR RULES ✦</span>
+        <span class="ticker-item">✦ MUSIC DESERVES BETTER ✦</span>
+        <span class="ticker-item">NO ADS EVER ✦</span>
+        <span class="ticker-item">100% OPEN SOURCE UNDER MIT LICENSE ✦</span>
+        <span class="ticker-item">SHUFFLE IS NOT A PREMIUM FEATURE ✦</span>
+      </div>
+    </div>
+
+    <!-- ======================================================================
+         INTERACTIVE MINI-PLAYER ("EXPERIENCE THE UI")
+         ====================================================================== -->
+    <section class="player-demo-section" id="demo">
+      <div class="section-header">
+        <span class="section-tagline">Experience The Interface</span>
+        <h2 class="section-title">Play With Euphony Right Here</h2>
+        <p class="section-subtitle">
+          Test out our custom Neo-Brutalist design tokens (`#121218` ink, `#6A4BE8` accent, `#FFEB3B` highlight). Click Play to hear live Web Audio API ambient chords and watch the real-time waveform visualizer!
+        </p>
+      </div>
+
+      <div class="player-demo-grid">
+        <!-- Interactive Player Mockup -->
+        <div class="player-card" id="demo-player-widget">
+          <div class="player-top-bar">
+            <span class="player-pill">NOW PLAYING</span>
+            <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+              <label for="local-audio-input" class="player-pill" style="cursor: pointer; background-color: var(--eu-highlight); color: var(--eu-on-highlight); border: var(--eu-border-thin); font-weight: 800; transition: transform 0.15s ease;" title="Play your own MP3/WAV/FLAC music file">
+                📂 PLAY LOCAL FILE
+              </label>
+              <input type="file" id="local-audio-input" accept="audio/*" style="display: none;" />
+              <span class="player-pill" id="player-status-badge">LOSSLESS FLAC</span>
+            </div>
+          </div>
+
+          <div class="player-main-info">
+            <div class="player-artwork" id="player-artwork-box">
+              <span>🎵</span>
+            </div>
+            <div class="player-track-details">
+              <div class="player-song-title" id="player-title">Neon Skyline (No Ads Edition)</div>
+              <div class="player-artist-name" id="player-artist">Euphony Sound • 0.1.0</div>
+            </div>
+          </div>
+
+          <!-- HTML5 Canvas Visualizer -->
+          <div class="visualizer-container" title="Audio Visualizer">
+            <canvas id="visualizerCanvas"></canvas>
+          </div>
+
+          <!-- Progress Bar -->
+          <div class="player-progress">
+            <div class="progress-track" id="progress-track" role="progressbar" aria-label="Track Progress" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">
+              <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <div class="progress-time">
+              <span id="progress-current">0:42</span>
+              <span id="progress-total">3:45</span>
+            </div>
+          </div>
+
+          <!-- Player Controls -->
+          <div class="player-controls">
+            <button type="button" class="control-btn" id="btn-shuffle" title="Toggle Shuffle">🔀</button>
+            <button type="button" class="control-btn" id="btn-prev" title="Previous Track">⏮</button>
+            <button type="button" class="control-btn control-btn-play" id="btn-play-pause" title="Play/Pause">
+              <span id="play-icon">▶</span>
+            </button>
+            <button type="button" class="control-btn" id="btn-next" title="Next Track">⏭</button>
+            <button type="button" class="control-btn" id="btn-repeat" title="Toggle Repeat">🔁</button>
+          </div>
+        </div>
+
+        <!-- Interactive Playlist -->
+        <div class="player-playlist" id="demo-playlist-box">
+          <div class="playlist-header">
+            <h3 class="playlist-title">Queue • Quick Picks</h3>
+            <span class="badge yellow" style="font-size: 0.75rem;">4 TRACKS</span>
+          </div>
+
+          <div class="playlist-list">
+            <div class="playlist-item active" data-track-id="0">
+              <div class="playlist-item-left">
+                <span class="playlist-index">01</span>
+                <div class="playlist-item-info">
+                  <span class="playlist-item-title">Neon Skyline (No Ads Edition)</span>
+                  <span class="playlist-item-artist">Euphony Sound • 0.1.0</span>
+                </div>
+              </div>
+              <span class="playlist-duration">3:45</span>
+            </div>
+
+            <div class="playlist-item" data-track-id="1">
+              <div class="playlist-item-left">
+                <span class="playlist-index">02</span>
+                <div class="playlist-item-info">
+                  <span class="playlist-item-title">Uninterrupted Flow</span>
+                  <span class="playlist-item-artist">Open Source Beats</span>
+                </div>
+              </div>
+              <span class="playlist-duration">4:12</span>
+            </div>
+
+            <div class="playlist-item" data-track-id="2">
+              <div class="playlist-item-left">
+                <span class="playlist-index">03</span>
+                <div class="playlist-item-info">
+                  <span class="playlist-item-title">Zero Subscription Groove</span>
+                  <span class="playlist-item-artist">Material 3 Ensemble</span>
+                </div>
+              </div>
+              <span class="playlist-duration">2:58</span>
+            </div>
+
+            <div class="playlist-item" data-track-id="3">
+              <div class="playlist-item-left">
+                <span class="playlist-index">04</span>
+                <div class="playlist-item-info">
+                  <span class="playlist-item-title">Offline Freedom</span>
+                  <span class="playlist-item-artist">Neo-Brutalism Collective</span>
+                </div>
+              </div>
+              <span class="playlist-duration">3:30</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         WHY EUPHONY? (PHILOSOPHY SECTION)
+         ====================================================================== -->
+    <section class="philosophy-section" id="philosophy">
+      <div class="section-header">
+        <span class="section-tagline">The Philosophy</span>
+        <h2 class="section-title">Why Euphony Exists</h2>
+        <p class="section-subtitle">
+          Somewhere along the way, music players became subscription services, shuffle became a premium feature, and ads started interrupting your playlists. Euphony is a music player that simply gets out of your way.
+        </p>
+      </div>
+
+      <div class="philosophy-grid">
+        <!-- Subscription Apps Card -->
+        <div class="philosophy-card bad">
+          <div class="philosophy-card-header">
+            <div class="philosophy-icon">💸</div>
+            <div>
+              <h3>Subscription Music Apps</h3>
+              <p style="color: var(--eu-text-muted); font-size: 0.9rem;">Modern proprietary services</p>
+            </div>
+          </div>
+          <ul class="philosophy-list">
+            <li><span class="bullet">✕</span> <span>Monthly subscription fees required just to play music without ads</span></li>
+            <li><span class="bullet">✕</span> <span>Basic features like <strong>Shuffle</strong> locked behind a premium paywall</span></li>
+            <li><span class="bullet">✕</span> <span>Constant upsell banners interrupting your favorite albums</span></li>
+            <li><span class="bullet">✕</span> <span>Mandatory cloud accounts and invasive telemetry tracking</span></li>
+            <li><span class="bullet">✕</span> <span>Your offline library can be removed by licensing disputes</span></li>
+          </ul>
+        </div>
+
+        <!-- Euphony Card -->
+        <div class="philosophy-card good">
+          <div class="philosophy-card-header">
+            <div class="philosophy-icon">⚡</div>
+            <div>
+              <h3>Euphony Open Source</h3>
+              <p style="color: var(--eu-text-muted); font-size: 0.9rem;">Music respects its listeners</p>
+            </div>
+          </div>
+          <ul class="philosophy-list">
+            <li><span class="bullet">✓</span> <span><strong>100% Free & Open Source</strong> under the GNU General Public License v3.0</span></li>
+            <li><span class="bullet">✓</span> <span>Every feature unlocked forever — Shuffle, Repeat, Sleep Timer, & Queue</span></li>
+            <li><span class="bullet">✓</span> <span><strong>Zero advertisements</strong> and zero interruptions guaranteed</span></li>
+            <li><span class="bullet">✓</span> <span>No account needed. Offline local music and smart caching by default</span></li>
+            <li><span class="bullet">✓</span> <span>Transparent code crafted by music lovers, for music lovers</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         FEATURE SHOWCASE GRID
+         ====================================================================== -->
+    <section class="features-section" id="features">
+      <div class="section-header">
+        <span class="section-tagline">Crafted For Performance</span>
+        <h2 class="section-title">Everything You Need, Nothing You Don't</h2>
+        <p class="section-subtitle">
+          Built with Flutter, Riverpod, Drift SQLite, and Just Audio for lightning-fast playback across platforms.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <!-- Card 1 -->
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">🎨</div>
+          <h3 class="feature-title">Material 3 & Neo-Brutalist UI</h3>
+          <p class="feature-desc">
+            Beautiful Material 3 experience with bold typography, crisp hard shadows (`4px 4px 0px`), and an intentional 3-accent palette designed for WCAG AA readability.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">📥</div>
+          <h3 class="feature-title">Offline & Local Library</h3>
+          <p class="feature-desc">
+            Full support for local music files, offline downloads, smart audio caching, and persistent playback state powered by Drift SQLite.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">🌙</div>
+          <h3 class="feature-title">3-Way Adaptive Theme</h3>
+          <p class="feature-desc">
+            Switch seamlessly between warm Light Paper, deep Slate Dark, and true OLED/AMOLED Pure Black themes.
+          </p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">⚡</div>
+          <h3 class="feature-title">Fast Search & Queue</h3>
+          <p class="feature-desc">
+            Fast search across tracks, albums, artists & playlists with full queue management, shuffle, and repeat without UI lag.
+          </p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">🎧</div>
+          <h3 class="feature-title">Background Playback</h3>
+          <p class="feature-desc">
+            Background playback with native media notification controls, lock screen artwork, and playback speed controls with sleep timer.
+          </p>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">🛡️</div>
+          <h3 class="feature-title">Privacy & Zero Telemetry</h3>
+          <p class="feature-desc">
+            We don't track your listening habits. No analytics scripts, no phone-home telemetry, no third-party SDKs.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         UNIVERSAL DOWNLOAD HUB
+         ====================================================================== -->
+    <section class="download-section" id="download">
+      <div class="section-header">
+        <span class="section-tagline">Direct Downloads</span>
+        <h2 class="section-title">Get Euphony For Your Platform</h2>
+        <p class="section-subtitle">
+          Release <strong>v0.1.0</strong> • Free forever • Android APK available now! <strong>Windows & Linux Desktop Editions Coming Soon!</strong>
+        </p>
+      </div>
+
+      <div class="download-grid">
+        <!-- ANDROID APK CARD -->
+        <div class="download-card" data-platform="android" id="card-android">
+          <span class="recommended-badge">★ RECOMMENDED FOR YOU</span>
+          <div>
+            <div class="download-card-header">
+              <div class="platform-icon">📱</div>
+              <div class="download-card-info" style="flex: 1; min-width: 0;">
+                <h3 style="margin: 0; font-size: 1.45rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Android</h3>
+                <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.35rem; flex-wrap: wrap;">
+                  <span class="version-pill" style="color: var(--eu-accent);">APK Installer • v0.1.0</span>
+                  <span class="badge yellow" style="font-size: 0.72rem; padding: 0.2rem 0.55rem;">READY</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="download-card-body" style="margin-top: 1.5rem;">
+              <p style="font-size: 0.95rem; color: var(--eu-text-muted);">
+                Standalone APK package for Android 8.0+. Supports background audio service, media notifications, and offline caching.
+              </p>
+              <ul class="download-meta-list">
+                <li><span>Status:</span> <strong style="color: #2e7d32;">Ready to Download (v0.1.0)</strong></li>
+                <li><span>Architecture:</span> <strong>Universal (ARM64/x86)</strong></li>
+                <li><span>License:</span> <strong>GPL-3.0 Open Source</strong></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="download-actions">
+            <a href="https://github.com/MohammedNihadv/Euphony/releases/download/v0.1.0/app-arm64-v8a-release.apk" class="btn-download-main" id="btn-dl-android" title="Direct 1-click download of Euphony ARM64 APK">
+              <span>📥 Download Direct APK (~42 MB)</span>
+            </a>
+            <button type="button" class="btn-download-alt" id="btn-apk-guide" style="width: 100%;">
+              <span>❓ Which APK Should I Download?</span>
+            </button>
+            <button type="button" class="checksum-link" data-hash-platform="android" style="margin-top: 0.25rem;">
+              Verify SHA-256 Checksum
+            </button>
+          </div>
+        </div>
+
+        <!-- WINDOWS CARD (UPCOMING) -->
+        <div class="download-card is-upcoming" data-platform="windows" id="card-windows">
+          <span class="recommended-badge">★ RECOMMENDED FOR YOU</span>
+          <div>
+            <div class="download-card-header">
+              <div class="platform-icon">💻</div>
+              <div class="download-card-info" style="flex: 1; min-width: 0;">
+                <h3 style="margin: 0; font-size: 1.45rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Windows</h3>
+                <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.35rem; flex-wrap: wrap;">
+                  <span class="version-pill">Desktop • Coming Soon</span>
+                  <span class="upcoming-tag">⏳ UPCOMING</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="download-card-body" style="margin-top: 1.5rem;">
+              <p style="font-size: 0.95rem; color: var(--eu-text-muted);">
+                Native 64-bit desktop build for Windows 10/11 is currently in active development. Star our GitHub repository to get notified when the installer drops!
+              </p>
+              <ul class="download-meta-list">
+                <li><span>Status:</span> <strong style="color: var(--eu-alert);">In Active Development</strong></li>
+                <li><span>Architecture:</span> <strong>Windows x64 (.exe / .msix)</strong></li>
+                <li><span>Release:</span> <strong>Upcoming Release</strong></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="download-actions">
+            <a href="https://github.com/MohammedNihadv/Euphony" target="_blank" rel="noopener noreferrer" class="btn-download-upcoming" id="btn-dl-windows">
+              <span>🔔 Notify Me on GitHub ★</span>
+            </a>
+            <a href="https://github.com/MohammedNihadv/Euphony" target="_blank" rel="noopener noreferrer" class="btn-download-alt">
+              <span>👀 Follow Desktop Progress</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- LINUX / MACOS / SOURCE CARD (UPCOMING) -->
+        <div class="download-card is-upcoming" data-platform="linux" id="card-linux">
+          <span class="recommended-badge">★ RECOMMENDED FOR YOU</span>
+          <div>
+            <div class="download-card-header">
+              <div class="platform-icon">🐧</div>
+              <div class="download-card-info" style="flex: 1; min-width: 0;">
+                <h3 style="margin: 0; font-size: 1.45rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Linux & macOS</h3>
+                <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.35rem; flex-wrap: wrap;">
+                  <span class="version-pill">Desktop • Coming Soon</span>
+                  <span class="upcoming-tag">⏳ UPCOMING</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="download-card-body" style="margin-top: 1.5rem;">
+              <p style="font-size: 0.95rem; color: var(--eu-text-muted);">
+                Universal portable builds for Linux (AppImage/Flatpak) and macOS are in active development. Star our GitHub repository to get notified when the desktop build drops!
+              </p>
+              <ul class="download-meta-list">
+                <li><span>Status:</span> <strong style="color: var(--eu-alert);">In Active Development</strong></li>
+                <li><span>Architecture:</span> <strong>Linux / macOS (ARM64 / x86_64)</strong></li>
+                <li><span>Release:</span> <strong>Upcoming Release</strong></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="download-actions">
+            <a href="https://github.com/MohammedNihadv/Euphony" target="_blank" rel="noopener noreferrer" class="btn-download-upcoming" id="btn-dl-linux">
+              <span>🔔 Notify Me on GitHub ★</span>
+            </a>
+            <a href="https://github.com/MohammedNihadv/Euphony" target="_blank" rel="noopener noreferrer" class="btn-download-alt" id="btn-dl-source">
+              <span>👀 Follow Linux & macOS Progress</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         FAQ ACCORDION
+         ====================================================================== -->
+    <section class="faq-section" id="faq">
+      <div class="section-header">
+        <span class="section-tagline">Got Questions?</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">
+          Everything you need to know about Euphony, our Neo-Brutalist design, and open-source license.
+        </p>
+      </div>
+
+      <div class="faq-container">
+        <!-- FAQ 1 -->
+        <div class="faq-item active">
+          <div class="faq-question">
+            <span>Why is Euphony 100% free with no ads or subscriptions?</span>
+            <span class="faq-toggle-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Because we believe software should respect its users. Somewhere along the way, playing your own music became a subscription service where basic features like shuffle are locked behind paywalls. Euphony was built as a radical alternative: open source, ad-free, and forever free.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>How do offline downloads and local libraries work?</span>
+            <span class="faq-toggle-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Euphony uses high-performance Drift SQLite for local database caching and `just_audio` for playback. You can easily import your existing offline music collection or listen to your cached library without an internet connection.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What is Neo-Brutalist design?</span>
+            <span class="faq-toggle-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Neo-Brutalism is a modern design philosophy featuring bold typography, high-contrast borders (`2.5px solid #121218`), hard offset shadows (`4px 4px 0px`), and intentional color accents. Unlike generic glassmorphic UI, every element in Euphony is tactile and clear.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>How can I contribute or report an issue?</span>
+            <span class="faq-toggle-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Whether you want to fix a typo, add a new theme, or optimize performance — contributions are always welcome! Visit our official GitHub repository to fork the codebase, open an issue, or submit a Pull Request.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================================================================
+       FOOTER
+       ====================================================================== -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#" class="brand">
+            <img src="assets/logo.png" alt="Euphony Logo" class="brand-logo" style="width: 40px; height: 40px;" />
+            <span>Euphony</span>
+          </a>
+          <p class="footer-tagline">Music deserves better than interruptions.</p>
+        </div>
+
+        <div class="footer-star-cta">
+          <span style="font-weight: 600;">⭐ Happy with Euphony? Give us a star on GitHub!</span>
+          <a href="https://github.com/MohammedNihadv/Euphony" target="_blank" rel="noopener noreferrer" class="btn-nav-download" style="background-color: var(--eu-highlight); color: var(--eu-on-highlight);">
+            <span>★ Star on GitHub</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          <p>© 2026 Euphony • Released under the GPL-3.0 License.</p>
+          <p style="font-size: 0.8rem; margin-top: 0.25rem;">Made with Flutter. Powered by open source. Built for music lovers.</p>
+        </div>
+
+        <div class="footer-links">
+          <a href="https://github.com/MohammedNihadv/Euphony/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">GPL-3.0 License</a>
+          <a href="https://github.com/MohammedNihadv/Euphony/releases" target="_blank" rel="noopener noreferrer">All Releases</a>
+          <a href="https://github.com/MohammedNihadv/Euphony" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================================================================
+       MODAL: WHICH APK SHOULD I DOWNLOAD?
+       ====================================================================== -->
+  <div class="modal-backdrop" id="apk-guide-modal" role="dialog" aria-modal="true" aria-labelledby="apk-modal-title">
+    <div class="modal-card" style="max-width: 680px;">
+      <div class="modal-header">
+        <h3 id="apk-modal-title" style="font-size: 1.35rem;">📦 Which APK Should I Download?</h3>
+        <button type="button" class="modal-close-btn" id="btn-close-apk-modal" aria-label="Close Modal">✕</button>
+      </div>
+
+      <p style="font-size: 0.95rem; color: var(--eu-text-muted); margin-bottom: 1.25rem;">
+        Not sure which APK architecture is right for your device? See our recommendations below:
+      </p>
+
+      <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.5rem;">
+        <div style="border: var(--eu-border); border-radius: var(--eu-radius); padding: 1rem; background-color: var(--eu-surface); box-shadow: var(--eu-shadow-sm); display: flex; flex-direction: column; gap: 0.75rem;">
+          <div>
+            <div style="display: flex; align-items: center; justify-content: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.4rem;">
+              <strong style="font-size: 1.05rem;">📱 app-arm64-v8a-release.apk</strong>
+              <span class="badge yellow" style="font-size: 0.75rem;">⭐ RECOMMENDED (99% of Devices)</span>
+            </div>
+            <p style="font-size: 0.88rem; color: var(--eu-text-muted); margin: 0; line-height: 1.4;">
+              Recommended for 99% of devices (manufactured 2017+). Smallest file size (~42 MB) and best performance.
+            </p>
+          </div>
+          <a href="https://github.com/MohammedNihadv/Euphony/releases/download/v0.1.0/app-arm64-v8a-release.apk" class="btn-primary" style="padding: 0.55rem 0.75rem; font-size: 0.85rem; justify-content: center; text-align: center; text-decoration: none; white-space: nowrap;">
+            <span>📥 Download ARM64 (.apk)</span>
+          </a>
+        </div>
+
+        <div style="border: var(--eu-border); border-radius: var(--eu-radius); padding: 1rem; background-color: var(--eu-card-bg); display: flex; flex-direction: column; gap: 0.75rem;">
+          <div>
+            <div style="display: flex; align-items: center; justify-content: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.4rem;">
+              <strong style="font-size: 1.05rem;">📻 app-armeabi-v7a-release.apk</strong>
+              <span class="version-pill" style="font-size: 0.75rem;">32-bit Android Devices</span>
+            </div>
+            <p style="font-size: 0.88rem; color: var(--eu-text-muted); margin: 0; line-height: 1.4;">
+              For older budget smartphones or legacy 32-bit devices.
+            </p>
+          </div>
+          <a href="https://github.com/MohammedNihadv/Euphony/releases/download/v0.1.0/app-armeabi-v7a-release.apk" class="btn-secondary" style="padding: 0.55rem 0.75rem; font-size: 0.85rem; justify-content: center; text-align: center; text-decoration: none; white-space: nowrap;">
+            <span>📥 Download 32-bit (.apk)</span>
+          </a>
+        </div>
+
+        <div style="border: var(--eu-border); border-radius: var(--eu-radius); padding: 1rem; background-color: var(--eu-card-bg); display: flex; flex-direction: column; gap: 0.75rem;">
+          <div>
+            <div style="display: flex; align-items: center; justify-content: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.4rem;">
+              <strong style="font-size: 1.05rem;">💻 app-x86_64-release.apk</strong>
+              <span class="version-pill" style="font-size: 0.75rem;">Emulators & Chromebooks</span>
+            </div>
+            <p style="font-size: 0.88rem; color: var(--eu-text-muted); margin: 0; line-height: 1.4;">
+              For Android Studio / BlueStacks emulators, PCs, and Intel Chromebooks.
+            </p>
+          </div>
+          <a href="https://github.com/MohammedNihadv/Euphony/releases/download/v0.1.0/app-x86_64-release.apk" class="btn-secondary" style="padding: 0.55rem 0.75rem; font-size: 0.85rem; justify-content: center; text-align: center; text-decoration: none; white-space: nowrap;">
+            <span>📥 Download x86_64 (.apk)</span>
+          </a>
+        </div>
+      </div>
+
+      <a href="https://github.com/MohammedNihadv/Euphony/releases/tag/v0.1.0" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="width: 100%; justify-content: center; text-decoration: none;">
+        <span>🌐 Or View Full v0.1.0 GitHub Release Page</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       MODAL: SHA-256 CHECKSUM VERIFICATION
+       ====================================================================== -->
+  <div class="modal-backdrop" id="checksum-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modal-title" style="font-size: 1.25rem;">Verify Binary SHA-256 Checksum</h3>
+        <button type="button" class="modal-close-btn" id="btn-close-modal" aria-label="Close Modal">✕</button>
+      </div>
+
+      <p style="font-size: 0.9rem; color: var(--eu-text-muted);">
+        Compare this SHA-256 hash with the downloaded installer to verify authenticity and ensure it hasn't been modified:
+      </p>
+
+      <div class="checksum-box" id="checksum-hash-text">
+        e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+      </div>
+
+      <button type="button" class="btn-primary" id="btn-copy-checksum" style="width: 100%; justify-content: center;">
+        <span>📋 Copy Checksum to Clipboard</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Interactive Script -->
+  <script src="js/app.js"></script>
+</body>
+</html>
