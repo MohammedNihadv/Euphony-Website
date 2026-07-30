@@ -11,7 +11,71 @@ document.addEventListener('DOMContentLoaded', () => {
   initChecksumModal();
   initApkGuideModal();
   initMobileHamburger();
+  initLatestReleaseSync();
 });
+
+/* ==========================================================================
+   0. LATEST RELEASE SYNC
+   Keeps every download link and version label pointed at the newest GitHub
+   release, so the site never serves a stale APK after a new version ships.
+   The hardcoded version in the markup is the fallback if the API is
+   unreachable.
+   ========================================================================== */
+function initLatestReleaseSync() {
+  const REPO = 'MohammedNihadv/Euphony';
+
+  fetch(`https://api.github.com/repos/${REPO}/releases/latest`, {
+    headers: { Accept: 'application/vnd.github+json' },
+  })
+    .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
+    .then((release) => {
+      const tag = release.tag_name; // e.g. "v0.2.0"
+      if (!tag) return;
+      const assets = release.assets || [];
+
+      const assetUrl = (abi) => {
+        const asset = assets.find(
+          (a) => a.name && a.name.includes(abi) && a.name.endsWith('.apk')
+        );
+        return asset ? asset.browser_download_url : null;
+      };
+
+      // 1. Repoint every APK download link at the matching latest asset.
+      document.querySelectorAll('a[href*="releases/download/"]').forEach((a) => {
+        const name = (a.getAttribute('href').match(/app-[a-z0-9_]+-release\.apk/i) || [])[0];
+        if (!name) return;
+        const abi = name.includes('arm64')
+          ? 'arm64-v8a'
+          : name.includes('v7a')
+            ? 'armeabi-v7a'
+            : name.includes('x86_64')
+              ? 'x86_64'
+              : null;
+        const url = abi && assetUrl(abi);
+        if (url) a.setAttribute('href', url);
+      });
+
+      // 2. Point the "view release" links at the current release page.
+      document.querySelectorAll('a[href*="/releases/tag/"]').forEach((a) => {
+        if (release.html_url) a.setAttribute('href', release.html_url);
+      });
+
+      // 3. Refresh visible version labels to the latest tag.
+      document.querySelectorAll('.brand-badge').forEach((el) => {
+        el.textContent = tag;
+      });
+      document
+        .querySelectorAll('.version-pill, #hero-os-detected, #hero-os-name')
+        .forEach((el) => {
+          if (/v\d+\.\d+\.\d+/.test(el.textContent)) {
+            el.textContent = el.textContent.replace(/v\d+\.\d+\.\d+/g, tag);
+          }
+        });
+    })
+    .catch(() => {
+      /* Offline or rate-limited: the hardcoded version in the HTML stands. */
+    });
+}
 /* ==========================================================================
    1. THREE-WAY THEME SWITCHER (Light, Dark, AMOLED)
    ========================================================================== */
@@ -74,7 +138,7 @@ function initOsDetection() {
 
   if (heroOsBadge) {
     const osNames = {
-      android: 'Android APK (v0.1.0)',
+      android: 'Android APK (v0.2.0)',
       windows: 'Windows (Upcoming)',
       macos: 'macOS (Upcoming)',
       linux: 'Linux (Upcoming)',
@@ -85,13 +149,13 @@ function initOsDetection() {
     const heroOsDetectedEl = document.getElementById('hero-os-detected');
     if (heroOsDetectedEl) {
       const osStatusMsg = {
-        android: 'Android APK (Ready to Download v0.1.0)',
+        android: 'Android APK (Ready to Download v0.2.0)',
         windows: 'Windows Desktop (Upcoming Release • Star on GitHub)',
         macos: 'macOS Universal (Upcoming Release • Star on GitHub)',
         linux: 'Linux AppImage (Upcoming Release • Star on GitHub)',
-        source: 'Android APK (Ready to Download v0.1.0)'
+        source: 'Android APK (Ready to Download v0.2.0)'
       };
-      heroOsDetectedEl.textContent = osStatusMsg[detectedOs] || 'Android APK (Ready to Download v0.1.0)';
+      heroOsDetectedEl.textContent = osStatusMsg[detectedOs] || 'Android APK (Ready to Download v0.2.0)';
     }
   }
 
@@ -122,7 +186,7 @@ function initMiniPlayer() {
   const tracks = [
     {
       title: 'Neon Skyline (No Ads Edition)',
-      artist: 'Euphony Sound • 0.1.0',
+      artist: 'Euphony Sound • 0.2.0',
       duration: '3:45',
       durationSeconds: 225,
       frequency: 220,
