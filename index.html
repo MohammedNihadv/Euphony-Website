@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
@@ -31,7 +31,7 @@
       <a href="#" class="brand" aria-label="Euphony Home">
         <img src="assets/logo.png" alt="Euphony App Logo" class="brand-logo" />
         <span>Euphony</span>
-        <span class="brand-badge">v0.2.1</span>
+        <span class="brand-badge" id="js-version-badge">v0.2.1</span>
       </a>
 
       <nav aria-label="Main Navigation">
@@ -418,7 +418,7 @@
         <span class="section-tagline">Direct Downloads</span>
         <h2 class="section-title">Get Euphony For Your Platform</h2>
         <p class="section-subtitle">
-          Release <strong>v0.2.1</strong> â€¢ Free forever â€¢ Android APK available now! <strong>Windows & Linux Desktop Editions Coming Soon!</strong>
+          Release <strong id="js-release-version">v0.2.1</strong> â€¢ Free forever â€¢ Android APK available now! <strong>Windows & Linux Desktop Editions Coming Soon!</strong>
         </p>
       </div>
 
@@ -432,7 +432,7 @@
               <div class="download-card-info" style="flex: 1; min-width: 0;">
                 <h3 style="margin: 0; font-size: 1.45rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Android</h3>
                 <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.35rem; flex-wrap: wrap;">
-                  <span class="version-pill" style="color: var(--eu-accent);">APK Installer â€¢ v0.2.1</span>
+                  <span class="version-pill" style="color: var(--eu-accent);">APK Installer â€¢ <span id="js-apk-pill">v0.2.1</span></span>
                   <span class="badge yellow" style="font-size: 0.72rem; padding: 0.2rem 0.55rem;">READY</span>
                 </div>
               </div>
@@ -443,7 +443,7 @@
                 Standalone APK package for Android 8.0+. Supports background audio service, media notifications, and offline caching.
               </p>
               <ul class="download-meta-list">
-                <li><span>Status:</span> <strong style="color: #2e7d32;">Ready to Download (v0.2.1)</strong></li>
+                <li><span>Status:</span> <strong style="color: #2e7d32;">Ready to Download (<span id="js-status-version">v0.2.1</span>)</strong></li>
                 <li><span>Architecture:</span> <strong>Universal (ARM64/x86)</strong></li>
                 <li><span>License:</span> <strong>GPL-3.0 Open Source</strong></li>
               </ul>
@@ -737,5 +737,74 @@
 
   <!-- Interactive Script -->
   <script src="js/app.js"></script>
+
+  <!-- GitHub API: Auto-update version and download links on every page load -->
+  <script>
+    (function () {
+      const REPO = 'MohammedNihadv/Euphony';
+      const APK_ASSETS = {
+        arm64:  'app-arm64-v8a-release.apk',
+        armeabi:'app-armeabi-v7a-release.apk',
+        x86_64: 'app-x86_64-release.apk',
+      };
+
+      fetch('https://api.github.com/repos/' + REPO + '/releases/latest', {
+        headers: { 'Accept': 'application/vnd.github.v3+json' }
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        var tag = data.tag_name; // e.g. "v0.2.1"
+        if (!tag) return;
+
+        // --- Version text nodes ---
+        var els = [
+          document.getElementById('js-version-badge'),
+          document.getElementById('js-release-version'),
+          document.getElementById('js-apk-pill'),
+          document.getElementById('js-status-version'),
+        ];
+        els.forEach(function(el) { if (el) el.textContent = tag; });
+
+        // --- Build download URLs from release assets ---
+        var assets = data.assets || [];
+        var urls = {};
+        assets.forEach(function(a) {
+          if (a.name === APK_ASSETS.arm64)  urls.arm64   = a.browser_download_url;
+          if (a.name === APK_ASSETS.armeabi) urls.armeabi = a.browser_download_url;
+          if (a.name === APK_ASSETS.x86_64) urls.x86_64  = a.browser_download_url;
+        });
+
+        // Fallback to tag-based URL if assets not found
+        var base = 'https://github.com/' + REPO + '/releases/download/' + tag + '/';
+        urls.arm64   = urls.arm64   || base + APK_ASSETS.arm64;
+        urls.armeabi = urls.armeabi || base + APK_ASSETS.armeabi;
+        urls.x86_64  = urls.x86_64  || base + APK_ASSETS.x86_64;
+
+        // --- Main Android download button ---
+        var btnAndroid = document.getElementById('btn-dl-android');
+        if (btnAndroid) btnAndroid.href = urls.arm64;
+
+        // --- APK guide modal buttons ---
+        var modalBtns = document.querySelectorAll('a[href*="releases/download"]');
+        modalBtns.forEach(function(btn) {
+          var href = btn.getAttribute('href') || '';
+          if (href.indexOf('arm64-v8a') !== -1)  btn.href = urls.arm64;
+          if (href.indexOf('armeabi-v7a') !== -1) btn.href = urls.armeabi;
+          if (href.indexOf('x86_64') !== -1)      btn.href = urls.x86_64;
+        });
+
+        // --- Release page link ---
+        var relPageLinks = document.querySelectorAll('a[href*="releases/tag"]');
+        relPageLinks.forEach(function(a) {
+          a.href = 'https://github.com/' + REPO + '/releases/tag/' + tag;
+          // Update the label text if it contains a version string
+          if (a.textContent.indexOf('v0.') !== -1) {
+            a.innerHTML = a.innerHTML.replace(/v\d+\.\d+\.\d+/g, tag);
+          }
+        });
+      })
+      .catch(function() { /* Silently fail — hardcoded values remain */ });
+    })();
+  </script>
 </body>
 </html>
