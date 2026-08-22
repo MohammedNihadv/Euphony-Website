@@ -29,7 +29,7 @@ function initLatestReleaseSync() {
   })
     .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
     .then((release) => {
-      const tag = release.tag_name; // e.g. "v0.2.9"
+      const tag = release.tag_name; // e.g. "v0.2.10"
       if (!tag) return;
       const assets = release.assets || [];
 
@@ -126,10 +126,10 @@ function initOsDetection() {
 
   if (heroOsBadge) {
     const osNames = {
-      android: 'Android (v0.2.9)',
-      windows: 'Windows (v0.2.9)',
-      macos: 'macOS (v0.2.9)',
-      linux: 'Linux (v0.2.9)',
+      android: 'Android (v0.2.10)',
+      windows: 'Windows (v0.2.10)',
+      macos: 'macOS (v0.2.10)',
+      linux: 'Linux (v0.2.10)',
       source: 'Source Code'
     };
     heroOsBadge.textContent = osNames[detectedOs] || 'Free';
@@ -137,13 +137,13 @@ function initOsDetection() {
     const heroOsDetectedEl = document.getElementById('hero-os-detected');
     if (heroOsDetectedEl) {
       const osStatusMsg = {
-        android: 'Android APK (Ready to Download • v0.2.9)',
-        windows: 'Windows Desktop (Ready to Download • v0.2.9)',
-        macos: 'macOS Desktop (Ready to Download • v0.2.9)',
-        linux: 'Linux Desktop (Ready to Download • v0.2.9)',
-        source: 'All platforms (Ready to Download • v0.2.9)'
+        android: 'Android APK (Ready to Download • v0.2.10)',
+        windows: 'Windows Desktop (Ready to Download • v0.2.10)',
+        macos: 'macOS Desktop (Ready to Download • v0.2.10)',
+        linux: 'Linux Desktop (Ready to Download • v0.2.10)',
+        source: 'All platforms (Ready to Download • v0.2.10)'
       };
-      heroOsDetectedEl.textContent = osStatusMsg[detectedOs] || 'Ready to Download • v0.2.9';
+      heroOsDetectedEl.textContent = osStatusMsg[detectedOs] || 'Ready to Download • v0.2.10';
     }
   }
 
