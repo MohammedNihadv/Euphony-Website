@@ -29,30 +29,18 @@ function initLatestReleaseSync() {
   })
     .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
     .then((release) => {
-      const tag = release.tag_name; // e.g. "v0.2.0"
+      const tag = release.tag_name; // e.g. "v0.2.9"
       if (!tag) return;
       const assets = release.assets || [];
 
-      const assetUrl = (abi) => {
-        const asset = assets.find(
-          (a) => a.name && a.name.includes(abi) && a.name.endsWith('.apk')
-        );
-        return asset ? asset.browser_download_url : null;
-      };
-
-      // 1. Repoint every APK download link at the matching latest asset.
+      // 1. Repoint every download link (APK, Windows .zip, macOS .zip, Linux
+      //    .tar.gz) at the matching latest asset. Asset filenames are stable
+      //    across releases, so match by the filename in the current href.
       document.querySelectorAll('a[href*="releases/download/"]').forEach((a) => {
-        const name = (a.getAttribute('href').match(/app-[a-z0-9_]+-release\.apk/i) || [])[0];
-        if (!name) return;
-        const abi = name.includes('arm64')
-          ? 'arm64-v8a'
-          : name.includes('v7a')
-            ? 'armeabi-v7a'
-            : name.includes('x86_64')
-              ? 'x86_64'
-              : null;
-        const url = abi && assetUrl(abi);
-        if (url) a.setAttribute('href', url);
+        const href = a.getAttribute('href');
+        const fname = href.substring(href.lastIndexOf('/') + 1);
+        const asset = assets.find((x) => x.name === fname);
+        if (asset) a.setAttribute('href', asset.browser_download_url);
       });
 
       // 2. Point the "view release" links at the current release page.
@@ -138,24 +126,24 @@ function initOsDetection() {
 
   if (heroOsBadge) {
     const osNames = {
-      android: 'Android APK (v0.2.0)',
-      windows: 'Windows (Upcoming)',
-      macos: 'macOS (Upcoming)',
-      linux: 'Linux (Upcoming)',
+      android: 'Android (v0.2.9)',
+      windows: 'Windows (v0.2.9)',
+      macos: 'macOS (v0.2.9)',
+      linux: 'Linux (v0.2.9)',
       source: 'Source Code'
     };
-    heroOsBadge.textContent = osNames[detectedOs] || 'Android APK';
+    heroOsBadge.textContent = osNames[detectedOs] || 'Free';
 
     const heroOsDetectedEl = document.getElementById('hero-os-detected');
     if (heroOsDetectedEl) {
       const osStatusMsg = {
-        android: 'Android APK (Ready to Download v0.2.0)',
-        windows: 'Windows Desktop (Upcoming Release • Star on GitHub)',
-        macos: 'macOS Universal (Upcoming Release • Star on GitHub)',
-        linux: 'Linux AppImage (Upcoming Release • Star on GitHub)',
-        source: 'Android APK (Ready to Download v0.2.0)'
+        android: 'Android APK (Ready to Download • v0.2.9)',
+        windows: 'Windows Desktop (Ready to Download • v0.2.9)',
+        macos: 'macOS Desktop (Ready to Download • v0.2.9)',
+        linux: 'Linux Desktop (Ready to Download • v0.2.9)',
+        source: 'All platforms (Ready to Download • v0.2.9)'
       };
-      heroOsDetectedEl.textContent = osStatusMsg[detectedOs] || 'Android APK (Ready to Download v0.2.0)';
+      heroOsDetectedEl.textContent = osStatusMsg[detectedOs] || 'Ready to Download • v0.2.9';
     }
   }
 

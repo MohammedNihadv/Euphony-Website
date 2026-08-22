@@ -30,7 +30,7 @@
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Euphony",
-    "operatingSystem": "Android 8.0+",
+    "operatingSystem": "Android 8.0+, Windows 10+, macOS, Linux",
     "applicationCategory": "MultimediaApplication",
     "offers": {
       "@type": "Offer",
@@ -38,7 +38,7 @@
       "priceCurrency": "USD"
     },
     "description": "Free, ad-free, open-source Neo-Brutalist music player built with Flutter.",
-    "softwareVersion": "0.2.2",
+    "softwareVersion": "0.2.9",
     "license": "https://www.gnu.org/licenses/gpl-3.0.html",
     "url": "https://euphonymusic.vercel.app/",
     "downloadUrl": "https://github.com/MohammedNihadv/Euphony/releases",
@@ -65,7 +65,7 @@
       <a href="#" class="brand" aria-label="Euphony Home">
         <img src="assets/logo.png" alt="Euphony App Logo" class="brand-logo" />
         <span>Euphony</span>
-        <span class="brand-badge" id="js-version-badge">v0.2.1</span>
+        <span class="brand-badge" id="js-version-badge">v0.2.9</span>
       </a>
 
       <nav aria-label="Main Navigation">
@@ -452,7 +452,7 @@
         <span class="section-tagline">Direct Downloads</span>
         <h2 class="section-title">Get Euphony For Your Platform</h2>
         <p class="section-subtitle">
-          Release <strong id="js-release-version">v0.2.1</strong> • Free forever • Android APK available now! <strong>Windows & Linux Desktop Editions Coming Soon!</strong>
+          Release <strong id="js-release-version">v0.2.9</strong> • Free forever • Android APK available now! <strong>Windows & Linux Desktop Editions Coming Soon!</strong>
         </p>
       </div>
 
@@ -466,7 +466,7 @@
               <div class="download-card-info" style="flex: 1; min-width: 0;">
                 <h3 style="margin: 0; font-size: 1.45rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Android</h3>
                 <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.35rem; flex-wrap: wrap;">
-                  <span class="version-pill" style="color: var(--eu-accent);">APK Installer • <span id="js-apk-pill">v0.2.1</span></span>
+                  <span class="version-pill" style="color: var(--eu-accent);">APK Installer • <span id="js-apk-pill">v0.2.9</span></span>
                   <span class="badge yellow" style="font-size: 0.72rem; padding: 0.2rem 0.55rem;">READY</span>
                 </div>
               </div>
@@ -477,7 +477,7 @@
                 Standalone APK package for Android 8.0+. Supports background audio service, media notifications, and offline caching.
               </p>
               <ul class="download-meta-list">
-                <li><span>Status:</span> <strong style="color: #2e7d32;">Ready to Download (<span id="js-status-version">v0.2.1</span>)</strong></li>
+                <li><span>Status:</span> <strong style="color: #2e7d32;">Ready to Download (<span id="js-status-version">v0.2.9</span>)</strong></li>
                 <li><span>Architecture:</span> <strong>Universal (ARM64/x86)</strong></li>
                 <li><span>License:</span> <strong>GPL-3.0 Open Source</strong></li>
               </ul>
@@ -485,7 +485,7 @@
           </div>
 
           <div class="download-actions">
-            <a href="https://github.com/MohammedNihadv/Euphony/releases/download/v0.2.1/app-arm64-v8a-release.apk" class="btn-download-main" id="btn-dl-android" title="Direct 1-click download of Euphony ARM64 APK">
+            <a href="https://github.com/MohammedNihadv/Euphony/releases/download/v0.2.9/app-arm64-v8a-release.apk" class="btn-download-main" id="btn-dl-android" title="Direct 1-click download of Euphony ARM64 APK">
               <span>📥 Download Direct APK (~42 MB)</span>
             </a>
             <button type="button" class="btn-download-alt" id="btn-apk-guide" style="width: 100%;">
@@ -497,8 +497,8 @@
           </div>
         </div>
 
-        <!-- WINDOWS CARD (UPCOMING) -->
-        <div class="download-card is-upcoming" data-platform="windows" id="card-windows">
+        <!-- WINDOWS CARD -->
+        <div class="download-card" data-platform="windows" id="card-windows">
           <span class="recommended-badge">★ RECOMMENDED FOR YOU</span>
           <div>
             <div class="download-card-header">
@@ -506,36 +506,35 @@
               <div class="download-card-info" style="flex: 1; min-width: 0;">
                 <h3 style="margin: 0; font-size: 1.45rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Windows</h3>
                 <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.35rem; flex-wrap: wrap;">
-                  <span class="version-pill">Desktop • Coming Soon</span>
-                  <span class="upcoming-tag">⏳ UPCOMING</span>
+                  <span class="version-pill">Desktop • v0.2.9</span>
                 </div>
               </div>
             </div>
 
             <div class="download-card-body" style="margin-top: 1.5rem;">
               <p style="font-size: 0.95rem; color: var(--eu-text-muted);">
-                Native 64-bit desktop build for Windows 10/11 is currently in active development. Star our GitHub repository to get notified when the installer drops!
+                Native 64-bit desktop app for Windows 10 & 11. Download the ZIP, extract it anywhere, and run <strong>euphony.exe</strong> — no installer needed.
               </p>
               <ul class="download-meta-list">
-                <li><span>Status:</span> <strong style="color: var(--eu-alert);">In Active Development</strong></li>
-                <li><span>Architecture:</span> <strong>Windows x64 (.exe / .msix)</strong></li>
-                <li><span>Release:</span> <strong>Upcoming Release</strong></li>
+                <li><span>Status:</span> <strong style="color: #2e7d32;">Ready to Download</strong></li>
+                <li><span>Architecture:</span> <strong>Windows x64 (portable ZIP)</strong></li>
+                <li><span>Release:</span> <strong><span class="version-pill-inline">v0.2.9</span></strong></li>
               </ul>
             </div>
           </div>
 
           <div class="download-actions">
-            <a href="https://github.com/MohammedNihadv/Euphony" target="_blank" rel="noopener noreferrer" class="btn-download-upcoming" id="btn-dl-windows">
-              <span>🔔 Notify Me on GitHub ★</span>
+            <a href="https://github.com/MohammedNihadv/Euphony/releases/download/v0.2.9/euphony-windows-x64.zip" class="btn-download-main" id="btn-dl-windows" title="Download Euphony for Windows x64">
+              <span>📥 Download for Windows (~23 MB)</span>
             </a>
-            <a href="https://github.com/MohammedNihadv/Euphony" target="_blank" rel="noopener noreferrer" class="btn-download-alt">
-              <span>👀 Follow Desktop Progress</span>
+            <a href="https://github.com/MohammedNihadv/Euphony/releases/latest" target="_blank" rel="noopener noreferrer" class="btn-download-alt">
+              <span>👀 View all release files</span>
             </a>
           </div>
         </div>
 
-        <!-- LINUX / MACOS / SOURCE CARD (UPCOMING) -->
-        <div class="download-card is-upcoming" data-platform="linux" id="card-linux">
+        <!-- LINUX & MACOS CARD -->
+        <div class="download-card" data-platform="linux" id="card-linux">
           <span class="recommended-badge">★ RECOMMENDED FOR YOU</span>
           <div>
             <div class="download-card-header">
@@ -543,30 +542,29 @@
               <div class="download-card-info" style="flex: 1; min-width: 0;">
                 <h3 style="margin: 0; font-size: 1.45rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Linux & macOS</h3>
                 <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.35rem; flex-wrap: wrap;">
-                  <span class="version-pill">Desktop • Coming Soon</span>
-                  <span class="upcoming-tag">⏳ UPCOMING</span>
+                  <span class="version-pill">Desktop • v0.2.9</span>
                 </div>
               </div>
             </div>
 
             <div class="download-card-body" style="margin-top: 1.5rem;">
               <p style="font-size: 0.95rem; color: var(--eu-text-muted);">
-                Universal portable builds for Linux (AppImage/Flatpak) and macOS are in active development. Star our GitHub repository to get notified when the desktop build drops!
+                Native desktop builds for Linux and macOS. On Linux, extract and run <strong>euphony</strong> (needs <code>libmpv</code>). On macOS, unzip and open <strong>Euphony.app</strong>.
               </p>
               <ul class="download-meta-list">
-                <li><span>Status:</span> <strong style="color: var(--eu-alert);">In Active Development</strong></li>
-                <li><span>Architecture:</span> <strong>Linux / macOS (ARM64 / x86_64)</strong></li>
-                <li><span>Release:</span> <strong>Upcoming Release</strong></li>
+                <li><span>Status:</span> <strong style="color: #2e7d32;">Ready to Download</strong></li>
+                <li><span>Architecture:</span> <strong>Linux x64 • macOS</strong></li>
+                <li><span>Release:</span> <strong><span class="version-pill-inline">v0.2.9</span></strong></li>
               </ul>
             </div>
           </div>
 
           <div class="download-actions">
-            <a href="https://github.com/MohammedNihadv/Euphony" target="_blank" rel="noopener noreferrer" class="btn-download-upcoming" id="btn-dl-linux">
-              <span>🔔 Notify Me on GitHub ★</span>
+            <a href="https://github.com/MohammedNihadv/Euphony/releases/download/v0.2.9/euphony-macos.zip" class="btn-download-main" id="btn-dl-macos" title="Download Euphony for macOS">
+              <span>🍎 Download for macOS (~23 MB)</span>
             </a>
-            <a href="https://github.com/MohammedNihadv/Euphony" target="_blank" rel="noopener noreferrer" class="btn-download-alt" id="btn-dl-source">
-              <span>👀 Follow Linux & macOS Progress</span>
+            <a href="https://github.com/MohammedNihadv/Euphony/releases/download/v0.2.9/euphony-linux-x64.tar.gz" class="btn-download-alt" id="btn-dl-linux" title="Download Euphony for Linux x64">
+              <span>🐧 Download for Linux (~13 MB)</span>
             </a>
           </div>
         </div>
@@ -703,7 +701,7 @@
               Recommended for 99% of devices (manufactured 2017+). Smallest file size (~42 MB) and best performance.
             </p>
           </div>
-          <a href="https://github.com/MohammedNihadv/Euphony/releases/download/v0.2.1/app-arm64-v8a-release.apk" class="btn-primary" style="padding: 0.55rem 0.75rem; font-size: 0.85rem; justify-content: center; text-align: center; text-decoration: none; white-space: nowrap;">
+          <a href="https://github.com/MohammedNihadv/Euphony/releases/download/v0.2.9/app-arm64-v8a-release.apk" class="btn-primary" style="padding: 0.55rem 0.75rem; font-size: 0.85rem; justify-content: center; text-align: center; text-decoration: none; white-space: nowrap;">
             <span>📥 Download ARM64 (.apk)</span>
           </a>
         </div>
@@ -718,7 +716,7 @@
               For older budget smartphones or legacy 32-bit devices.
             </p>
           </div>
-          <a href="https://github.com/MohammedNihadv/Euphony/releases/download/v0.2.1/app-armeabi-v7a-release.apk" class="btn-secondary" style="padding: 0.55rem 0.75rem; font-size: 0.85rem; justify-content: center; text-align: center; text-decoration: none; white-space: nowrap;">
+          <a href="https://github.com/MohammedNihadv/Euphony/releases/download/v0.2.9/app-armeabi-v7a-release.apk" class="btn-secondary" style="padding: 0.55rem 0.75rem; font-size: 0.85rem; justify-content: center; text-align: center; text-decoration: none; white-space: nowrap;">
             <span>📥 Download 32-bit (.apk)</span>
           </a>
         </div>
@@ -733,14 +731,14 @@
               For Android Studio / BlueStacks emulators, PCs, and Intel Chromebooks.
             </p>
           </div>
-          <a href="https://github.com/MohammedNihadv/Euphony/releases/download/v0.2.1/app-x86_64-release.apk" class="btn-secondary" style="padding: 0.55rem 0.75rem; font-size: 0.85rem; justify-content: center; text-align: center; text-decoration: none; white-space: nowrap;">
+          <a href="https://github.com/MohammedNihadv/Euphony/releases/download/v0.2.9/app-x86_64-release.apk" class="btn-secondary" style="padding: 0.55rem 0.75rem; font-size: 0.85rem; justify-content: center; text-align: center; text-decoration: none; white-space: nowrap;">
             <span>📥 Download x86_64 (.apk)</span>
           </a>
         </div>
       </div>
 
-      <a href="https://github.com/MohammedNihadv/Euphony/releases/tag/v0.2.1" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="width: 100%; justify-content: center; text-decoration: none;">
-        <span>🌐 Or View Full v0.2.1 GitHub Release Page</span>
+      <a href="https://github.com/MohammedNihadv/Euphony/releases/tag/v0.2.9" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="width: 100%; justify-content: center; text-decoration: none;">
+        <span>🌐 Or View Full v0.2.9 GitHub Release Page</span>
       </a>
     </div>
   </div>
