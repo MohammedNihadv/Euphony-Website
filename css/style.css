@@ -1204,20 +1204,11 @@ button {
   font-size: 2rem;
 }
 
-.download-card:nth-child(1) .platform-icon {
-  background-color: var(--eu-accent);
-  color: white;
-}
-
-.download-card:nth-child(2) .platform-icon {
-  background-color: var(--eu-container-highest);
-  color: var(--eu-ink);
-}
-
-.download-card:nth-child(3) .platform-icon {
-  background-color: var(--eu-alert);
-  color: white;
-}
+.download-card[data-platform="android"] .platform-icon { background-color: #2FA25A; color: #fff; }
+.download-card[data-platform="ios"] .platform-icon { background-color: #0B0B12; color: #fff; }
+.download-card[data-platform="windows"] .platform-icon { background-color: #0F7CD6; color: #fff; }
+.download-card[data-platform="macos"] .platform-icon { background-color: #3A3A46; color: #fff; }
+.download-card[data-platform="linux"] .platform-icon { background-color: #E8821E; color: #fff; }
 
 .download-card-info h3 {
   font-size: 1.5rem;
@@ -1754,8 +1745,56 @@ button {
     justify-content: center;
   }
 
+  /* Compact, mobile-focused download cards (were oversized on phones). */
   .download-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  .download-card {
+    padding: 1.35rem 1.25rem;
+    gap: 1.1rem;
+    border-radius: 18px;
+  }
+
+  .download-card:hover {
+    transform: none;
+  }
+
+  .download-card > div {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .download-card-body {
+    margin-top: 0 !important;
+  }
+
+  .download-card-info h3 {
+    font-size: 1.2rem !important;
+  }
+
+  .platform-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 1.5rem !important;
+  }
+
+  .download-card-body p {
+    font-size: 0.88rem !important;
+    line-height: 1.45;
+  }
+
+  .download-meta-list {
+    font-size: 0.82rem;
+  }
+
+  .btn-download-main,
+  .btn-download-alt {
+    padding: 0.85rem 1rem;
+    font-size: 0.92rem;
   }
 
   .modal-backdrop {

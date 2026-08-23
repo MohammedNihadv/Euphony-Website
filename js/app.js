@@ -29,7 +29,7 @@ function initLatestReleaseSync() {
   })
     .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
     .then((release) => {
-      const tag = release.tag_name; // e.g. "v0.2.10"
+      const tag = release.tag_name; // e.g. "v0.2.11"
       if (!tag) return;
       const assets = release.assets || [];
 
@@ -106,9 +106,11 @@ function initOsDetection() {
 
   if (/android/i.test(userAgent)) {
     detectedOs = 'android';
+  } else if (/iPhone|iPad|iPod/i.test(userAgent)) {
+    detectedOs = 'ios';
   } else if (/Win/i.test(userAgent)) {
     detectedOs = 'windows';
-  } else if (/Mac/i.test(userAgent) && !/iPhone|iPad|iPod/i.test(userAgent)) {
+  } else if (/Mac/i.test(userAgent)) {
     detectedOs = 'macos';
   } else if (/Linux/i.test(userAgent)) {
     detectedOs = 'linux';
@@ -126,10 +128,11 @@ function initOsDetection() {
 
   if (heroOsBadge) {
     const osNames = {
-      android: 'Android (v0.2.10)',
-      windows: 'Windows (v0.2.10)',
-      macos: 'macOS (v0.2.10)',
-      linux: 'Linux (v0.2.10)',
+      android: 'Android (v0.2.11)',
+      ios: 'iOS (v0.2.11)',
+      windows: 'Windows (v0.2.11)',
+      macos: 'macOS (v0.2.11)',
+      linux: 'Linux (v0.2.11)',
       source: 'Source Code'
     };
     heroOsBadge.textContent = osNames[detectedOs] || 'Free';
@@ -137,13 +140,14 @@ function initOsDetection() {
     const heroOsDetectedEl = document.getElementById('hero-os-detected');
     if (heroOsDetectedEl) {
       const osStatusMsg = {
-        android: 'Android APK (Ready to Download • v0.2.10)',
-        windows: 'Windows Desktop (Ready to Download • v0.2.10)',
-        macos: 'macOS Desktop (Ready to Download • v0.2.10)',
-        linux: 'Linux Desktop (Ready to Download • v0.2.10)',
-        source: 'All platforms (Ready to Download • v0.2.10)'
+        android: 'Android APK (Ready to Download • v0.2.11)',
+        ios: 'iOS IPA — sideload with AltStore / Sideloadly (v0.2.11)',
+        windows: 'Windows Desktop (Ready to Download • v0.2.11)',
+        macos: 'macOS Desktop (Ready to Download • v0.2.11)',
+        linux: 'Linux Desktop (Ready to Download • v0.2.11)',
+        source: 'All platforms (Ready to Download • v0.2.11)'
       };
-      heroOsDetectedEl.textContent = osStatusMsg[detectedOs] || 'Ready to Download • v0.2.10';
+      heroOsDetectedEl.textContent = osStatusMsg[detectedOs] || 'Ready to Download • v0.2.11';
     }
   }
 
