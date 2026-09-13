@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://euphonymusic.vercel.app/sitemap.xml
+Sitemap: https://euphony.fedaration.in/sitemap.xml
