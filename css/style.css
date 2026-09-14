@@ -148,6 +148,30 @@ button {
 }
 
 /* ==========================================================================
+   ICONS
+   ========================================================================== */
+
+.eu-icon {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2.5px;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+.lucide {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Ensure buttons flex nicely with icons */
+.btn-primary, .btn-secondary, .btn-nav-download, .nav-link, .mobile-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ==========================================================================
    NAVIGATION BAR
    ========================================================================== */
 
@@ -224,6 +248,7 @@ button {
   font-size: 0.95rem;
   transition: color 0.2s ease, transform 0.2s ease;
   position: relative;
+  white-space: nowrap;
 }
 
 .nav-link:hover {
@@ -392,7 +417,7 @@ button {
 
 .badge.purple {
   background-color: var(--eu-container-high);
-  color: var(--eu-ink);
+  color: var(--eu-text);
 }
 
 .badge.pink {

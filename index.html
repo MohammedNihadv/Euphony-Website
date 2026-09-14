@@ -54,6 +54,9 @@
   <link rel="icon" type="image/png" href="/assets/logo.png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
@@ -79,7 +82,7 @@
           <li><a href="#faq" class="nav-link">FAQ</a></li>
           <li>
             <a href="https://github.com/MohammedNihadv/Euphony" target="_blank" rel="noopener noreferrer" class="nav-link">
-              GitHub ★
+              GitHub <i data-lucide="star" class="eu-icon"></i>
             </a>
           </li>
         </ul>
@@ -94,7 +97,7 @@
         </div>
 
         <a href="#download" class="btn-nav-download" id="btn-nav-cta">
-          <span>📥 Download App</span>
+          <span><i data-lucide="download" class="eu-icon"></i> Download App</span>
         </a>
 
         <!-- Mobile Hamburger Toggle Button -->
@@ -113,21 +116,21 @@
         <div class="mobile-theme-section">
           <span class="mobile-menu-label">SELECT THEME:</span>
           <div class="theme-switcher mobile-theme-switcher" role="group" aria-label="Mobile Theme Switcher">
-            <button type="button" class="theme-btn active" data-theme-value="light" title="Light Theme">☀️ Light</button>
-            <button type="button" class="theme-btn" data-theme-value="dark" title="Dark Theme">🌙 Dark</button>
-            <button type="button" class="theme-btn" data-theme-value="amoled" title="AMOLED Pure Black">🖤 AMOLED</button>
+            <button type="button" class="theme-btn active" data-theme-value="light" title="Light Theme"><i data-lucide="sun" class="eu-icon"></i> Light</button>
+            <button type="button" class="theme-btn" data-theme-value="dark" title="Dark Theme"><i data-lucide="moon" class="eu-icon"></i> Dark</button>
+            <button type="button" class="theme-btn" data-theme-value="amoled" title="AMOLED Pure Black"><i data-lucide="moon-star" class="eu-icon"></i> AMOLED</button>
           </div>
         </div>
 
         <!-- Mobile Nav Links -->
         <nav aria-label="Mobile Navigation" class="mobile-nav">
-          <a href="#demo" class="mobile-nav-link">🎧 Interactive Demo</a>
-          <a href="#philosophy" class="mobile-nav-link">💡 Why Free?</a>
-          <a href="#features" class="mobile-nav-link">✨ Features</a>
-          <a href="#download" class="mobile-nav-link">📥 Universal Downloads</a>
-          <a href="#faq" class="mobile-nav-link">❓ FAQ</a>
+          <a href="#demo" class="mobile-nav-link"><i data-lucide="headphones" class="eu-icon"></i> Interactive Demo</a>
+          <a href="#philosophy" class="mobile-nav-link"><i data-lucide="lightbulb" class="eu-icon"></i> Why Free?</a>
+          <a href="#features" class="mobile-nav-link"><i data-lucide="sparkles" class="eu-icon"></i> Features</a>
+          <a href="#download" class="mobile-nav-link"><i data-lucide="download" class="eu-icon"></i> Universal Downloads</a>
+          <a href="#faq" class="mobile-nav-link"><i data-lucide="help-circle" class="eu-icon"></i> FAQ</a>
           <a href="https://github.com/MohammedNihadv/Euphony" target="_blank" rel="noopener noreferrer" class="mobile-nav-link github-link">
-            ★ Star on GitHub
+            <i data-lucide="star" class="eu-icon"></i> Star on GitHub
           </a>
         </nav>
       </div>
@@ -142,10 +145,10 @@
       <div class="hero-container">
         <div class="hero-content">
           <div class="hero-badges">
-            <span class="badge yellow">🚫 Zero Ads</span>
-            <span class="badge purple">🔓 100% Open Source</span>
-            <span class="badge pink">⚡ Built with Flutter</span>
-            <span class="badge">🎨 Material 3 + Neo-Brutalist</span>
+            <span class="badge yellow"><i data-lucide="ban" class="eu-icon"></i> Zero Ads</span>
+            <span class="badge purple"><i data-lucide="unlock" class="eu-icon"></i> 100% Open Source</span>
+            <span class="badge pink"><i data-lucide="zap" class="eu-icon"></i> Built with Flutter</span>
+            <span class="badge"><i data-lucide="palette" class="eu-icon"></i> Material 3 + Neo-Brutalist</span>
           </div>
 
           <!-- Single H1 heading for semantic SEO -->
@@ -159,15 +162,15 @@
 
           <div class="hero-cta-group">
             <a href="#download" class="btn-primary" id="hero-download-btn">
-              <span>🚀 Download <span id="hero-os-name">Free</span></span>
+              <span><i data-lucide="rocket" class="eu-icon"></i> Download <span id="hero-os-name">Free</span></span>
             </a>
             <a href="#demo" class="btn-secondary" id="hero-demo-btn">
-              <span>🎧 Experience UI Live</span>
+              <span><i data-lucide="play-circle" class="eu-icon"></i> Experience UI Live</span>
             </a>
           </div>
 
           <div class="os-indicator-badge">
-            <span>✨ Automatically highlighting installer for:</span>
+            <span><i data-lucide="sparkles" class="eu-icon"></i> Automatically highlighting installer for:</span>
             <strong id="hero-os-detected">All Supported OS</strong>
           </div>
         </div>
@@ -177,10 +180,10 @@
           <div class="hero-card">
             <img src="assets/hero_mockup.png" alt="Euphony Neo-Brutalist Music Player UI Mockup" class="hero-image" />
             <div class="floating-pill floating-pill-1">
-              <span>🎵 No Subscriptions</span>
+              <span><i data-lucide="music" class="eu-icon"></i> No Subscriptions</span>
             </div>
             <div class="floating-pill floating-pill-2">
-              <span>🚫 Zero Telemetry</span>
+              <span><i data-lucide="shield-off" class="eu-icon"></i> Zero Telemetry</span>
             </div>
           </div>
         </div>
@@ -225,7 +228,7 @@
             <span class="player-pill">NOW PLAYING</span>
             <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
               <label for="local-audio-input" class="player-pill" style="cursor: pointer; background-color: var(--eu-highlight); color: var(--eu-on-highlight); border: var(--eu-border-thin); font-weight: 800; transition: transform 0.15s ease;" title="Play your own MP3/WAV/FLAC music file">
-                📂 PLAY LOCAL FILE
+                <i data-lucide="folder-open" class="eu-icon"></i> PLAY LOCAL FILE
               </label>
               <input type="file" id="local-audio-input" accept="audio/*" style="display: none;" />
               <span class="player-pill" id="player-status-badge">LOSSLESS FLAC</span>
@@ -234,7 +237,7 @@
 
           <div class="player-main-info">
             <div class="player-artwork" id="player-artwork-box">
-              <span>🎵</span>
+              <i data-lucide="music" style="width: 48px; height: 48px;"></i>
             </div>
             <div class="player-track-details">
               <div class="player-song-title" id="player-title">Neon Skyline (No Ads Edition)</div>
@@ -260,13 +263,13 @@
 
           <!-- Player Controls -->
           <div class="player-controls">
-            <button type="button" class="control-btn" id="btn-shuffle" title="Toggle Shuffle">🔀</button>
-            <button type="button" class="control-btn" id="btn-prev" title="Previous Track">⏮</button>
+            <button type="button" class="control-btn" id="btn-shuffle" title="Toggle Shuffle"><i data-lucide="shuffle"></i></button>
+            <button type="button" class="control-btn" id="btn-prev" title="Previous Track"><i data-lucide="skip-back"></i></button>
             <button type="button" class="control-btn control-btn-play" id="btn-play-pause" title="Play/Pause">
-              <span id="play-icon">▶</span>
+              <span id="play-icon"><i data-lucide="play" fill="currentColor"></i></span>
             </button>
-            <button type="button" class="control-btn" id="btn-next" title="Next Track">⏭</button>
-            <button type="button" class="control-btn" id="btn-repeat" title="Toggle Repeat">🔁</button>
+            <button type="button" class="control-btn" id="btn-next" title="Next Track"><i data-lucide="skip-forward"></i></button>
+            <button type="button" class="control-btn" id="btn-repeat" title="Toggle Repeat"><i data-lucide="repeat"></i></button>
           </div>
         </div>
 
@@ -342,7 +345,7 @@
         <!-- Subscription Apps Card -->
         <div class="philosophy-card bad">
           <div class="philosophy-card-header">
-            <div class="philosophy-icon">💸</div>
+            <div class="philosophy-icon"><i data-lucide="banknote" style="width: 32px; height: 32px;"></i></div>
             <div>
               <h3>Subscription Music Apps</h3>
               <p style="color: var(--eu-text-muted); font-size: 0.9rem;">Modern proprietary services</p>
@@ -360,7 +363,7 @@
         <!-- Euphony Card -->
         <div class="philosophy-card good">
           <div class="philosophy-card-header">
-            <div class="philosophy-icon">⚡</div>
+            <div class="philosophy-icon"><i data-lucide="zap" style="width: 32px; height: 32px;"></i></div>
             <div>
               <h3>Euphony Open Source</h3>
               <p style="color: var(--eu-text-muted); font-size: 0.9rem;">Music respects its listeners</p>
@@ -392,7 +395,7 @@
       <div class="features-grid">
         <!-- Card 1 -->
         <div class="feature-card">
-          <div class="feature-icon-wrapper">🎨</div>
+          <div class="feature-icon-wrapper"><i data-lucide="palette" style="width: 28px; height: 28px;"></i></div>
           <h3 class="feature-title">Material 3 & Neo-Brutalist UI</h3>
           <p class="feature-desc">
             Beautiful Material 3 experience with bold typography, crisp hard shadows (`4px 4px 0px`), and an intentional 3-accent palette designed for WCAG AA readability.
@@ -401,7 +404,7 @@
 
         <!-- Card 2 -->
         <div class="feature-card">
-          <div class="feature-icon-wrapper">📥</div>
+          <div class="feature-icon-wrapper"><i data-lucide="download" style="width: 28px; height: 28px;"></i></div>
           <h3 class="feature-title">Offline & Local Library</h3>
           <p class="feature-desc">
             Full support for local music files, offline downloads, smart audio caching, and persistent playback state powered by Drift SQLite.
@@ -410,7 +413,7 @@
 
         <!-- Card 3 -->
         <div class="feature-card">
-          <div class="feature-icon-wrapper">🌙</div>
+          <div class="feature-icon-wrapper"><i data-lucide="moon" style="width: 28px; height: 28px;"></i></div>
           <h3 class="feature-title">3-Way Adaptive Theme</h3>
           <p class="feature-desc">
             Switch seamlessly between warm Light Paper, deep Slate Dark, and true OLED/AMOLED Pure Black themes.
@@ -419,7 +422,7 @@
 
         <!-- Card 4 -->
         <div class="feature-card">
-          <div class="feature-icon-wrapper">⚡</div>
+          <div class="feature-icon-wrapper"><i data-lucide="zap" style="width: 28px; height: 28px;"></i></div>
           <h3 class="feature-title">Fast Search & Queue</h3>
           <p class="feature-desc">
             Fast search across tracks, albums, artists & playlists with full queue management, shuffle, and repeat without UI lag.
@@ -428,7 +431,7 @@
 
         <!-- Card 5 -->
         <div class="feature-card">
-          <div class="feature-icon-wrapper">🎧</div>
+          <div class="feature-icon-wrapper"><i data-lucide="headphones" style="width: 28px; height: 28px;"></i></div>
           <h3 class="feature-title">Background Playback</h3>
           <p class="feature-desc">
             Background playback with native media notification controls, lock screen artwork, and playback speed controls with sleep timer.
@@ -437,7 +440,7 @@
 
         <!-- Card 6 -->
         <div class="feature-card">
-          <div class="feature-icon-wrapper">🛡️</div>
+          <div class="feature-icon-wrapper"><i data-lucide="shield-check" style="width: 28px; height: 28px;"></i></div>
           <h3 class="feature-title">Privacy & Zero Telemetry</h3>
           <p class="feature-desc">
             We don't track your listening habits. No analytics scripts, no phone-home telemetry, no third-party SDKs.
@@ -460,10 +463,10 @@
 
       <div class="download-grid">
         <div class="download-card" data-platform="android" id="card-android">
-          <span class="recommended-badge">★ RECOMMENDED FOR YOU</span>
+          <span class="recommended-badge"><i data-lucide="star" class="eu-icon" style="width: 14px; height: 14px;"></i> RECOMMENDED FOR YOU</span>
           <div>
             <div class="download-card-header">
-              <div class="platform-icon">📱</div>
+              <div class="platform-icon"><i data-lucide="smartphone" style="width: 36px; height: 36px;"></i></div>
               <div class="download-card-info" style="flex: 1; min-width: 0;">
                 <h3 style="margin: 0; font-size: 1.45rem;">Android</h3>
                 <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.35rem; flex-wrap: wrap;">
@@ -478,15 +481,15 @@
             </div>
           </div>
           <div class="download-actions">
-            <a href="https://github.com/MohammedNihadv/Euphony/releases/latest/download/app-arm64-v8a-release.apk" class="btn-download-main" id="btn-dl-android"><span>📥 Download APK (arm64)</span></a>
-            <button type="button" class="btn-download-alt" id="btn-apk-guide" style="width: 100%;"><span>❓ Which APK Should I Download?</span></button>
+            <a href="https://github.com/MohammedNihadv/Euphony/releases/latest/download/app-arm64-v8a-release.apk" class="btn-download-main" id="btn-dl-android"><span><i data-lucide="download" class="eu-icon"></i> Download APK (arm64)</span></a>
+            <button type="button" class="btn-download-alt" id="btn-apk-guide" style="width: 100%;"><span><i data-lucide="help-circle" class="eu-icon"></i> Which APK Should I Download?</span></button>
           </div>
         </div>
         <div class="download-card" data-platform="ios" id="card-ios">
-          <span class="recommended-badge">★ RECOMMENDED FOR YOU</span>
+          <span class="recommended-badge"><i data-lucide="star" class="eu-icon" style="width: 14px; height: 14px;"></i> RECOMMENDED FOR YOU</span>
           <div>
             <div class="download-card-header">
-              <div class="platform-icon">🍎</div>
+              <div class="platform-icon"><i data-lucide="apple" style="width: 36px; height: 36px;"></i></div>
               <div class="download-card-info" style="flex: 1; min-width: 0;">
                 <h3 style="margin: 0; font-size: 1.45rem;">iOS</h3>
                 <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.35rem; flex-wrap: wrap;">
@@ -501,14 +504,14 @@
             </div>
           </div>
           <div class="download-actions">
-            <a href="https://github.com/MohammedNihadv/Euphony/releases/latest/download/euphony-ios.ipa" class="btn-download-main" id="btn-dl-ios"><span>🍏 Download IPA</span></a>
+            <a href="https://github.com/MohammedNihadv/Euphony/releases/latest/download/euphony-ios.ipa" class="btn-download-main" id="btn-dl-ios"><span><i data-lucide="apple" class="eu-icon"></i> Download IPA</span></a>
           </div>
         </div>
         <div class="download-card" data-platform="windows" id="card-windows">
-          <span class="recommended-badge">★ RECOMMENDED FOR YOU</span>
+          <span class="recommended-badge"><i data-lucide="star" class="eu-icon" style="width: 14px; height: 14px;"></i> RECOMMENDED FOR YOU</span>
           <div>
             <div class="download-card-header">
-              <div class="platform-icon">🪟</div>
+              <div class="platform-icon"><i data-lucide="monitor" style="width: 36px; height: 36px;"></i></div>
               <div class="download-card-info" style="flex: 1; min-width: 0;">
                 <h3 style="margin: 0; font-size: 1.45rem;">Windows</h3>
                 <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.35rem; flex-wrap: wrap;">
@@ -523,14 +526,14 @@
             </div>
           </div>
           <div class="download-actions">
-            <a href="https://github.com/MohammedNihadv/Euphony/releases/latest/download/euphony-windows-setup.exe" class="btn-download-main" id="btn-dl-windows"><span>📥 Download Installer</span></a>
+            <a href="https://github.com/MohammedNihadv/Euphony/releases/latest/download/euphony-windows-setup.exe" class="btn-download-main" id="btn-dl-windows"><span><i data-lucide="download" class="eu-icon"></i> Download Installer</span></a>
           </div>
         </div>
         <div class="download-card" data-platform="macos" id="card-macos">
-          <span class="recommended-badge">★ RECOMMENDED FOR YOU</span>
+          <span class="recommended-badge"><i data-lucide="star" class="eu-icon" style="width: 14px; height: 14px;"></i> RECOMMENDED FOR YOU</span>
           <div>
             <div class="download-card-header">
-              <div class="platform-icon">💻</div>
+              <div class="platform-icon"><i data-lucide="laptop" style="width: 36px; height: 36px;"></i></div>
               <div class="download-card-info" style="flex: 1; min-width: 0;">
                 <h3 style="margin: 0; font-size: 1.45rem;">macOS</h3>
                 <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.35rem; flex-wrap: wrap;">
@@ -545,14 +548,14 @@
             </div>
           </div>
           <div class="download-actions">
-            <a href="https://github.com/MohammedNihadv/Euphony/releases/latest/download/euphony-macos.dmg" class="btn-download-main" id="btn-dl-macos"><span>🍏 Download for macOS</span></a>
+            <a href="https://github.com/MohammedNihadv/Euphony/releases/latest/download/euphony-macos.dmg" class="btn-download-main" id="btn-dl-macos"><span><i data-lucide="download" class="eu-icon"></i> Download for macOS</span></a>
           </div>
         </div>
         <div class="download-card" data-platform="linux" id="card-linux">
-          <span class="recommended-badge">★ RECOMMENDED FOR YOU</span>
+          <span class="recommended-badge"><i data-lucide="star" class="eu-icon" style="width: 14px; height: 14px;"></i> RECOMMENDED FOR YOU</span>
           <div>
             <div class="download-card-header">
-              <div class="platform-icon">🐧</div>
+              <div class="platform-icon"><i data-lucide="terminal" style="width: 36px; height: 36px;"></i></div>
               <div class="download-card-info" style="flex: 1; min-width: 0;">
                 <h3 style="margin: 0; font-size: 1.45rem;">Linux</h3>
                 <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.35rem; flex-wrap: wrap;">
@@ -567,7 +570,7 @@
             </div>
           </div>
           <div class="download-actions">
-            <a href="https://github.com/MohammedNihadv/Euphony/releases/latest/download/euphony-linux-x86_64.AppImage" class="btn-download-main" id="btn-dl-linux"><span>🐧 Download AppImage</span></a>
+            <a href="https://github.com/MohammedNihadv/Euphony/releases/latest/download/euphony-linux-x86_64.AppImage" class="btn-download-main" id="btn-dl-linux"><span><i data-lucide="download" class="eu-icon"></i> Download AppImage</span></a>
           </div>
         </div>
       </div>
@@ -656,9 +659,9 @@
         </div>
 
         <div class="footer-star-cta">
-          <span style="font-weight: 600;">⭐ Happy with Euphony? Give us a star on GitHub!</span>
+          <span style="font-weight: 600;"><div style="display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="star" class="eu-icon"></i> Happy with Euphony? Give us a star on GitHub!</div></span>
           <a href="https://github.com/MohammedNihadv/Euphony" target="_blank" rel="noopener noreferrer" class="btn-nav-download" style="background-color: var(--eu-highlight); color: var(--eu-on-highlight);">
-            <span>★ Star on GitHub</span>
+            <span><i data-lucide="star" class="eu-icon"></i> Star on GitHub</span>
           </a>
         </div>
       </div>
@@ -684,7 +687,7 @@
   <div class="modal-backdrop" id="apk-guide-modal" role="dialog" aria-modal="true" aria-labelledby="apk-modal-title">
     <div class="modal-card" style="max-width: 680px;">
       <div class="modal-header">
-        <h3 id="apk-modal-title" style="font-size: 1.35rem;">📦 Which APK Should I Download?</h3>
+        <h3 id="apk-modal-title" style="font-size: 1.35rem;"><div style="display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="package" class="eu-icon"></i> Which APK Should I Download?</div></h3>
         <button type="button" class="modal-close-btn" id="btn-close-apk-modal" aria-label="Close Modal">✕</button>
       </div>
 
@@ -704,7 +707,7 @@
             </p>
           </div>
           <a href="https://github.com/MohammedNihadv/Euphony/releases/download/v0.2.11/app-arm64-v8a-release.apk" class="btn-primary" style="padding: 0.55rem 0.75rem; font-size: 0.85rem; justify-content: center; text-align: center; text-decoration: none; white-space: nowrap;">
-            <span>📥 Download ARM64 (.apk)</span>
+            <span><i data-lucide="download" class="eu-icon"></i> Download ARM64 (.apk)</span>
           </a>
         </div>
 
@@ -719,7 +722,7 @@
             </p>
           </div>
           <a href="https://github.com/MohammedNihadv/Euphony/releases/download/v0.2.11/app-armeabi-v7a-release.apk" class="btn-secondary" style="padding: 0.55rem 0.75rem; font-size: 0.85rem; justify-content: center; text-align: center; text-decoration: none; white-space: nowrap;">
-            <span>📥 Download 32-bit (.apk)</span>
+            <span><i data-lucide="download" class="eu-icon"></i> Download 32-bit (.apk)</span>
           </a>
         </div>
 
@@ -734,13 +737,13 @@
             </p>
           </div>
           <a href="https://github.com/MohammedNihadv/Euphony/releases/download/v0.2.11/app-x86_64-release.apk" class="btn-secondary" style="padding: 0.55rem 0.75rem; font-size: 0.85rem; justify-content: center; text-align: center; text-decoration: none; white-space: nowrap;">
-            <span>📥 Download x86_64 (.apk)</span>
+            <span><i data-lucide="download" class="eu-icon"></i> Download x86_64 (.apk)</span>
           </a>
         </div>
       </div>
 
       <a href="https://github.com/MohammedNihadv/Euphony/releases/tag/v0.2.11" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="width: 100%; justify-content: center; text-decoration: none;">
-        <span>🌐 Or View Full v0.2.11 GitHub Release Page</span>
+        <span><i data-lucide="globe" class="eu-icon"></i> Or View Full v0.2.11 GitHub Release Page</span>
       </a>
     </div>
   </div>
@@ -764,7 +767,7 @@
       </div>
 
       <button type="button" class="btn-primary" id="btn-copy-checksum" style="width: 100%; justify-content: center;">
-        <span>📋 Copy Checksum to Clipboard</span>
+        <span><i data-lucide="clipboard-copy" class="eu-icon"></i> Copy Checksum to Clipboard</span>
       </button>
     </div>
   </div>
@@ -832,6 +835,9 @@
       })
       .catch(function() { /* Silently fail */ });
     })();
+  </script>
+  <script>
+    lucide.createIcons();
   </script>
 </body>
 </html>
