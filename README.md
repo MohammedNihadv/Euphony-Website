@@ -6,8 +6,9 @@
 
 The official landing page for **Euphony**, built with a custom Neo-Brutalist design system.
 
-[![Website](https://img.shields.io/badge/Website-euphonymusic.vercel.app-6A4BE8?style=flat&logo=vercel)](https://euphonymusic.vercel.app/)
+[![Website](https://img.shields.io/badge/Official_Website-euphony.fedaration.in-6A4BE8?style=flat&logo=safari)](https://euphony.fedaration.in/)
 [![Main App Repository](https://img.shields.io/badge/GitHub-Main_Euphony_App-121218?logo=github)](https://github.com/MohammedNihadv/Euphony)
+[![LLMs Ready](https://img.shields.io/badge/AI_Search-llms.txt_Enabled-00E5A3?style=flat)](https://euphony.fedaration.in/llms.txt)
 
 </div>
 

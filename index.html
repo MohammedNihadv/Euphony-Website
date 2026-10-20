@@ -3,16 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Euphony - Modern Neo-Brutalist Open-Source Music Player | Free Download</title>
-  <meta name="description" content="Download Euphony, the beautiful open-source Material 3 and Neo-Brutalist music player for Android, Windows, Linux, and macOS. Zero ads, zero subscriptions, zero telemetry." />
-  <meta name="keywords" content="Euphony, music player, flutter, open source music player, neo brutalist design, android music app, ad free music player" />
-  <meta name="author" content="Mohammed Nihad V & Community" />
+  <title>Euphony Music - Open-Source Ad-Free Music Player | Free Download</title>
+  <meta name="description" content="Download Euphony Music, the beautiful, ad-free, open-source Material 3 and Neo-Brutalist music player app for Android, Windows, macOS, and Linux. Zero ads, zero subscriptions, zero telemetry." />
+  <meta name="keywords" content="Euphony, Euphony Music, Euphony Music Player, Euphony app, Euphony apk, flutter music player, open source music player, neo brutalist design, android music app, ad free music player, offline music player" />
+  <meta name="author" content="Mohammed Nihad V &amp; Community" />
   
   <link rel="canonical" href="https://euphony.fedaration.in/" />
+  <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context Summary" />
 
   <!-- OpenGraph / Social Meta -->
-  <meta property="og:title" content="Euphony - Music Deserves Better Than Interruptions" />
-  <meta property="og:description" content="A modern, beautiful, open-source music player built with Flutter. Zero ads, zero tracking, zero paywalls." />
+  <meta property="og:title" content="Euphony Music - Open-Source Ad-Free Music Player" />
+  <meta property="og:description" content="Euphony Music is a modern, beautiful, open-source music player built with Flutter. Zero ads, zero tracking, zero paywalls." />
   <meta property="og:url" content="https://euphony.fedaration.in/" />
   <meta property="og:site_name" content="Euphony Music" />
   <meta property="og:image" content="https://euphony.fedaration.in/assets/hero_mockup.png" />
@@ -20,32 +21,98 @@
 
   <!-- Twitter Card Meta -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Euphony - Open-Source Neo-Brutalist Music Player" />
-  <meta name="twitter:description" content="Free, ad-free music player for Android, iOS, Windows, macOS &amp; Linux. Built with Flutter &amp; Riverpod." />
+  <meta name="twitter:title" content="Euphony Music - Open-Source Neo-Brutalist Music Player" />
+  <meta name="twitter:description" content="Free, ad-free music player for Android, Windows, macOS, Linux &amp; iOS. Built with Flutter &amp; Riverpod." />
   <meta name="twitter:image" content="https://euphony.fedaration.in/assets/hero_mockup.png" />
 
-  <!-- JSON-LD Structured Data for Google Rich Search Results -->
+  <!-- JSON-LD Structured Data for Google Rich Search & AI Search Engines -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Euphony",
-    "operatingSystem": "Android 8.0+, Windows 10+, macOS, Linux",
-    "applicationCategory": "MultimediaApplication",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    },
-    "description": "Free, ad-free, open-source Neo-Brutalist music player built with Flutter.",
-    "softwareVersion": "0.2.11",
-    "license": "https://www.gnu.org/licenses/gpl-3.0.html",
-    "url": "https://euphony.fedaration.in/",
-    "downloadUrl": "https://github.com/MohammedNihadv/Euphony/releases",
-    "author": {
-      "@type": "Person",
-      "name": "Mohammed Nihad V"
-    }
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://euphony.fedaration.in/#software",
+        "name": "Euphony Music",
+        "alternateName": [
+          "Euphony",
+          "Euphony Music Player",
+          "Euphony App",
+          "Euphony Offline Music"
+        ],
+        "applicationCategory": "MusicApplication",
+        "operatingSystem": "Android 8.0+, Windows 10+, macOS 11+, Linux, iOS",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "description": "Free, ad-free, open-source Neo-Brutalist music player built with Flutter and Drift SQLite for local offline listening.",
+        "softwareVersion": "0.2.11",
+        "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+        "url": "https://euphony.fedaration.in/",
+        "downloadUrl": "https://github.com/MohammedNihadv/Euphony/releases/latest",
+        "sameAs": [
+          "https://github.com/MohammedNihadv/Euphony",
+          "https://github.com/MohammedNihadv/Euphony-Website",
+          "https://github.com/MohammedNihadv"
+        ],
+        "author": {
+          "@type": "Person",
+          "name": "Mohammed Nihad V",
+          "url": "https://github.com/MohammedNihadv"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://euphony.fedaration.in/#website",
+        "url": "https://euphony.fedaration.in/",
+        "name": "Euphony Music",
+        "description": "Official download website and home of the Euphony Music Player project.",
+        "publisher": {
+          "@type": "Person",
+          "name": "Mohammed Nihad V"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://euphony.fedaration.in/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is Euphony Music?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Euphony Music is a free, 100% ad-free, open-source music player application designed for Android, Windows, macOS, Linux, and iOS. Engineered with Flutter and SQLite, it offers local and offline playback with a distinct Neo-Brutalist and Material 3 design."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Euphony Music related to the Discord bot or the band?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Euphony Music is an independent, open-source cross-platform music player application developed by Mohammed Nihad V. It is not affiliated with the Euphony Discord bot or the Indian rock band Euphony Official."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why is Euphony Music free with no ads or subscriptions?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Euphony Music was created under the GNU General Public License v3.0 (GPL-3.0) on the principle that listening to music should never be interrupted by unskippable advertisements, trackers, or paywalled basic controls like shuffle."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where can I download the Euphony Music APK or installers?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can download Euphony Music directly from the official website at euphony.fedaration.in or from GitHub Releases at github.com/MohammedNihadv/Euphony/releases/latest."
+            }
+          }
+        ]
+      }
+    ]
   }
   </script>
 
@@ -592,12 +659,12 @@
         <!-- FAQ 1 -->
         <div class="faq-item active">
           <div class="faq-question">
-            <span>Why is Euphony 100% free with no ads or subscriptions?</span>
+            <span>What is Euphony Music, and how is it different?</span>
             <span class="faq-toggle-icon">+</span>
           </div>
           <div class="faq-answer">
             <p>
-              Because we believe software should respect its users. Somewhere along the way, playing your own music became a subscription service where basic features like shuffle are locked behind paywalls. Euphony was built as a radical alternative: open source, ad-free, and forever free.
+              <strong>Euphony Music</strong> is a modern, 100% ad-free, open-source music player application engineered with Flutter and SQLite. Designed for Android, Windows, macOS, and Linux, it gives you full control over your local and offline audio library with zero telemetry, zero subscriptions, and an expressive Neo-Brutalist design.
             </p>
           </div>
         </div>
@@ -605,12 +672,12 @@
         <!-- FAQ 2 -->
         <div class="faq-item">
           <div class="faq-question">
-            <span>How do offline downloads and local libraries work?</span>
+            <span>Is Euphony Music related to the Discord bot or the Indian band?</span>
             <span class="faq-toggle-icon">+</span>
           </div>
           <div class="faq-answer">
             <p>
-              Euphony uses high-performance Drift SQLite for local database caching and `just_audio` for playback. You can easily import your existing offline music collection or listen to your cached library without an internet connection.
+              No. <strong>Euphony Music</strong> is an independent open-source cross-platform music player application created by Mohammed Nihad V. It is completely unrelated to the Discord music bot or the Mumbai musical ensemble Euphony Official.
             </p>
           </div>
         </div>
@@ -618,12 +685,12 @@
         <!-- FAQ 3 -->
         <div class="faq-item">
           <div class="faq-question">
-            <span>What is Neo-Brutalist design?</span>
+            <span>Why is Euphony Music 100% free with no ads or subscriptions?</span>
             <span class="faq-toggle-icon">+</span>
           </div>
           <div class="faq-answer">
             <p>
-              Neo-Brutalism is a modern design philosophy featuring bold typography, high-contrast borders (`2.5px solid #121218`), hard offset shadows (`4px 4px 0px`), and intentional color accents. Unlike generic glassmorphic UI, every element in Euphony is tactile and clear.
+              Because we believe software should respect its users. Playing your music shouldn't require a monthly paywall or suffer through unskippable ads. Euphony Music was built as a radical, GPL-3.0 licensed community alternative: free forever.
             </p>
           </div>
         </div>
@@ -631,12 +698,38 @@
         <!-- FAQ 4 -->
         <div class="faq-item">
           <div class="faq-question">
-            <span>How can I contribute or report an issue?</span>
+            <span>How do offline downloads and local libraries work?</span>
             <span class="faq-toggle-icon">+</span>
           </div>
           <div class="faq-answer">
             <p>
-              Whether you want to fix a typo, add a new theme, or optimize performance — contributions are always welcome! Visit our official GitHub repository to fork the codebase, open an issue, or submit a Pull Request.
+              Euphony Music uses high-performance Drift SQLite for local database caching and <code>just_audio</code> for background audio playback. You can easily import your existing offline music collection (MP3, FLAC, WAV, AAC, OPUS) and listen anywhere with zero internet connection needed.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What is Neo-Brutalist design?</span>
+            <span class="faq-toggle-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Neo-Brutalism is a bold design movement featuring high-contrast borders (<code>2.5px solid #121218</code>), tactile offset drop-shadows (<code>4px 4px 0px</code>), vibrant accent hues, and clean typography. It rejects bland generic minimalism in favor of a playful, tactile interface.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 6 -->
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Where can I download the Euphony Music APK and installers?</span>
+            <span class="faq-toggle-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Official binaries are available directly on our <a href="#download">Downloads Section</a> and via our <a href="https://github.com/MohammedNihadv/Euphony/releases/latest" target="_blank" rel="noopener noreferrer">GitHub Releases page</a> with SHA-256 integrity checksums for Android (APK), Windows (Setup EXE), macOS (DMG), and Linux (AppImage).
             </p>
           </div>
         </div>

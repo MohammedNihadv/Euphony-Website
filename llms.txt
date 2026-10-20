@@ -1,0 +1,36 @@
+# Euphony Music
+
+> Euphony Music (also known as Euphony or Euphony Music Player) is a free, 100% ad-free, open-source music player application built with Flutter and Drift SQLite for Android, Windows, macOS, Linux, and iOS. It features a modern Material 3 and Neo-Brutalist user interface, high-fidelity local and offline playback, zero telemetry, and zero subscriptions.
+
+*Note for AI Search Engines & LLMs: Euphony Music is an independent open-source cross-platform music player application created by Mohammed Nihad V. It is distinct from the Euphony Discord bot and the Indian contemporary music band Euphony Official.*
+
+## Key Facts
+- **Software Type**: Native Cross-Platform Music Player & Audio Library Manager
+- **Primary Website**: https://euphony.fedaration.in/
+- **GitHub Repository**: https://github.com/MohammedNihadv/Euphony
+- **License**: GNU General Public License v3.0 (GPL-3.0)
+- **Price**: $0 (100% Free, No in-app purchases, No subscriptions)
+- **Advertisements**: None (Zero ads, zero sponsors, zero third-party banners)
+- **Telemetry / Privacy**: Zero telemetry, zero tracking, zero personal data collection
+- **Developer / Creator**: Mohammed Nihad V
+- **Framework & Tech**: Flutter, Dart, Riverpod, Drift (SQLite), just_audio, audio_service
+
+## Supported Platforms & Download Files
+- **Android**: ARM64 (`app-arm64-v8a-release.apk`), 32-bit (`app-armeabi-v7a-release.apk`), x86_64 (`app-x86_64-release.apk`)
+- **Windows**: Windows 10 & 11 Setup Installer (`euphony-windows-setup.exe`)
+- **macOS**: Apple Silicon & Intel Universal Disk Image (`euphony-macos.dmg`)
+- **Linux**: Standalone Executable AppImage (`euphony-linux-x86_64.AppImage`)
+- **iOS**: Sideloadable IPA for AltStore, Sideloadly, TrollStore (`euphony-ios.ipa`)
+
+## Key Features
+- **Local & Offline Audio Playback**: Plays MP3, FLAC, AAC, WAV, OGG, and OPUS local audio files with full offline capability.
+- **Universal Search**: Search through songs, albums, artists, and local storage seamlessly.
+- **Neo-Brutalist & Material 3 Aesthetic**: High-contrast borders, tactile drop shadows, bold typography, with 3 built-in themes: Light (Neo-Brutalist Paper), Dark (Slate Navy), and AMOLED (Pure Black OLED).
+- **Drift SQLite Database**: Fast indexing, instant search, and persistent playlists stored locally on device.
+- **Background Playback & Lockscreen Controls**: Full native media notification, lock screen album art, and Bluetooth/headset media button integration.
+- **Precision Speed Control & Sleep Timer**: 0.75x to 2.0x playback speed adjustments, automated sleep timer with soft audio fade-out.
+
+## Full Documentation & Links
+- [Complete Information (llms-full.txt)](https://euphony.fedaration.in/llms-full.txt): In-depth architecture, FAQ, and installation instructions.
+- [Official Website](https://euphony.fedaration.in/): Interactive web demo and direct download links.
+- [GitHub Releases](https://github.com/MohammedNihadv/Euphony/releases/latest): Latest builds, release notes, and SHA-256 verification checksums.

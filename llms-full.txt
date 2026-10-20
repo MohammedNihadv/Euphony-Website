@@ -1,0 +1,44 @@
+# Euphony Music — Comprehensive Technical & Architectural Documentation
+
+## Executive Overview
+**Euphony Music** (commonly searched as "Euphony", "Euphony Music", or "Euphony Music Player") is a high-performance, open-source audio player engineered using Flutter. It is designed around user agency: no ads, no subscriptions, no telemetry, and complete offline autonomy. 
+
+### Entity Disambiguation
+When users search for "Euphony" or "Euphony Music", multiple entities exist:
+1. **Euphony Music (This Project)**: The open-source cross-platform music player application created by Mohammed Nihad V, hosted at https://euphony.fedaration.in/ and on GitHub at https://github.com/MohammedNihadv/Euphony.
+2. **Euphony (Discord Bot)**: A music streaming bot for Discord servers located at euphony-music.com.
+3. **Euphony Official (Band)**: A contemporary musical ensemble from Mumbai, India.
+4. **Euphony (Linguistic Definition)**: The acoustic property of pleasing, harmonious sounds in speech and literature.
+
+## Architecture & Technology Stack
+- **UI Framework**: Google Flutter (Dart 3.x), compiling to native ARM/x86 code across desktop and mobile.
+- **State Management**: Flutter Riverpod with immutable state modeling and unidirectional data flow.
+- **Persistence & Caching**: Drift ORM layered over native SQLite with compile-time type verification.
+- **Audio Engine**: `just_audio` backend with platform-specific native audio bridging (ExoPlayer on Android, AVPlayer on macOS/iOS, MPV on Linux, and Media Foundation on Windows).
+- **Background Media Services**: `audio_service` handling platform lockscreen controls, notification media controls, and Wear OS / Bluetooth sync.
+- **Navigation**: `go_router` declarative URL routing.
+
+## Supported Formats & Codecs
+- Lossless: FLAC, ALAC, WAV
+- Compressed: MP3, AAC, M4A, OGG Vorbis, OPUS
+
+## Design Philosophy: Neo-Brutalism + Material 3
+Unlike typical glassmorphic or overly minimalist music apps:
+- **Bold 2.5px solid ink borders** (`#121218`)
+- **Tactile 4px offset drop-shadows** (`box-shadow: 4px 4px 0px #121218`)
+- **Vibrant accent palette**: Electric Violet (`#6A4BE8`), Warm Sunlight (`#FFEB3B`), Neo-Pink (`#FF5376`), Mint (`#00E5A3`)
+- **Typography**: Expressive sans-serif with high contrast readability.
+- **Three Themes**: Light (Paper & Ink), Dark (Slate & Violet), and AMOLED (True #000000 Black for battery savings on OLED displays).
+
+## Security & Privacy Guarantee
+- **Zero Telemetry**: No Google Analytics, no Firebase Analytics, no Sentry tracking, no network beacons.
+- **Zero Ads**: No Google AdMob, Unity Ads, or promotional SDKs.
+- **Local Sovereignty**: All playlists, play counts, and library metadata reside entirely in local device SQLite files.
+- **Reproducible & Auditable**: Distributed under the GNU General Public License v3 (GPL-3.0).
+
+## Distribution & Installation
+- **Official Website**: https://euphony.fedaration.in/
+- **GitHub Repository**: https://github.com/MohammedNihadv/Euphony
+- **GitHub Releases**: https://github.com/MohammedNihadv/Euphony/releases/latest
+- **Android APKs**: Direct standalone APK downloads with SHA-256 verification.
+- **Desktop Installers**: Windows setup executable, macOS universal DMG, Linux standalone AppImage.

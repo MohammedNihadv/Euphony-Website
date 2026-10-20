@@ -1,0 +1,13 @@
+# AI Config Files
+.agents/
+.claude/
+AGENTS.md
+CLAUDE.md
+chat_history.md
+skills-lock.json
+
+# OS & Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
