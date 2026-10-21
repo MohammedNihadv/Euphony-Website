@@ -864,12 +864,13 @@ input, select, textarea {
 }
 
 /* Screen switcher tab capsule docked below phone */
+/* Screen switcher tab capsule docked below phone */
 .phone-tabs-bar {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 0.35rem;
-  padding: 0.35rem 0.45rem;
+  padding: 0.35rem 0.5rem;
   background-color: var(--eu-glass-bg);
   backdrop-filter: var(--eu-glass-blur);
   border: var(--eu-border);
@@ -878,27 +879,28 @@ input, select, textarea {
   margin-top: 1rem;
   margin-bottom: 0.5rem;
   z-index: 10;
-  width: 100%;
-  max-width: clamp(270px, 80vw, 320px);
+  width: max-content;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .phone-tab-btn {
-  flex: 1;
-  min-height: 44px; /* Accessible minimum touch target >=44px */
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.35rem;
-  padding: 0.45rem 0.65rem;
+  padding: 0.45rem 0.75rem;
+  min-height: 44px; /* Accessible minimum touch target >=44px */
   border-radius: var(--eu-radius-pill);
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(0.72rem, 2.3vw, 0.76rem);
+  font-size: clamp(0.72rem, 2.3vw, 0.78rem);
   font-weight: 700;
   color: var(--eu-text);
   border: 1.5px solid transparent;
   transition: all 0.2s var(--eu-ease-spring);
   cursor: pointer;
   white-space: nowrap;
+  flex: 0 0 auto;
 }
 
 .phone-tab-btn:hover {
@@ -910,50 +912,6 @@ input, select, textarea {
   color: #FFFFFF;
   border-color: var(--eu-ink);
   box-shadow: 1.5px 1.5px 0px var(--eu-ink);
-}
-
-/* Smartphone Hardware Frame - Proportional Viewport Fitting */
-.phone-device {
-  position: relative;
-  width: clamp(235px, 34vh, 268px);
-  height: clamp(470px, 68vh, 535px);
-  border-radius: 42px;
-  background: linear-gradient(145deg, #30303D, #161622 55%, #2B2B38);
-  border: 2.5px solid var(--eu-ink);
-  box-shadow: 0 24px 50px -15px rgba(0, 0, 0, 0.4), var(--eu-shadow);
-  padding: 8px;
-  z-index: 5;
-  transition: transform 0.35s var(--eu-ease-spring), box-shadow 0.35s var(--eu-ease-spring);
-}
-
-.phone-device:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 28px 60px -15px rgba(106, 75, 232, 0.35), var(--eu-shadow);
-}
-
-/* Dynamic Island */
-.phone-dynamic-island {
-  position: absolute;
-  top: 17px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 84px;
-  height: 22px;
-  background-color: #000000;
-  border-radius: 20px;
-  z-index: 25;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding-right: 7px;
-}
-
-.island-camera {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #111827;
-  border: 1.5px solid #1F2937;
 }
 
 /* Phone Screen Viewport */
@@ -2294,7 +2252,8 @@ input, select, textarea {
   }
 
   .phone-tabs-bar {
-    max-width: 330px;
+    width: max-content;
+    max-width: 100%;
     margin-top: 1.15rem;
   }
 
@@ -2410,7 +2369,7 @@ input, select, textarea {
 
   /* Phone Showcase: Floating frame proportional to viewport height */
   .phone-showcase-wrapper {
-    max-width: 340px;
+    max-width: 380px;
     margin: 0 auto;
   }
 
@@ -2420,7 +2379,8 @@ input, select, textarea {
   }
 
   .phone-tabs-bar {
-    max-width: 320px;
+    width: max-content;
+    max-width: 100%;
     margin-top: 0.85rem;
     margin-bottom: 0;
   }
