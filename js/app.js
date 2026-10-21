@@ -6,6 +6,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   initThemeSwitcher();
   initOsDetection();
+  initPhoneMockupTabs();
   initMiniPlayer();
   initFaqAccordion();
   initChecksumModal();
@@ -172,39 +173,68 @@ function initOsDetection() {
 }
 
 /* ==========================================================================
+   2.5 PHONE HARDWARE SHOWCASE TAB SWITCHER
+   ========================================================================== */
+function initPhoneMockupTabs() {
+  const tabs = document.querySelectorAll('.phone-tab-btn');
+  const images = document.querySelectorAll('.phone-screen-img');
+  if (!tabs.length || !images.length) return;
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const targetScreen = tab.getAttribute('data-screen');
+      tabs.forEach((t) => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+
+      images.forEach((img) => {
+        if (img.id === `phone-img-${targetScreen}`) {
+          img.classList.add('active');
+        } else {
+          img.classList.remove('active');
+        }
+      });
+    });
+  });
+}
+
+/* ==========================================================================
    3. INTERACTIVE NEO-BRUTALIST MINI-PLAYER (Web Audio API + Canvas Visualizer)
    ========================================================================== */
 function initMiniPlayer() {
   const tracks = [
     {
-      title: 'Neon Skyline (No Ads Edition)',
-      artist: 'Euphony Sound • v1.0.1',
-      duration: '3:45',
-      durationSeconds: 225,
+      title: 'Asalayavale (From "Khalifa")',
+      artist: 'Jakes Bejoy, Sid Sriram, M. Maqbool',
+      duration: '5:01',
+      durationSeconds: 301,
       frequency: 220,
       chord: [220, 277.18, 329.63] // A Major chord
     },
     {
-      title: 'Uninterrupted Flow',
-      artist: 'Open Source Beats • Neo-Brutalist',
+      title: 'Acoustic & Unplugged',
+      artist: 'Studio Live Sessions',
       duration: '4:12',
       durationSeconds: 252,
       frequency: 261.63,
       chord: [261.63, 329.63, 392.00] // C Major chord
     },
     {
-      title: 'Zero Subscription Groove',
-      artist: 'Material 3 Ensemble',
-      duration: '2:58',
-      durationSeconds: 178,
+      title: 'Mollywood Hitlist 2024',
+      artist: 'Curated for IN - India',
+      duration: '3:30',
+      durationSeconds: 210,
       frequency: 196.00,
       chord: [196.00, 246.94, 293.66] // G Major chord
     },
     {
-      title: 'Offline Freedom',
-      artist: 'Neo-Brutalism Collective',
-      duration: '3:30',
-      durationSeconds: 210,
+      title: 'Neon Skyline (Offline Edition)',
+      artist: 'Euphony Sound • v1.0.1',
+      duration: '3:45',
+      durationSeconds: 225,
       frequency: 174.61,
       chord: [174.61, 220.00, 261.63] // F Major chord
     }

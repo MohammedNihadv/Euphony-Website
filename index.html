@@ -206,109 +206,170 @@
 
   <main>
     <!-- ======================================================================
-         HERO SECTION
+         HERO SECTION (RICH NEO-BRUTALISM + GLASSMORPHISM)
          ====================================================================== -->
     <section class="hero" id="hero-section">
+      <!-- Ambient colorful glows for rich glass depth -->
+      <div class="hero-ambient-glow glow-purple" aria-hidden="true"></div>
+      <div class="hero-ambient-glow glow-yellow" aria-hidden="true"></div>
+
       <div class="hero-container">
         <div class="hero-content">
-          <div class="hero-badges">
-            <span class="badge yellow"><i data-lucide="ban" class="eu-icon"></i> Zero Ads</span>
-            <span class="badge purple"><i data-lucide="unlock" class="eu-icon"></i> 100% Open Source</span>
-            <span class="badge pink"><i data-lucide="zap" class="eu-icon"></i> Built with Flutter</span>
-            <span class="badge"><i data-lucide="palette" class="eu-icon"></i> Material 3 + Neo-Brutalist</span>
+          <div class="hero-capsule-badge">
+            <span class="badge-dot"></span>
+            <i data-lucide="sparkles" class="eu-icon"></i>
+            <span>EUPHONY V1.0.1 • OPEN SOURCE MUSIC PLAYER</span>
           </div>
 
-          <!-- Single H1 heading for semantic SEO -->
+          <!-- Semantic H1 headline with clean, professional copy -->
           <h1 class="hero-title">
-            Music deserves <span class="hero-title-highlight">better</span> than interruptions.
+            Pure Sound. <br />
+            <span class="hero-title-highlight">Zero Compromise.</span>
           </h1>
 
           <p class="hero-subtitle">
-            A modern, open-source music player built with Flutter. Built on the radical idea that pressing <strong>▶ Play</strong> shouldn't require a subscription.
+            An ad-free music player crafted with tactile Neo-Brutalism and frosted glass aesthetics. Built for high-fidelity offline listening, effortless library control, and absolute privacy.
           </p>
 
           <div class="hero-cta-group">
             <a href="#download" class="btn-primary" id="hero-download-btn">
-              <span><i data-lucide="rocket" class="eu-icon"></i> Download <span id="hero-os-name">Free</span></span>
+              <span><i data-lucide="download" class="eu-icon"></i> Download Free</span>
             </a>
-            <a href="#demo" class="btn-secondary" id="hero-demo-btn">
-              <span><i data-lucide="play-circle" class="eu-icon"></i> Experience UI Live</span>
+            <a href="https://github.com/MohammedNihadv/Euphony" target="_blank" rel="noopener noreferrer" class="btn-secondary" id="hero-github-btn">
+              <span><i data-lucide="star" class="eu-icon"></i> Star on GitHub</span>
             </a>
           </div>
 
           <div class="os-indicator-badge">
-            <span><i data-lucide="sparkles" class="eu-icon"></i> Automatically highlighting installer for:</span>
-            <strong id="hero-os-detected">All Supported OS</strong>
+            <span><i data-lucide="sparkles" class="eu-icon"></i> Recommended build for:</span>
+            <strong id="hero-os-detected">Android, iOS, Windows, macOS &amp; Linux</strong>
           </div>
         </div>
 
-        <!-- Hero Visual Illustration -->
-        <div class="hero-visual">
-          <div class="floating-pill floating-pill-1">
-            <span><i data-lucide="music" class="eu-icon"></i> No Subscriptions</span>
+        <!-- Realistic Premium Smartphone Hardware Showcase -->
+        <div class="phone-showcase-wrapper">
+          <!-- Ambient backlight behind phone -->
+          <div class="phone-backlight" aria-hidden="true"></div>
+
+          <!-- Interactive Screen Switcher Tabs -->
+          <div class="phone-tabs-bar" role="tablist" aria-label="App Screen Preview">
+            <button type="button" class="phone-tab-btn active" data-screen="now-playing" role="tab" aria-selected="true">
+              <i data-lucide="disc-3" class="eu-icon"></i> Now Playing
+            </button>
+            <button type="button" class="phone-tab-btn" data-screen="home" role="tab" aria-selected="false">
+              <i data-lucide="sparkles" class="eu-icon"></i> Home Feed
+            </button>
+            <button type="button" class="phone-tab-btn" data-screen="library" role="tab" aria-selected="false">
+              <i data-lucide="library" class="eu-icon"></i> Library
+            </button>
           </div>
-          <div class="hero-card">
-            <img src="assets/hero_mockup.png" alt="Euphony Neo-Brutalist Music Player UI Mockup" class="hero-image" />
+
+          <!-- Premium Titanium Smartphone Hardware Chassis -->
+          <div class="phone-device">
+            <!-- Dynamic Island / Top Speaker & Camera -->
+            <div class="phone-dynamic-island">
+              <span class="island-camera"></span>
+            </div>
+
+            <!-- Screen Viewport displaying authentic screenshots -->
+            <div class="phone-screen-viewport">
+              <img src="assets/screen_now_playing.jpg" alt="Euphony App - Now Playing Screen" class="phone-screen-img active" id="phone-img-now-playing" />
+              <img src="assets/screen_home.jpg" alt="Euphony App - Home Screen" class="phone-screen-img" id="phone-img-home" />
+              <img src="assets/screen_library.jpg" alt="Euphony App - Library Screen" class="phone-screen-img" id="phone-img-library" />
+            </div>
+
+            <!-- Glass reflection specular glare -->
+            <div class="phone-specular-glare" aria-hidden="true"></div>
           </div>
-          <div class="floating-pill floating-pill-2">
-            <span><i data-lucide="shield-off" class="eu-icon"></i> Zero Telemetry</span>
+
+          <!-- Floating Glass Badges -->
+          <div class="floating-glass-badge badge-top-left">
+            <div class="glass-badge-icon"><i data-lucide="disc" class="eu-icon"></i></div>
+            <div class="glass-badge-text">
+              <span class="glass-badge-title">Bit-Perfect Audio</span>
+              <span class="glass-badge-sub">Lossless FLAC Engine</span>
+            </div>
+          </div>
+          <div class="floating-glass-badge badge-bottom-right">
+            <div class="glass-badge-icon"><i data-lucide="shield-check" class="eu-icon"></i></div>
+            <div class="glass-badge-text">
+              <span class="glass-badge-title">100% Offline</span>
+              <span class="glass-badge-sub">Zero Ads • Zero Trackers</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ======================================================================
-         TICKER TAPE
+         PURITY HIGHLIGHTS STRIP (Sleek Frosted Glass Feature Bar)
          ====================================================================== -->
-    <div class="ticker" aria-hidden="true">
-      <div class="ticker-track">
-        <span class="ticker-item">✦ MUSIC DESERVES BETTER ✦</span>
-        <span class="ticker-item">NO ADS EVER ✦</span>
-        <span class="ticker-item">100% OPEN SOURCE UNDER MIT LICENSE ✦</span>
-        <span class="ticker-item">SHUFFLE IS NOT A PREMIUM FEATURE ✦</span>
-        <span class="ticker-item">MATERIAL 3 NEO-BRUTALISM ✦</span>
-        <span class="ticker-item">NO TELEMETRY ✦</span>
-        <span class="ticker-item">YOUR MUSIC LIBRARY, YOUR RULES ✦</span>
-        <span class="ticker-item">✦ MUSIC DESERVES BETTER ✦</span>
-        <span class="ticker-item">NO ADS EVER ✦</span>
-        <span class="ticker-item">100% OPEN SOURCE UNDER MIT LICENSE ✦</span>
-        <span class="ticker-item">SHUFFLE IS NOT A PREMIUM FEATURE ✦</span>
+    <section class="purity-strip" aria-label="Key Product Highlights">
+      <div class="purity-container">
+        <div class="purity-item">
+          <div class="purity-icon"><i data-lucide="disc"></i></div>
+          <div class="purity-info">
+            <strong>Bit-Perfect Audio</strong>
+            <span>Offline FLAC &amp; MP3 decoding</span>
+          </div>
+        </div>
+        <div class="purity-item">
+          <div class="purity-icon"><i data-lucide="shield-check"></i></div>
+          <div class="purity-info">
+            <strong>Zero Telemetry</strong>
+            <span>No analytics, trackers or accounts</span>
+          </div>
+        </div>
+        <div class="purity-item">
+          <div class="purity-icon"><i data-lucide="ban"></i></div>
+          <div class="purity-info">
+            <strong>100% Ad-Free</strong>
+            <span>All playback controls unlocked</span>
+          </div>
+        </div>
+        <div class="purity-item">
+          <div class="purity-icon"><i data-lucide="code-2"></i></div>
+          <div class="purity-info">
+            <strong>Free &amp; Open Source</strong>
+            <span>GPL v3.0 licensed on GitHub</span>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
 
     <!-- ======================================================================
          INTERACTIVE MINI-PLAYER ("EXPERIENCE THE UI")
          ====================================================================== -->
     <section class="player-demo-section" id="demo">
       <div class="section-header">
-        <span class="section-tagline">Experience The Interface</span>
-        <h2 class="section-title">Play With Euphony Right Here</h2>
+        <span class="section-tagline">Interactive Audio Demo</span>
+        <h2 class="section-title">Feel the Sound &amp; Interface</h2>
         <p class="section-subtitle">
-          Test out our custom Neo-Brutalist design tokens (`#121218` ink, `#6A4BE8` accent, `#FFEB3B` highlight). Click Play to hear live Web Audio API ambient chords and watch the real-time waveform visualizer!
+          Experience Euphony's responsive audio visualizer, ambient cover lighting, and tactile controls right inside your browser.
         </p>
       </div>
 
       <div class="player-demo-grid">
-        <!-- Interactive Player Mockup -->
+        <!-- Interactive Player Mockup (Faithful to Screenshot 2) -->
         <div class="player-card" id="demo-player-widget">
           <div class="player-top-bar">
-            <span class="player-pill">NOW PLAYING</span>
+            <span class="player-pill"><i data-lucide="disc-3" class="eu-icon"></i> NOW PLAYING</span>
             <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-              <label for="local-audio-input" class="player-pill" style="cursor: pointer; background-color: var(--eu-highlight); color: var(--eu-on-highlight); border: var(--eu-border-thin); font-weight: 800; transition: transform 0.15s ease;" title="Play your own MP3/WAV/FLAC music file">
+              <label for="local-audio-input" class="player-pill player-pill-accent" title="Play your own MP3/WAV/FLAC music file">
                 <i data-lucide="folder-open" class="eu-icon"></i> PLAY LOCAL FILE
               </label>
               <input type="file" id="local-audio-input" accept="audio/*" style="display: none;" />
-              <span class="player-pill" id="player-status-badge">LOSSLESS FLAC</span>
+              <span class="player-pill">LOSSLESS FLAC</span>
             </div>
           </div>
 
           <div class="player-main-info">
             <div class="player-artwork" id="player-artwork-box">
-              <i data-lucide="music" style="width: 48px; height: 48px;"></i>
+              <img src="assets/cover_khalifa.jpg" alt="Asalayavale Cover Art" class="player-cover-image" id="player-cover-img" />
             </div>
             <div class="player-track-details">
-              <div class="player-song-title" id="player-title">Neon Skyline (No Ads Edition)</div>
-              <div class="player-artist-name" id="player-artist">Euphony Sound • v1.0.1</div>
+              <div class="player-song-title" id="player-title">Asalayavale (From "Khalifa")</div>
+              <div class="player-artist-name" id="player-artist">Jakes Bejoy, Sid Sriram, M. Maqbool</div>
             </div>
           </div>
 
@@ -323,8 +384,8 @@
               <div class="progress-fill" id="progress-fill"></div>
             </div>
             <div class="progress-time">
-              <span id="progress-current">0:42</span>
-              <span id="progress-total">3:45</span>
+              <span id="progress-current">0:02</span>
+              <span id="progress-total">5:01</span>
             </div>
           </div>
 
@@ -337,6 +398,15 @@
             </button>
             <button type="button" class="control-btn" id="btn-next" title="Next Track"><i data-lucide="skip-forward"></i></button>
             <button type="button" class="control-btn" id="btn-repeat" title="Toggle Repeat"><i data-lucide="repeat"></i></button>
+          </div>
+
+          <!-- Authentic App Quick Action Dock (From Screenshot 2) -->
+          <div class="player-action-dock" aria-label="Playback Options">
+            <button type="button" class="dock-btn" title="Add to Playlist"><i data-lucide="list-plus"></i></button>
+            <button type="button" class="dock-btn" title="Sleep Timer"><i data-lucide="timer"></i></button>
+            <button type="button" class="dock-btn dock-btn-text" title="Playback Speed">1x</button>
+            <button type="button" class="dock-btn" title="Lyrics"><i data-lucide="file-text"></i></button>
+            <button type="button" class="dock-btn" title="Queue"><i data-lucide="list-music"></i></button>
           </div>
         </div>
 
@@ -352,19 +422,19 @@
               <div class="playlist-item-left">
                 <span class="playlist-index">01</span>
                 <div class="playlist-item-info">
-                  <span class="playlist-item-title">Neon Skyline (No Ads Edition)</span>
-                  <span class="playlist-item-artist">Euphony Sound • v1.0.1</span>
+                  <span class="playlist-item-title">Asalayavale (From "Khalifa")</span>
+                  <span class="playlist-item-artist">Jakes Bejoy, Sid Sriram</span>
                 </div>
               </div>
-              <span class="playlist-duration">3:45</span>
+              <span class="playlist-duration">5:01</span>
             </div>
 
             <div class="playlist-item" data-track-id="1">
               <div class="playlist-item-left">
                 <span class="playlist-index">02</span>
                 <div class="playlist-item-info">
-                  <span class="playlist-item-title">Uninterrupted Flow</span>
-                  <span class="playlist-item-artist">Open Source Beats</span>
+                  <span class="playlist-item-title">Acoustic &amp; Unplugged</span>
+                  <span class="playlist-item-artist">Studio Live Sessions</span>
                 </div>
               </div>
               <span class="playlist-duration">4:12</span>
@@ -374,22 +444,22 @@
               <div class="playlist-item-left">
                 <span class="playlist-index">03</span>
                 <div class="playlist-item-info">
-                  <span class="playlist-item-title">Zero Subscription Groove</span>
-                  <span class="playlist-item-artist">Material 3 Ensemble</span>
+                  <span class="playlist-item-title">Mollywood Hitlist 2024</span>
+                  <span class="playlist-item-artist">Curated for IN - India</span>
                 </div>
               </div>
-              <span class="playlist-duration">2:58</span>
+              <span class="playlist-duration">3:30</span>
             </div>
 
             <div class="playlist-item" data-track-id="3">
               <div class="playlist-item-left">
                 <span class="playlist-index">04</span>
                 <div class="playlist-item-info">
-                  <span class="playlist-item-title">Offline Freedom</span>
-                  <span class="playlist-item-artist">Neo-Brutalism Collective</span>
+                  <span class="playlist-item-title">Neon Skyline (Offline Edition)</span>
+                  <span class="playlist-item-artist">Euphony Sound • v1.0.1</span>
                 </div>
               </div>
-              <span class="playlist-duration">3:30</span>
+              <span class="playlist-duration">3:45</span>
             </div>
           </div>
         </div>
@@ -397,52 +467,46 @@
     </section>
 
     <!-- ======================================================================
-         WHY EUPHONY? (PHILOSOPHY SECTION)
+         THE EUPHONY PHILOSOPHY (3 PILLARS OF RESPECT)
          ====================================================================== -->
     <section class="philosophy-section" id="philosophy">
       <div class="section-header">
-        <span class="section-tagline">The Philosophy</span>
-        <h2 class="section-title">Why Euphony Exists</h2>
+        <span class="section-tagline">The Core Philosophy</span>
+        <h2 class="section-title">Crafted for Listeners, Not Advertisers</h2>
         <p class="section-subtitle">
-          Somewhere along the way, music players became subscription services, shuffle became a premium feature, and ads started interrupting your playlists. Euphony is a music player that simply gets out of your way.
+          Most music platforms treat your listening habits as product data and lock basic player controls behind paywalls. Euphony was built from the ground up to respect you.
         </p>
       </div>
 
       <div class="philosophy-grid">
-        <!-- Subscription Apps Card -->
-        <div class="philosophy-card bad">
-          <div class="philosophy-card-header">
-            <div class="philosophy-icon"><i data-lucide="banknote" style="width: 32px; height: 32px;"></i></div>
-            <div>
-              <h3>Subscription Music Apps</h3>
-              <p style="color: var(--eu-text-muted); font-size: 0.9rem;">Modern proprietary services</p>
-            </div>
-          </div>
-          <ul class="philosophy-list">
-            <li><span class="bullet">✕</span> <span>Monthly subscription fees required just to play music without ads</span></li>
-            <li><span class="bullet">✕</span> <span>Basic features like <strong>Shuffle</strong> locked behind a premium paywall</span></li>
-            <li><span class="bullet">✕</span> <span>Constant upsell banners interrupting your favorite albums</span></li>
-            <li><span class="bullet">✕</span> <span>Mandatory cloud accounts and invasive telemetry tracking</span></li>
-            <li><span class="bullet">✕</span> <span>Your offline library can be removed by licensing disputes</span></li>
-          </ul>
+        <!-- Pillar 1 -->
+        <div class="philosophy-card pillar-card">
+          <div class="philosophy-icon pillar-icon-1"><i data-lucide="hard-drive"></i></div>
+          <h3 class="pillar-title">True Offline Ownership</h3>
+          <p class="pillar-desc">
+            Your music belongs to you. Store lossless audio locally on your device without fearing sudden catalog pull-downs, expired streaming licenses, or spotty network dropouts.
+          </p>
+          <div class="pillar-badge">Permanent Library</div>
         </div>
 
-        <!-- Euphony Card -->
-        <div class="philosophy-card good">
-          <div class="philosophy-card-header">
-            <div class="philosophy-icon"><i data-lucide="zap" style="width: 32px; height: 32px;"></i></div>
-            <div>
-              <h3>Euphony Open Source</h3>
-              <p style="color: var(--eu-text-muted); font-size: 0.9rem;">Music respects its listeners</p>
-            </div>
-          </div>
-          <ul class="philosophy-list">
-            <li><span class="bullet">✓</span> <span><strong>100% Free & Open Source</strong> under the GNU General Public License v3.0</span></li>
-            <li><span class="bullet">✓</span> <span>Every feature unlocked forever — Shuffle, Repeat, Sleep Timer, & Queue</span></li>
-            <li><span class="bullet">✓</span> <span><strong>Zero advertisements</strong> and zero interruptions guaranteed</span></li>
-            <li><span class="bullet">✓</span> <span>No account needed. Offline local music and smart caching by default</span></li>
-            <li><span class="bullet">✓</span> <span>Transparent code crafted by music lovers, for music lovers</span></li>
-          </ul>
+        <!-- Pillar 2 -->
+        <div class="philosophy-card pillar-card">
+          <div class="philosophy-icon pillar-icon-2"><i data-lucide="sparkles"></i></div>
+          <h3 class="pillar-title">Zero Advertisements</h3>
+          <p class="pillar-desc">
+            No audio ads between songs, no sponsored popups, and no artificial restrictions. Essential playback tools like shuffle, repeat, and sleep timer are always 100% unlocked.
+          </p>
+          <div class="pillar-badge">Uninterrupted Flow</div>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="philosophy-card pillar-card">
+          <div class="philosophy-icon pillar-icon-3"><i data-lucide="shield-check"></i></div>
+          <h3 class="pillar-title">Absolute Privacy</h3>
+          <p class="pillar-desc">
+            No telemetry, no background analytics, no mandatory accounts, and no tracking beacons. What you listen to remains entirely private on your device under GPL v3.0.
+          </p>
+          <div class="pillar-badge">Zero Telemetry</div>
         </div>
       </div>
     </section>
