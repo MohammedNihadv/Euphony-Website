@@ -170,6 +170,12 @@ button {
   background: none;
 }
 
+/* Accessibility: Ensure form inputs prevent iOS auto-zoom behavior on mobile */
+input, select, textarea {
+  font-family: inherit;
+  font-size: 16px;
+}
+
 /* Custom Brutalist Scrollbar */
 ::-webkit-scrollbar {
   width: 12px;
@@ -277,7 +283,7 @@ button {
 }
 
 .nav-links {
-  display: flex;
+  display: none;
   align-items: center;
   gap: 2rem;
   list-style: none;
@@ -313,6 +319,10 @@ button {
   gap: 3px;
 }
 
+.desktop-only-theme {
+  display: none;
+}
+
 .theme-btn {
   display: inline-flex;
   align-items: center;
@@ -342,7 +352,7 @@ button {
 
 /* Download Navbar Button */
 .btn-nav-download {
-  display: inline-flex;
+  display: none;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
@@ -370,14 +380,16 @@ button {
   box-shadow: var(--eu-shadow-sm);
 }
 
-/* Mobile Hamburger & Drawer (Hidden on Desktop) */
+/* Mobile Hamburger & Drawer (Default on Mobile & Tablet, Hidden on Desktop) */
 .hamburger-btn {
-  display: none;
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 40px;
-  height: 40px;
-  padding: 9px 8px;
+  width: 44px;
+  height: 44px;
+  min-width: 44px; /* Accessible touch target >=44px */
+  min-height: 44px;
+  padding: 11px 9px;
   background-color: var(--eu-card-bg);
   border: var(--eu-border);
   border-radius: var(--eu-radius-sm);
@@ -410,21 +422,130 @@ button {
 }
 
 .mobile-menu-drawer {
-  display: none;
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--eu-surface);
+  border-bottom: 2.5px solid var(--eu-ink);
+  box-shadow: 0px 10px 0px var(--eu-ink);
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+  z-index: 999;
+}
+
+.mobile-menu-drawer.open {
+  max-height: 650px;
+  opacity: 1;
+  box-shadow: 0 100vh rgba(0, 0, 0, 0.55), 0px 10px 0px var(--eu-ink);
+}
+
+.mobile-menu-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.mobile-theme-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-bottom: 2px dashed var(--eu-ink, #121218);
+  padding-bottom: 1.25rem;
+}
+
+.mobile-menu-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--eu-text-muted);
+}
+
+.mobile-theme-switcher {
+  display: flex;
+  gap: 4px;
+  width: 100%;
+  padding: 4px;
+  border-radius: 14px;
+  background-color: var(--eu-card-bg);
+  border: var(--eu-border);
+  box-shadow: var(--eu-shadow-sm);
+}
+
+.mobile-theme-switcher .theme-btn {
+  flex: 1;
+  min-height: 44px; /* Accessible touch target >=44px */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  text-align: center;
+  padding: 0.55rem 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  border-radius: 10px;
+  border: 1.5px solid transparent;
+  transition: all 0.15s ease;
+}
+
+.mobile-theme-switcher .theme-btn.active {
+  background-color: var(--eu-accent);
+  color: var(--eu-on-accent);
+  border-color: var(--eu-ink);
+  box-shadow: 1.5px 1.5px 0px var(--eu-ink);
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.mobile-nav-link {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--eu-text);
+  min-height: 48px; /* Accessible touch target >=44px */
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  background-color: var(--eu-card-bg);
+  border: var(--eu-border);
+  border-radius: var(--eu-radius-sm);
+  box-shadow: var(--eu-shadow-sm);
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.mobile-nav-link:hover, .mobile-nav-link:active {
+  background-color: var(--eu-accent);
+  color: var(--eu-on-accent);
+  transform: translate(-2px, -2px);
+  box-shadow: var(--eu-shadow);
 }
 
 /* ==========================================================================
-   HERO SECTION (RICH NEO-BRUTALISM + GLASSMORPHISM)
+   HERO SECTION (RICH NEO-BRUTALISM + GLASSMORPHISM) - MOBILE-FIRST BASE
    ========================================================================== */
 
 .hero {
   position: relative;
-  min-height: calc(100vh - 72px);
-  max-height: 980px;
+  width: 100%;
+  min-height: auto;
+  max-height: none;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  padding: 1.25rem 0 2rem;
-  overflow: hidden;
+  padding: 1.5rem 0 2.5rem;
+  overflow: visible; /* Prevents clipping of smartphone chassis & docked screen switcher tabs */
 }
 
 /* Ambient glow blobs behind the hero */
@@ -438,39 +559,42 @@ button {
 }
 
 .hero-ambient-glow.glow-purple {
-  width: 450px;
-  height: 450px;
+  width: clamp(260px, 75vw, 450px);
+  height: clamp(260px, 75vw, 450px);
   top: -40px;
   right: 5%;
   background: radial-gradient(circle, #6A4BE8 0%, rgba(106, 75, 232, 0) 70%);
 }
 
 .hero-ambient-glow.glow-yellow {
-  width: 380px;
-  height: 380px;
+  width: clamp(220px, 65vw, 380px);
+  height: clamp(220px, 65vw, 380px);
   bottom: 0px;
   left: 2%;
   background: radial-gradient(circle, #FFE14D 0%, rgba(255, 225, 77, 0) 70%);
   opacity: 0.28;
 }
 
+/* Mobile-First: Single-column vertical stack by default */
 .hero-container {
   position: relative;
-  max-width: 1280px;
   width: 100%;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 0 1.5rem;
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  padding: 0 1.25rem;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 3rem;
+  gap: 2rem;
   z-index: 1;
 }
 
 .hero-content {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  align-items: flex-start;
+  width: 100%;
+  gap: 1.15rem;
 }
 
 /* Frosted glass capsule badge */
@@ -479,10 +603,11 @@ button {
   align-items: center;
   gap: 0.5rem;
   align-self: flex-start;
-  padding: 0.35rem 0.85rem;
+  padding: 0.4rem 0.85rem;
+  min-height: 36px;
   border-radius: var(--eu-radius-pill);
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.75rem;
+  font-size: clamp(0.7rem, 2.2vw, 0.75rem);
   font-weight: 700;
   letter-spacing: 0.04em;
   background-color: var(--eu-glass-bg);
@@ -490,6 +615,7 @@ button {
   border: 1.5px solid var(--eu-border);
   box-shadow: var(--eu-shadow-sm);
   color: var(--eu-text);
+  line-height: 1.3;
 }
 
 .hero-capsule-badge .badge-dot {
@@ -499,6 +625,7 @@ button {
   background-color: #10B981;
   box-shadow: 0 0 8px #10B981;
   animation: pulseDot 2s infinite ease-in-out;
+  flex-shrink: 0;
 }
 
 @keyframes pulseDot {
@@ -507,10 +634,10 @@ button {
 }
 
 .hero-title {
-  font-size: clamp(2.35rem, 3.8vw, 3.35rem);
+  font-size: clamp(2rem, 7.5vw, 2.65rem);
   font-weight: 900;
   letter-spacing: -0.04em;
-  line-height: 1.1;
+  line-height: 1.12;
 }
 
 .hero-title-highlight {
@@ -526,21 +653,22 @@ button {
 }
 
 .hero-subtitle {
-  font-size: clamp(0.98rem, 1.25vw, 1.12rem);
+  font-size: clamp(0.95rem, 3.5vw, 1.05rem);
   color: var(--eu-text-muted);
   font-weight: 500;
   line-height: 1.5;
-  max-width: 95%;
+  max-width: 100%;
 }
 
+/* CTA Group: Full width stacked buttons on mobile */
 .hero-cta-group {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.75rem;
 }
 
-/* Primary Brutalist Button */
+/* Primary Brutalist Button (Accessibility target: >=44px) */
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -548,7 +676,9 @@ button {
   gap: 0.65rem;
   background-color: var(--eu-accent);
   color: var(--eu-on-accent);
-  padding: 0.85rem 1.75rem;
+  width: 100%;
+  min-height: 48px;
+  padding: 0.75rem 1.5rem;
   border-radius: var(--eu-radius-pill);
   border: var(--eu-border);
   box-shadow: var(--eu-shadow), 0 8px 20px -4px rgba(106, 75, 232, 0.4);
@@ -569,7 +699,7 @@ button {
   box-shadow: var(--eu-shadow-sm);
 }
 
-/* Secondary Frosted Brutalist Button */
+/* Secondary Frosted Brutalist Button (Accessibility target: >=44px) */
 .btn-secondary {
   display: inline-flex;
   align-items: center;
@@ -578,7 +708,9 @@ button {
   background-color: var(--eu-glass-bg);
   backdrop-filter: var(--eu-glass-blur);
   color: var(--eu-text);
-  padding: 0.85rem 1.75rem;
+  width: 100%;
+  min-height: 48px;
+  padding: 0.75rem 1.5rem;
   border-radius: var(--eu-radius-pill);
   border: var(--eu-border);
   box-shadow: var(--eu-shadow-sm);
@@ -601,24 +733,28 @@ button {
 
 /* Auto-detected OS badge indicator inside Hero */
 .os-indicator-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem;
+  font-size: 0.78rem;
   font-weight: 600;
   color: var(--eu-text-muted);
+  line-height: 1.35;
+  width: 100%;
 }
 
 .os-indicator-badge strong {
   color: var(--eu-accent);
 }
 
-/* Hero Trust & Feature Pills (Clean row under CTA buttons) */
+/* Hero Trust & Feature Pills (Flexible wrapping row) */
 .hero-feature-pills {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.45rem;
+  width: 100%;
   margin-top: 0.15rem;
 }
 
@@ -626,17 +762,20 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.35rem 0.75rem;
+  padding: 0.4rem 0.75rem;
+  min-height: 40px;
   border-radius: var(--eu-radius-pill);
   background-color: var(--eu-glass-bg);
   backdrop-filter: var(--eu-glass-blur);
   border: var(--eu-border-thin);
   box-shadow: var(--eu-shadow-sm);
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 700;
   color: var(--eu-text);
   white-space: nowrap;
+  flex: 1 1 auto;
+  justify-content: center;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
@@ -653,7 +792,7 @@ button {
 }
 
 /* ==========================================================================
-   PREMIUM SMARTPHONE HARDWARE SHOWCASE
+   PREMIUM SMARTPHONE HARDWARE SHOWCASE (MOBILE-FIRST BASE)
    ========================================================================== */
 
 .phone-showcase-wrapper {
@@ -662,7 +801,7 @@ button {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 360px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -671,8 +810,8 @@ button {
   top: 15%;
   left: 50%;
   transform: translateX(-50%);
-  width: 300px;
-  height: 420px;
+  width: clamp(240px, 70vw, 300px);
+  height: clamp(340px, 100vw, 420px);
   border-radius: 50%;
   background: radial-gradient(circle, rgba(106, 75, 232, 0.45) 0%, rgba(255, 225, 77, 0.15) 50%, transparent 75%);
   filter: blur(45px);
@@ -680,47 +819,86 @@ button {
   z-index: 0;
 }
 
-/* Screen switcher tab capsule above phone */
-.phone-tabs-bar {
-  display: inline-flex;
+/* Smartphone Hardware Frame - Fluid Viewport Clamp */
+.phone-device {
+  position: relative;
+  width: clamp(230px, 70vw, 260px);
+  height: clamp(460px, 140vw, 520px);
+  border-radius: 40px;
+  background: linear-gradient(145deg, #30303D, #161622 55%, #2B2B38);
+  border: 2.5px solid var(--eu-ink);
+  box-shadow: 0 24px 50px -15px rgba(0, 0, 0, 0.4), var(--eu-shadow);
+  padding: 8px;
+  z-index: 5;
+  transition: transform 0.35s var(--eu-ease-spring), box-shadow 0.35s var(--eu-ease-spring);
+}
+
+.phone-device:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 28px 60px -15px rgba(106, 75, 232, 0.35), var(--eu-shadow);
+}
+
+/* Dynamic Island */
+.phone-dynamic-island {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 78px;
+  height: 20px;
+  background-color: #000000;
+  border-radius: 20px;
+  z-index: 25;
+  display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.3rem;
-  padding: 0.25rem 0.35rem;
+  justify-content: flex-end;
+  padding-right: 7px;
+}
+
+.island-camera {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #111827;
+  border: 1.5px solid #1F2937;
+}
+
+/* Screen switcher tab capsule docked below phone */
+.phone-tabs-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.35rem;
+  padding: 0.35rem 0.45rem;
   background-color: var(--eu-glass-bg);
   backdrop-filter: var(--eu-glass-blur);
   border: var(--eu-border);
   border-radius: var(--eu-radius-pill);
   box-shadow: var(--eu-shadow-sm);
   margin-top: 1rem;
-  margin-bottom: 0;
+  margin-bottom: 0.5rem;
   z-index: 10;
-  white-space: nowrap;
-  max-width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-
-.phone-tabs-bar::-webkit-scrollbar {
-  display: none;
+  width: 100%;
+  max-width: clamp(270px, 80vw, 320px);
 }
 
 .phone-tab-btn {
+  flex: 1;
+  min-height: 44px; /* Accessible minimum touch target >=44px */
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.35rem;
-  padding: 0.35rem 0.75rem;
+  padding: 0.45rem 0.65rem;
   border-radius: var(--eu-radius-pill);
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.75rem;
+  font-size: clamp(0.72rem, 2.3vw, 0.76rem);
   font-weight: 700;
   color: var(--eu-text);
   border: 1.5px solid transparent;
   transition: all 0.2s var(--eu-ease-spring);
   cursor: pointer;
   white-space: nowrap;
-  flex-shrink: 0;
 }
 
 .phone-tab-btn:hover {
@@ -862,10 +1040,10 @@ button {
 .purity-container {
   max-width: 1240px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 1.25rem;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  gap: 1rem;
 }
 
 .purity-item {
@@ -963,10 +1141,10 @@ button {
 .player-demo-grid {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 1.25rem;
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 2.5rem;
+  grid-template-columns: 1fr;
+  gap: 2rem;
   align-items: center;
 }
 
@@ -1314,10 +1492,10 @@ button {
 .philosophy-grid {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 1.25rem;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
   align-items: stretch;
 }
 
@@ -1397,10 +1575,10 @@ button {
 .features-grid {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 1.25rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
 }
 
 .feature-card {
@@ -1485,10 +1663,10 @@ button {
 .download-grid {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 1.25rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-  gap: 2.5rem;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
   align-items: stretch;
 }
 
@@ -1963,570 +2141,20 @@ button {
 
 
 /* ==========================================================================
-   RESPONSIVE DESIGN (MOBILE & TABLET)
+   RESPONSIVE DESIGN SYSTEM (MOBILE-FIRST BREAKPOINT TIERS)
+   Breakpoints:
+   - Mobile (Default / Base): Up to 767px (Assume base width 320px-375px)
+   - Tablet (md:): 768px to 1023px
+   - Desktop (lg:): 1024px to 1279px
+   - Wide Screen (xl:): 1280px+
+   - Ultra-Wide & 4K: 1600px+
    ========================================================================== */
 
-@media (max-width: 1150px) {
-  .hero-container,
-  .player-demo-grid,
-  .philosophy-grid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-
-  .hero-title {
-    font-size: 2.85rem;
-  }
-
-  .purity-container {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-
-  .nav-links,
-  .desktop-only-theme,
-  .btn-nav-download {
-    display: none !important;
-  }
-
-  .hamburger-btn {
-    display: flex;
-  }
-
-  .mobile-menu-drawer {
-    display: block;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background-color: var(--eu-surface);
-    border-bottom: 2.5px solid var(--eu-ink);
-    box-shadow: 0px 10px 0px var(--eu-ink);
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
-    z-index: 999;
-  }
-
-  .mobile-menu-drawer.open {
-    max-height: 650px;
-    opacity: 1;
-    box-shadow: 0 100vh rgba(0, 0, 0, 0.55), 0px 10px 0px var(--eu-ink);
-  }
-
-  .mobile-menu-content {
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-  }
-
-  .mobile-theme-section {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    border-bottom: 2px dashed var(--eu-ink, #121218);
-    padding-bottom: 1.25rem;
-  }
-
-  .mobile-menu-label {
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--eu-text-muted);
-  }
-
-  .mobile-theme-switcher {
-    display: flex;
-    gap: 4px;
-    width: 100%;
-    padding: 4px;
-    border-radius: 14px;
-    background-color: var(--eu-card-bg);
-    border: var(--eu-border);
-    box-shadow: var(--eu-shadow-sm);
-  }
-
-  .mobile-theme-switcher .theme-btn {
-    flex: 1;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.35rem;
-    text-align: center;
-    padding: 0.55rem 0.4rem;
-    font-size: 0.82rem;
-    font-weight: 700;
-    border-radius: 10px;
-    border: 1.5px solid transparent;
-    transition: all 0.15s ease;
-  }
-
-  .mobile-theme-switcher .theme-btn.active {
-    background-color: var(--eu-accent);
-    color: var(--eu-on-accent);
-    border-color: var(--eu-ink);
-    box-shadow: 1.5px 1.5px 0px var(--eu-ink);
-  }
-
-  .mobile-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .mobile-nav-link {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--eu-text);
-    padding: 0.75rem 1rem;
-    background-color: var(--eu-card-bg);
-    border: var(--eu-border);
-    border-radius: var(--eu-radius-sm);
-    box-shadow: var(--eu-shadow-sm);
-    text-decoration: none;
-    transition: all 0.15s ease;
-  }
-
-  .mobile-nav-link:hover, .mobile-nav-link:active {
-    background-color: var(--eu-accent);
-    color: var(--eu-on-accent);
-    transform: translate(-2px, -2px);
-    box-shadow: var(--eu-shadow);
-  }
-}
-
-@media (max-width: 640px) {
-  .navbar {
-    padding: 0.5rem 0;
-  }
-
-  .nav-container {
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    padding: 0.45rem 1rem;
-    width: 100%;
-  }
-
-  .brand {
-    font-size: 1.25rem;
-    gap: 0.55rem;
-  }
-
-  .brand-logo {
-    width: 36px;
-    height: 36px;
-  }
-
-  .brand-badge {
-    font-size: 0.62rem;
-    padding: 0.15rem 0.35rem;
-  }
-
-  .hamburger-btn {
-    width: 36px;
-    height: 36px;
-    padding: 6px;
-  }
-
-  section[id] {
-    scroll-margin-top: 4.25rem;
-  }
-
-  .nav-actions {
-    width: auto;
-    justify-content: flex-end;
-    align-items: center;
-  }
-
-  .hero {
-    padding: 1.5rem 0 2.25rem;
-  }
-
-  .hero-container {
-    padding: 0 1rem;
-    gap: 2rem;
-  }
-
-  .hero-content {
-    gap: 1rem;
-  }
-
-  .hero-title {
-    font-size: clamp(2rem, 7vw, 2.35rem);
-    line-height: 1.15;
-  }
-
-  .hero-subtitle {
-    font-size: 0.96rem;
-    line-height: 1.48;
-    max-width: 100%;
-  }
-
-  .hero-cta-group {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.65rem;
-    width: 100%;
-  }
-
-  .btn-primary, .btn-secondary {
-    width: 100%;
-    justify-content: center;
-    font-size: 0.98rem;
-    min-height: 48px;
-    padding: 0.75rem 1.25rem;
-  }
-
-  .hero-feature-pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    width: 100%;
-    margin-top: 0.15rem;
-  }
-
-  .hero-pill-item {
-    font-size: 0.74rem;
-    padding: 0.3rem 0.65rem;
-    gap: 0.35rem;
-    flex: 1 1 auto;
-    justify-content: center;
-  }
-
-  .os-indicator-badge {
-    font-size: 0.78rem;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.2rem;
-    line-height: 1.35;
-    margin-top: 0.25rem;
-    width: 100%;
-  }
-
-  /* Phone Mockup Mobile Tuning */
-  .phone-showcase-wrapper {
-    max-width: 100%;
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .phone-tabs-bar {
-    margin-top: 0.75rem;
-    margin-bottom: 0;
-    gap: 0.25rem;
-    padding: 0.2rem 0.3rem;
-    width: 100%;
-    max-width: 320px;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .phone-tab-btn {
-    flex: 1;
-    justify-content: center;
-    padding: 0.32rem 0.45rem;
-    font-size: 0.72rem;
-    gap: 0.25rem;
-  }
-
-  .phone-device {
-    width: clamp(230px, 68vw, 258px);
-    height: clamp(460px, 136vw, 515px);
-    border-radius: 38px;
-    padding: 7px;
-  }
-
-  .phone-dynamic-island {
-    top: 13px;
-    width: 74px;
-    height: 18px;
-  }
-
-  .phone-screen-viewport {
-    border-radius: 32px;
-  }
-
-  /* Purity Strip on Mobile */
-  .purity-strip {
-    padding: 1.25rem 0;
-  }
-
-  .purity-container {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
-    padding: 0 1rem;
-  }
-
-  .purity-item {
-    padding: 0.85rem 1rem;
-  }
-
-  .section-header {
-    padding: 0 1rem;
-    margin-bottom: 2.5rem;
-  }
-
-  .section-title {
-    font-size: 2rem;
-  }
-
-  /* Player Demo Section */
-  .player-demo-section {
-    padding: 4rem 0;
-  }
-
-  .player-demo-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: 0 1rem;
-  }
-
-  .player-card {
-    padding: 1.25rem 1rem !important;
-    gap: 1.25rem;
-    border-radius: var(--eu-radius);
-  }
-
-  .player-top-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.25rem;
-    width: 100%;
-  }
-
-  .player-pill {
-    font-size: 0.64rem;
-    padding: 0.24rem 0.45rem;
-    white-space: nowrap;
-    gap: 0.2rem;
-    flex: 1 1 auto;
-    justify-content: center;
-  }
-
-  .player-pill i,
-  .player-pill svg {
-    width: 12px;
-    height: 12px;
-  }
-
-  .player-artwork {
-    width: 78px;
-    height: 78px;
-  }
-
-  .track-title,
-  .player-song-title {
-    font-size: 1.15rem;
-  }
-
-  .track-artist,
-  .player-artist-name {
-    font-size: 0.85rem;
-  }
-
-  .player-controls {
-    padding-top: 0.25rem;
-    gap: 0.35rem;
-  }
-
-  .control-btn {
-    width: 38px;
-    height: 38px;
-    font-size: 1rem;
-  }
-
-  .control-btn-play {
-    width: 50px;
-    height: 50px;
-    font-size: 1.35rem;
-  }
-
-  .visualizer-container {
-    height: 46px;
-    margin-bottom: 0.5rem;
-  }
-
-  .player-action-dock {
-    padding: 0.3rem 0.6rem;
-  }
-
-  .dock-btn {
-    width: 32px;
-    height: 32px;
-    font-size: 0.95rem;
-  }
-
-  .playlist-item {
-    padding: 0.75rem 0.85rem;
-  }
-
-  /* Philosophy / 3 Pillars */
-  .philosophy-section {
-    padding: 4rem 0;
-  }
-
-  .philosophy-grid {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-    padding: 0 1rem;
-  }
-
-  .pillar-card {
-    padding: 1.5rem 1.25rem;
-  }
-
-  /* Features */
-  .features-section {
-    padding: 4rem 0;
-  }
-
-  .features-grid {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-    padding: 0 1rem;
-  }
-
-  .feature-card {
-    padding: 1.5rem 1.25rem;
-  }
-
-  /* Compact, mobile-focused download cards */
-  .download-section {
-    padding: 4rem 0;
-  }
-
-  .download-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 0 1rem;
-  }
-
-  .download-card {
-    padding: 1.35rem 1.25rem;
-    gap: 1.1rem;
-    border-radius: 18px;
-  }
-
-  .download-card:hover {
-    transform: none;
-  }
-
-  .download-card > div {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .download-card-body {
-    margin-top: 0 !important;
-  }
-
-  .download-card-info h3 {
-    font-size: 1.2rem !important;
-  }
-
-  .platform-icon {
-    width: 48px;
-    height: 48px;
-    font-size: 1.5rem !important;
-  }
-
-  .download-card-body p {
-    font-size: 0.88rem !important;
-    line-height: 1.45;
-  }
-
-  .download-meta-list {
-    font-size: 0.82rem;
-  }
-
-  .btn-download-main,
-  .btn-download-alt,
-  .btn-download-upcoming {
-    padding: 0.85rem 1rem;
-    font-size: 0.92rem;
-  }
-
-  /* FAQ */
-  .faq-section {
-    padding: 4rem 0;
-  }
-
-  .faq-container {
-    padding: 0 1rem;
-  }
-
-  .faq-question {
-    padding: 1rem 1.15rem;
-    font-size: 1.02rem;
-  }
-
-  .faq-answer {
-    padding: 0 1.15rem;
-    font-size: 0.9rem;
-  }
-
-  .faq-item.active .faq-answer {
-    padding: 0 1.15rem 1.15rem;
-  }
-
-  /* Footer */
-  .footer {
-    padding: 3rem 0 2rem;
-  }
-
-  .footer-container {
-    padding: 0 1rem;
-    gap: 2rem;
-  }
-
-  .footer-top {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5rem;
-    padding-bottom: 2rem;
-  }
-
-  .footer-star-cta {
-    width: 100%;
-  }
-
-  .footer-star-cta .btn-primary {
-    width: 100%;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-
-  .footer-links {
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  .modal-backdrop {
-    padding: 1rem;
-  }
-
-  .modal-card {
-    padding: 1.25rem;
-    gap: 1rem;
-  }
-}
-
-/* Extra small devices (iPhone SE, narrow Android phones <= 380px) */
+/* --------------------------------------------------------------------------
+   1. MOBILE EXTRA-SMALL DEVICES (iPhone SE, narrow Android phones <= 380px)
+   Base styles already establish the fluid single-column stack for <= 767px.
+   Here we refine micro-typography while strictly maintaining >=44px touch targets.
+   -------------------------------------------------------------------------- */
 @media (max-width: 380px) {
   .hero-capsule-badge {
     font-size: 0.65rem;
@@ -2541,6 +2169,7 @@ button {
   .hero-pill-item {
     font-size: 0.68rem;
     padding: 0.25rem 0.45rem;
+    min-height: 40px;
   }
 
   .os-indicator-badge {
@@ -2553,8 +2182,9 @@ button {
   }
 
   .phone-tab-btn {
-    padding: 0.25rem 0.35rem;
-    font-size: 0.66rem;
+    padding: 0.35rem 0.4rem;
+    font-size: 0.68rem;
+    min-height: 44px; /* Accessible touch target preserved */
   }
 
   .player-pill {
@@ -2562,16 +2192,17 @@ button {
     padding: 0.2rem 0.45rem;
   }
 
+  /* Control buttons retain minimum touch target >=44px */
   .control-btn {
-    width: 36px;
-    height: 36px;
-    font-size: 0.95rem;
+    width: 44px;
+    height: 44px;
+    font-size: 1rem;
   }
 
   .control-btn-play {
-    width: 46px;
-    height: 46px;
-    font-size: 1.25rem;
+    width: 52px;
+    height: 52px;
+    font-size: 1.35rem;
   }
 
   .download-card {
@@ -2582,8 +2213,285 @@ button {
   .btn-download-alt,
   .btn-download-upcoming {
     font-size: 0.85rem;
-    min-height: 46px;
+    min-height: 48px; /* Accessible touch target preserved */
     padding: 0.75rem 0.85rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. TABLET BREAKPOINT (md: 768px to 1023px)
+   The layout expands gracefully with centered alignment, side-by-side CTA
+   actions, and 2-column paired grids for secondary feature blocks.
+   -------------------------------------------------------------------------- */
+@media (min-width: 768px) {
+  .nav-container {
+    padding: 0.6rem 1.5rem;
+  }
+
+  /* Hero Section: Centered stack with generous tablet breathing room */
+  .hero {
+    padding: 2rem 0 3.5rem;
+  }
+
+  .hero-container {
+    max-width: 720px;
+    gap: 2.75rem;
+  }
+
+  .hero-content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-capsule-badge {
+    align-self: center;
+  }
+
+  .hero-title {
+    font-size: clamp(2.45rem, 4.8vw, 2.95rem);
+  }
+
+  .hero-subtitle {
+    font-size: 1.05rem;
+    max-width: 85%;
+  }
+
+  /* Transition: Stacked full-width buttons become inline row */
+  .hero-cta-group {
+    flex-direction: row;
+    justify-content: center;
+    width: auto;
+    gap: 1rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: auto;
+    min-width: 190px;
+    padding: 0.85rem 1.75rem;
+  }
+
+  .hero-feature-pills {
+    justify-content: center;
+    max-width: 540px;
+  }
+
+  .hero-pill-item {
+    flex: 0 0 auto;
+  }
+
+  .os-indicator-badge {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  /* Phone Showcase on Tablet */
+  .phone-device {
+    width: 270px;
+    height: 540px;
+  }
+
+  .phone-tabs-bar {
+    max-width: 330px;
+    margin-top: 1.15rem;
+  }
+
+  /* Grid Transitions: 1-column mobile stack expands to 2 columns on tablet */
+  .purity-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .download-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .philosophy-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .footer-top {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. DESKTOP BREAKPOINT (lg: 1024px to 1279px)
+   CRITICAL ARCHITECTURAL TRANSITION:
+   - Layout transitions from vertical single-column stack to multi-column rows.
+   - Hero container transforms into a 2-column split (1.15fr text : 0.85fr phone).
+   - Desktop navigation links and theme toggle replace mobile hamburger drawer.
+   - Purity strip transitions to 4-column bar; Philosophy & Features to 3-column grids.
+   -------------------------------------------------------------------------- */
+@media (min-width: 1024px) {
+  /* Navigation: Reveal desktop horizontal links & direct theme control */
+  .nav-links,
+  .desktop-only-theme,
+  .btn-nav-download {
+    display: flex !important;
+  }
+
+  .hamburger-btn,
+  .mobile-menu-drawer {
+    display: none !important;
+  }
+
+  /* Hero Section: Transition to 2-Column Desktop Grid */
+  .hero {
+    min-height: calc(100vh - 72px);
+    max-height: 940px;
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 0 2rem;
+    overflow: visible; /* Prevents any clipping of phone chassis & docked tabs */
+  }
+
+  .hero-container {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: center;
+    gap: 3rem;
+    max-width: 1200px;
+    padding: 0 1.5rem;
+    text-align: left;
+  }
+
+  .hero-content {
+    align-items: flex-start;
+    text-align: left;
+    gap: 1.25rem;
+  }
+
+  .hero-capsule-badge {
+    align-self: flex-start;
+  }
+
+  .hero-title {
+    font-size: clamp(2.35rem, 3.8vw, 3.15rem);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(0.98rem, 1.25vw, 1.12rem);
+    max-width: 95%;
+  }
+
+  .hero-cta-group {
+    flex-direction: row;
+    justify-content: flex-start;
+    width: auto;
+  }
+
+  .hero-feature-pills {
+    justify-content: flex-start;
+    width: auto;
+  }
+
+  .hero-pill-item {
+    flex: 0 0 auto;
+  }
+
+  .os-indicator-badge {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  /* Phone Showcase: Floating frame proportional to viewport height */
+  .phone-showcase-wrapper {
+    max-width: 340px;
+    margin: 0 auto;
+  }
+
+  .phone-device {
+    width: clamp(240px, 32vh, 268px);
+    height: clamp(480px, 64vh, 535px);
+  }
+
+  .phone-tabs-bar {
+    max-width: 320px;
+    margin-top: 0.85rem;
+    margin-bottom: 0;
+  }
+
+  /* Multi-Column Grid Transitions */
+  .purity-container {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .player-demo-grid {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 2.5rem;
+  }
+
+  .philosophy-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .download-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  /* Footer Horizontal Split */
+  .footer-top {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. WIDE SCREEN BREAKPOINT (xl: 1280px+)
+   Expands maximum container widths to 1280px with larger typography scale.
+   -------------------------------------------------------------------------- */
+@media (min-width: 1280px) {
+  .hero-container {
+    max-width: 1280px;
+    gap: 3.5rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.65rem, 3.8vw, 3.35rem);
+  }
+
+  .phone-device {
+    width: clamp(255px, 34vh, 275px);
+    height: clamp(510px, 68vh, 550px);
+  }
+
+  .purity-container,
+  .player-demo-grid,
+  .philosophy-grid,
+  .features-grid,
+  .download-grid,
+  .faq-container,
+  .footer-container {
+    max-width: 1280px;
   }
 }
 
