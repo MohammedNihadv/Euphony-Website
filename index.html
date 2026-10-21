@@ -137,7 +137,7 @@
       <a href="#" class="brand" aria-label="Euphony Home">
         <img src="assets/logo.png" alt="Euphony App Logo" class="brand-logo" />
         <span>Euphony</span>
-        <span class="brand-badge" id="js-version-badge">v0.2.11</span>
+        <span class="brand-badge" id="js-version-badge">v1.0.1</span>
       </a>
 
       <nav aria-label="Main Navigation">
@@ -524,7 +524,7 @@
         <span class="section-tagline">Direct Downloads</span>
         <h2 class="section-title">Get Euphony For Your Platform</h2>
         <p class="section-subtitle">
-          Release <strong id="js-release-version">v0.2.11</strong> • Free forever • Now on <strong>Android, iOS, Windows, macOS &amp; Linux</strong>.
+          Release <strong id="js-release-version">v1.0.1</strong> • Free forever • Now on <strong>Android, iOS, Windows, macOS &amp; Linux</strong>.
         </p>
       </div>
 
@@ -537,7 +537,7 @@
               <div class="download-card-info" style="flex: 1; min-width: 0;">
                 <h3 style="margin: 0; font-size: 1.45rem;">Android</h3>
                 <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.35rem; flex-wrap: wrap;">
-                  <span class="version-pill" style="color: var(--eu-accent);">APK • v0.2.11</span>
+                  <span class="version-pill" style="color: var(--eu-accent);">APK • v1.0.1</span>
                   <span class="badge yellow" style="font-size: 0.72rem; padding: 0.2rem 0.55rem;">READY</span>
                 </div>
               </div>
@@ -547,9 +547,10 @@
               <ul class="download-meta-list"><li><span>Best pick:</span> <strong>arm64-v8a (2017+ phones)</strong></li><li><span>Also:</span> <strong>armeabi-v7a • x86_64</strong></li><li><span>License:</span> <strong>GPL-3.0</strong></li></ul>
             </div>
           </div>
-          <div class="download-actions">
+          <div class="download-actions" style="display: flex; flex-direction: column; gap: 0.5rem;">
             <a href="https://github.com/MohammedNihadv/Euphony/releases/latest/download/app-arm64-v8a-release.apk" class="btn-download-main" id="btn-dl-android"><span><i data-lucide="download" class="eu-icon"></i> Download APK (arm64)</span></a>
             <button type="button" class="btn-download-alt" id="btn-apk-guide" style="width: 100%;"><span><i data-lucide="help-circle" class="eu-icon"></i> Which APK Should I Download?</span></button>
+            <a href="#" class="checksum-link" data-hash-platform="android" style="font-size: 0.78rem; text-align: center; margin-top: 0.2rem; display: block; color: var(--eu-text-muted); text-decoration: none;">Verify SHA-256 Checksum</a>
           </div>
         </div>
         <div class="download-card" data-platform="ios" id="card-ios">
@@ -560,7 +561,7 @@
               <div class="download-card-info" style="flex: 1; min-width: 0;">
                 <h3 style="margin: 0; font-size: 1.45rem;">iOS</h3>
                 <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.35rem; flex-wrap: wrap;">
-                  <span class="version-pill" style="color: var(--eu-accent);">Sideload IPA • v0.2.11</span>
+                  <span class="version-pill" style="color: var(--eu-accent);">Sideload IPA • v1.0.1</span>
                   <span class="badge yellow" style="font-size: 0.72rem; padding: 0.2rem 0.55rem;">NEW</span>
                 </div>
               </div>
@@ -570,8 +571,9 @@
               <ul class="download-meta-list"><li><span>Install:</span> <strong>AltStore / Sideloadly / TrollStore</strong></li><li><span>iOS:</span> <strong>14+</strong></li><li><span>App Store:</span> <strong>planned</strong></li></ul>
             </div>
           </div>
-          <div class="download-actions">
+          <div class="download-actions" style="display: flex; flex-direction: column; gap: 0.5rem;">
             <a href="https://github.com/MohammedNihadv/Euphony/releases/latest/download/euphony-ios.ipa" class="btn-download-main" id="btn-dl-ios"><span><i data-lucide="apple" class="eu-icon"></i> Download IPA</span></a>
+            <a href="#" class="checksum-link" data-hash-platform="ios" style="font-size: 0.78rem; text-align: center; margin-top: 0.2rem; display: block; color: var(--eu-text-muted); text-decoration: none;">Verify SHA-256 Checksum</a>
           </div>
         </div>
         <div class="download-card" data-platform="windows" id="card-windows">
@@ -582,7 +584,7 @@
               <div class="download-card-info" style="flex: 1; min-width: 0;">
                 <h3 style="margin: 0; font-size: 1.45rem;">Windows</h3>
                 <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.35rem; flex-wrap: wrap;">
-                  <span class="version-pill" style="color: var(--eu-accent);">Installer • v0.2.11</span>
+                  <span class="version-pill" style="color: var(--eu-accent);">Installer • v1.0.1</span>
                   <span class="badge yellow" style="font-size: 0.72rem; padding: 0.2rem 0.55rem;">READY</span>
                 </div>
               </div>
@@ -592,8 +594,9 @@
               <ul class="download-meta-list"><li><span>Type:</span> <strong>Installer (.exe)</strong></li><li><span>Arch:</span> <strong>Windows x64</strong></li><li><span>Install:</span> <strong>per-user, no UAC</strong></li></ul>
             </div>
           </div>
-          <div class="download-actions">
+          <div class="download-actions" style="display: flex; flex-direction: column; gap: 0.5rem;">
             <a href="https://github.com/MohammedNihadv/Euphony/releases/latest/download/euphony-windows-setup.exe" class="btn-download-main" id="btn-dl-windows"><span><i data-lucide="download" class="eu-icon"></i> Download Installer</span></a>
+            <a href="#" class="checksum-link" data-hash-platform="windows" style="font-size: 0.78rem; text-align: center; margin-top: 0.2rem; display: block; color: var(--eu-text-muted); text-decoration: none;">Verify SHA-256 Checksum</a>
           </div>
         </div>
         <div class="download-card" data-platform="macos" id="card-macos">
@@ -604,7 +607,7 @@
               <div class="download-card-info" style="flex: 1; min-width: 0;">
                 <h3 style="margin: 0; font-size: 1.45rem;">macOS</h3>
                 <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.35rem; flex-wrap: wrap;">
-                  <span class="version-pill" style="color: var(--eu-accent);">.dmg • v0.2.11</span>
+                  <span class="version-pill" style="color: var(--eu-accent);">.dmg • v1.0.1</span>
                   <span class="badge yellow" style="font-size: 0.72rem; padding: 0.2rem 0.55rem;">READY</span>
                 </div>
               </div>
@@ -614,8 +617,9 @@
               <ul class="download-meta-list"><li><span>Type:</span> <strong>Disk image (.dmg)</strong></li><li><span>Runs on:</span> <strong>macOS</strong></li><li><span>License:</span> <strong>GPL-3.0</strong></li></ul>
             </div>
           </div>
-          <div class="download-actions">
+          <div class="download-actions" style="display: flex; flex-direction: column; gap: 0.5rem;">
             <a href="https://github.com/MohammedNihadv/Euphony/releases/latest/download/euphony-macos.dmg" class="btn-download-main" id="btn-dl-macos"><span><i data-lucide="download" class="eu-icon"></i> Download for macOS</span></a>
+            <a href="#" class="checksum-link" data-hash-platform="macos" style="font-size: 0.78rem; text-align: center; margin-top: 0.2rem; display: block; color: var(--eu-text-muted); text-decoration: none;">Verify SHA-256 Checksum</a>
           </div>
         </div>
         <div class="download-card" data-platform="linux" id="card-linux">
@@ -626,18 +630,20 @@
               <div class="download-card-info" style="flex: 1; min-width: 0;">
                 <h3 style="margin: 0; font-size: 1.45rem;">Linux</h3>
                 <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.35rem; flex-wrap: wrap;">
-                  <span class="version-pill" style="color: var(--eu-accent);">AppImage • v0.2.11</span>
+                  <span class="version-pill" style="color: var(--eu-accent);">.deb &amp; AppImage • v1.0.1</span>
                   <span class="badge yellow" style="font-size: 0.72rem; padding: 0.2rem 0.55rem;">READY</span>
                 </div>
               </div>
             </div>
             <div class="download-card-body" style="margin-top: 1.5rem;">
-              <p style="font-size: 0.95rem; color: var(--eu-text-muted);">Single-file AppImage — make it executable and run. Requires <code>libmpv</code>.</p>
-              <ul class="download-meta-list"><li><span>Type:</span> <strong>AppImage (x86_64)</strong></li><li><span>Run:</span> <strong>chmod +x &amp; launch</strong></li><li><span>License:</span> <strong>GPL-3.0</strong></li></ul>
+              <p style="font-size: 0.95rem; color: var(--eu-text-muted);">Native package for Ubuntu, Mint &amp; Debian with auto-installed audio dependencies, plus universal AppImage.</p>
+              <ul class="download-meta-list"><li><span>Ubuntu/Mint:</span> <strong>.deb (auto libmpv)</strong></li><li><span>Universal:</span> <strong>AppImage (x86_64)</strong></li><li><span>License:</span> <strong>GPL-3.0</strong></li></ul>
             </div>
           </div>
-          <div class="download-actions">
-            <a href="https://github.com/MohammedNihadv/Euphony/releases/latest/download/euphony-linux-x86_64.AppImage" class="btn-download-main" id="btn-dl-linux"><span><i data-lucide="download" class="eu-icon"></i> Download AppImage</span></a>
+          <div class="download-actions" style="display: flex; flex-direction: column; gap: 0.5rem;">
+            <a href="https://github.com/MohammedNihadv/Euphony/releases/latest/download/euphony-linux-amd64.deb" class="btn-download-main" id="btn-dl-linux"><span><i data-lucide="download" class="eu-icon"></i> Download .deb (Ubuntu/Mint)</span></a>
+            <a href="https://github.com/MohammedNihadv/Euphony/releases/latest/download/euphony-linux-x86_64.AppImage" class="btn-download-alt" id="btn-dl-linux-appimage" style="width: 100%;"><span><i data-lucide="package" class="eu-icon"></i> Download AppImage</span></a>
+            <a href="#" class="checksum-link" data-hash-platform="linux" style="font-size: 0.78rem; text-align: center; margin-top: 0.2rem; display: block; color: var(--eu-text-muted); text-decoration: none;">Verify SHA-256 Checksum</a>
           </div>
         </div>
       </div>
@@ -729,7 +735,7 @@
           </div>
           <div class="faq-answer">
             <p>
-              Official binaries are available directly on our <a href="#download">Downloads Section</a> and via our <a href="https://github.com/MohammedNihadv/Euphony/releases/latest" target="_blank" rel="noopener noreferrer">GitHub Releases page</a> with SHA-256 integrity checksums for Android (APK), Windows (Setup EXE), macOS (DMG), and Linux (AppImage).
+              Official binaries are available directly on our <a href="#download">Downloads Section</a> and via our <a href="https://github.com/MohammedNihadv/Euphony/releases/latest" target="_blank" rel="noopener noreferrer">GitHub Releases page</a> with SHA-256 integrity checksums for Android (APK), Windows (Setup EXE), macOS (DMG), and Linux (.deb package &amp; AppImage).
             </p>
           </div>
         </div>
@@ -799,7 +805,7 @@
               Recommended for 99% of devices (manufactured 2017+). Smallest file size (~42 MB) and best performance.
             </p>
           </div>
-          <a href="https://github.com/MohammedNihadv/Euphony/releases/download/v0.2.11/app-arm64-v8a-release.apk" class="btn-primary" style="padding: 0.55rem 0.75rem; font-size: 0.85rem; justify-content: center; text-align: center; text-decoration: none; white-space: nowrap;">
+          <a href="https://github.com/MohammedNihadv/Euphony/releases/latest/download/app-arm64-v8a-release.apk" class="btn-primary" style="padding: 0.55rem 0.75rem; font-size: 0.85rem; justify-content: center; text-align: center; text-decoration: none; white-space: nowrap;">
             <span><i data-lucide="download" class="eu-icon"></i> Download ARM64 (.apk)</span>
           </a>
         </div>
@@ -814,7 +820,7 @@
               For older budget smartphones or legacy 32-bit devices.
             </p>
           </div>
-          <a href="https://github.com/MohammedNihadv/Euphony/releases/download/v0.2.11/app-armeabi-v7a-release.apk" class="btn-secondary" style="padding: 0.55rem 0.75rem; font-size: 0.85rem; justify-content: center; text-align: center; text-decoration: none; white-space: nowrap;">
+          <a href="https://github.com/MohammedNihadv/Euphony/releases/latest/download/app-armeabi-v7a-release.apk" class="btn-secondary" style="padding: 0.55rem 0.75rem; font-size: 0.85rem; justify-content: center; text-align: center; text-decoration: none; white-space: nowrap;">
             <span><i data-lucide="download" class="eu-icon"></i> Download 32-bit (.apk)</span>
           </a>
         </div>
@@ -829,14 +835,14 @@
               For Android Studio / BlueStacks emulators, PCs, and Intel Chromebooks.
             </p>
           </div>
-          <a href="https://github.com/MohammedNihadv/Euphony/releases/download/v0.2.11/app-x86_64-release.apk" class="btn-secondary" style="padding: 0.55rem 0.75rem; font-size: 0.85rem; justify-content: center; text-align: center; text-decoration: none; white-space: nowrap;">
+          <a href="https://github.com/MohammedNihadv/Euphony/releases/latest/download/app-x86_64-release.apk" class="btn-secondary" style="padding: 0.55rem 0.75rem; font-size: 0.85rem; justify-content: center; text-align: center; text-decoration: none; white-space: nowrap;">
             <span><i data-lucide="download" class="eu-icon"></i> Download x86_64 (.apk)</span>
           </a>
         </div>
       </div>
 
-      <a href="https://github.com/MohammedNihadv/Euphony/releases/tag/v0.2.11" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="width: 100%; justify-content: center; text-decoration: none;">
-        <span><i data-lucide="globe" class="eu-icon"></i> Or View Full v0.2.11 GitHub Release Page</span>
+      <a href="https://github.com/MohammedNihadv/Euphony/releases/latest" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="width: 100%; justify-content: center; text-decoration: none;">
+        <span><i data-lucide="globe" class="eu-icon"></i> View Latest Release on GitHub</span>
       </a>
     </div>
   </div>

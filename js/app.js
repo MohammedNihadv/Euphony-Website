@@ -128,11 +128,11 @@ function initOsDetection() {
 
   if (heroOsBadge) {
     const osNames = {
-      android: 'Android (v0.2.11)',
-      ios: 'iOS (v0.2.11)',
-      windows: 'Windows (v0.2.11)',
-      macos: 'macOS (v0.2.11)',
-      linux: 'Linux (v0.2.11)',
+      android: 'Android (v1.0.1)',
+      ios: 'iOS (v1.0.1)',
+      windows: 'Windows (v1.0.1)',
+      macos: 'macOS (v1.0.1)',
+      linux: 'Linux (v1.0.1)',
       source: 'Source Code'
     };
     heroOsBadge.textContent = osNames[detectedOs] || 'Free';
@@ -140,14 +140,14 @@ function initOsDetection() {
     const heroOsDetectedEl = document.getElementById('hero-os-detected');
     if (heroOsDetectedEl) {
       const osStatusMsg = {
-        android: 'Android APK (Ready to Download • v0.2.11)',
-        ios: 'iOS IPA — sideload with AltStore / Sideloadly (v0.2.11)',
-        windows: 'Windows Desktop (Ready to Download • v0.2.11)',
-        macos: 'macOS Desktop (Ready to Download • v0.2.11)',
-        linux: 'Linux Desktop (Ready to Download • v0.2.11)',
-        source: 'All platforms (Ready to Download • v0.2.11)'
+        android: 'Android APK (Ready to Download • v1.0.1)',
+        ios: 'iOS IPA — sideload with AltStore / Sideloadly (v1.0.1)',
+        windows: 'Windows Desktop (Ready to Download • v1.0.1)',
+        macos: 'macOS Desktop (Ready to Download • v1.0.1)',
+        linux: 'Linux Desktop — .deb & AppImage (Ready to Download • v1.0.1)',
+        source: 'All platforms (Ready to Download • v1.0.1)'
       };
-      heroOsDetectedEl.textContent = osStatusMsg[detectedOs] || 'Ready to Download • v0.2.11';
+      heroOsDetectedEl.textContent = osStatusMsg[detectedOs] || 'Ready to Download • v1.0.1';
     }
   }
 
@@ -697,10 +697,12 @@ function initChecksumModal() {
   if (!backdrop) return;
 
   const sampleHashes = {
-    android: 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855e',
-    windows: '9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08',
-    linux: '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8',
-    macos: '4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a'
+    android: 'ed7778fd6a0d174d888e21b1cc0d2eb2921cb16a0d8bebb5a325c41db6ac4f1c',
+    windows: '3faf16b9e4c8c5e22325403286a8cdfc81507a05cfc553e0ca31bba217fcc65f',
+    linux: '3b3a0e7fce45ec313e1f65b66e1886e4e78baa45d336567e1c385bafc3c7bea3', // .deb
+    linux_appimage: 'b099b71ae6de9b8bb8113059369c5d2cca9e574f0e5983e2f7c316b3ed232300',
+    macos: '3e048b182e8cf7ce2a30c21757b743fb234c4c4daad4aa24b52f8a9aa2389315',
+    ios: 'c6af924301486f1df4a9a2665c340c77c430a962f6573f9535c5df53a28d8beb'
   };
 
   triggerLinks.forEach(link => {

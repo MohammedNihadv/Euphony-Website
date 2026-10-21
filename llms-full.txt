@@ -41,4 +41,4 @@ Unlike typical glassmorphic or overly minimalist music apps:
 - **GitHub Repository**: https://github.com/MohammedNihadv/Euphony
 - **GitHub Releases**: https://github.com/MohammedNihadv/Euphony/releases/latest
 - **Android APKs**: Direct standalone APK downloads with SHA-256 verification.
-- **Desktop Installers**: Windows setup executable, macOS universal DMG, Linux standalone AppImage.
+- **Desktop Installers**: Windows setup executable, macOS universal DMG, Linux native Debian package (.deb) and standalone AppImage.

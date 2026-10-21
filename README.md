@@ -22,7 +22,7 @@ This website is built completely from scratch using purely native web technologi
 - **No Frameworks:** No React, Vue, or Tailwind. 100% lightweight.
 
 ## Features
-- **Smart OS Detection**: Automatically identifies if the visitor is on Windows, macOS, Linux, or Android, and highlights the correct direct-download APK or AppImage.
+- **Smart OS Detection**: Automatically identifies if the visitor is on Windows, macOS, Linux, or Android, and highlights the correct direct-download package (.deb, AppImage, APK, EXE, DMG).
 - **3-Way Theme Switcher**: Instant toggling between Light Mode, Dark Mode, and a high-contrast AMOLED Black Mode.
 - **Interactive Web Audio Demo**: A custom-built mini music player directly on the homepage that lets visitors test local audio playback.
 - **Bulletproof Responsiveness**: A completely fluid layout with a sleek Animated Hamburger Menu drawer on mobile.
