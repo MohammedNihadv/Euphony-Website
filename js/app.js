@@ -178,7 +178,7 @@ function initMiniPlayer() {
   const tracks = [
     {
       title: 'Neon Skyline (No Ads Edition)',
-      artist: 'Euphony Sound • 0.2.0',
+      artist: 'Euphony Sound • v1.0.1',
       duration: '3:45',
       durationSeconds: 225,
       frequency: 220,
@@ -235,10 +235,15 @@ function initMiniPlayer() {
   const playlistItems = document.querySelectorAll('.playlist-item');
   const localFileInput = document.getElementById('local-audio-input');
 
-  // Canvas visualizer elements
   const canvas = document.getElementById('visualizerCanvas');
   const ctx = canvas ? canvas.getContext('2d') : null;
   let animationId = null;
+
+  window.addEventListener('resize', () => {
+    if (canvas && canvas.parentElement) {
+      canvas.width = canvas.parentElement.clientWidth;
+    }
+  });
 
   // Web Audio Context & Analyser (created on first user gesture)
   let audioCtx = null;
@@ -499,10 +504,13 @@ function initMiniPlayer() {
     if (!ctx || !canvas) return;
     if (animationId) cancelAnimationFrame(animationId);
 
-    const barCount = 28;
-    const barWidth = 8;
-    const gap = 4;
-    const maxBarHeight = 50;
+    function resizeCanvas() {
+      const container = canvas.parentElement;
+      if (container && container.clientWidth && canvas.width !== container.clientWidth) {
+        canvas.width = container.clientWidth;
+      }
+    }
+    resizeCanvas();
 
     function draw() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -511,7 +519,14 @@ function initMiniPlayer() {
       const accentColor = computedStyle.getPropertyValue('--eu-accent').trim() || '#6A4BE8';
       const inkColor = computedStyle.getPropertyValue('--eu-ink').trim() || '#121218';
 
-      const startX = (canvas.width - (barCount * (barWidth + gap))) / 2;
+      const isMobile = canvas.width < 420;
+      const barWidth = isMobile ? 5 : 7;
+      const gap = isMobile ? 3 : 4;
+      const availableWidth = Math.max(60, canvas.width - 24);
+      const barCount = Math.max(14, Math.min(32, Math.floor(availableWidth / (barWidth + gap))));
+      const totalWidth = barCount * barWidth + (barCount - 1) * gap;
+      const startX = Math.max(12, Math.floor((canvas.width - totalWidth) / 2));
+      const maxBarHeight = Math.max(24, canvas.height - 16);
 
       if (isPlaying && analyser && dataArray) {
         analyser.getByteFrequencyData(dataArray);
@@ -523,20 +538,20 @@ function initMiniPlayer() {
           // Real FFT frequency bin mapping
           const binIndex = Math.floor((i / barCount) * (dataArray.length * 0.7));
           const val = dataArray[binIndex] || 0;
-          height = 10 + (val / 255) * maxBarHeight;
+          height = 8 + (val / 255) * maxBarHeight;
         } else if (isPlaying) {
           // Dynamic backup animation
           const time = Date.now() * 0.005;
           const wave = Math.sin(i * 0.4 + time) * 0.5 + 0.5;
           const wave2 = Math.cos(i * 0.7 - time * 1.3) * 0.5 + 0.5;
-          height = 10 + (wave * wave2 * maxBarHeight);
+          height = 8 + (wave * wave2 * maxBarHeight);
         } else {
           // Resting pulse
-          height = 6 + Math.sin(i * 0.5) * 4;
+          height = 5 + Math.sin(i * 0.5) * 3;
         }
 
-        const x = Math.max(10, startX + i * (barWidth + gap));
-        const y = canvas.height - height - 6;
+        const x = startX + i * (barWidth + gap);
+        const y = Math.max(2, canvas.height - height - 6);
 
         // Draw hard-shadow background rectangle
         ctx.fillStyle = inkColor;
