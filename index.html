@@ -346,7 +346,7 @@
             <span class="player-pill"><i data-lucide="disc-3" class="eu-icon"></i> NOW PLAYING</span>
             <div class="player-top-actions">
               <label for="local-audio-input" class="player-pill player-pill-accent" title="Play your own MP3/WAV/FLAC music file">
-                <i data-lucide="folder-open" class="eu-icon"></i> PLAY LOCAL FILE
+                <i data-lucide="folder-open" class="eu-icon"></i> <span class="pill-label-full">PLAY LOCAL FILE</span><span class="pill-label-short">LOCAL FILE</span>
               </label>
               <input type="file" id="local-audio-input" accept="audio/*" style="display: none;" />
               <span class="player-pill pill-lossless">LOSSLESS FLAC</span>
@@ -364,7 +364,7 @@
           </div>
 
           <!-- HTML5 Canvas Visualizer -->
-          <div class="visualizer-container" title="Audio Visualizer">
+          <div class="visualizer-container" aria-label="Audio Visualizer">
             <canvas id="visualizerCanvas"></canvas>
           </div>
 
