@@ -2401,11 +2401,12 @@ input, select, textarea {
 
   /* Hero Section: Transition to 2-Column Desktop Grid */
   .hero {
-    min-height: calc(100vh - 72px);
-    max-height: 940px;
+    min-height: min(calc(100vh - 72px), 880px);
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    padding: 1.5rem 0 2rem;
+    padding: 2rem 0 3rem;
     overflow: visible; /* Prevents any clipping of phone chassis & docked tabs */
   }
 
@@ -2601,13 +2602,18 @@ input, select, textarea {
   }
 
   .hero {
-    max-height: 1050px;
+    min-height: min(calc(100vh - 72px), 920px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 2.5rem 0 3.5rem;
   }
 
   .hero-container {
     max-width: 1560px;
     gap: 4.5rem;
+    width: 100%;
   }
 
   .hero-title {
@@ -2635,12 +2641,12 @@ input, select, textarea {
   }
 
   .phone-showcase-wrapper {
-    max-width: 420px;
+    max-width: 440px;
   }
 
   .phone-device {
-    width: 320px;
-    height: 640px;
+    width: clamp(290px, 36vh, 340px);
+    height: clamp(580px, 72vh, 680px);
     border-radius: 48px;
     padding: 10px;
   }
