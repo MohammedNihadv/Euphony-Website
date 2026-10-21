@@ -2387,11 +2387,74 @@ input, select, textarea {
    - Purity strip transitions to 4-column bar; Philosophy & Features to 3-column grids.
    -------------------------------------------------------------------------- */
 @media (min-width: 1024px) {
-  /* Navigation: Reveal desktop horizontal links & direct theme control */
-  .nav-links,
+  /* Navigation: Compact desktop layout preventing collision at 1024px */
+  .nav-container {
+    padding: 0 1.25rem;
+    gap: 0.75rem;
+  }
+
+  .brand {
+    font-size: 1.35rem;
+    gap: 0.5rem;
+    flex-shrink: 0;
+  }
+
+  .brand-logo {
+    width: 38px;
+    height: 38px;
+  }
+
+  .brand-badge {
+    font-size: 0.65rem;
+    padding: 0.15rem 0.4rem;
+    margin-left: 0.2rem;
+  }
+
+  .nav-links {
+    display: flex !important;
+    gap: 1.15rem;
+    flex-shrink: 1;
+  }
+
+  .nav-link {
+    font-size: 0.88rem;
+  }
+
+  .nav-demo-short,
+  .nav-btn-short {
+    display: inline;
+  }
+
+  .nav-demo-full,
+  .nav-btn-full {
+    display: none;
+  }
+
+  .nav-actions {
+    gap: 0.65rem;
+    flex-shrink: 0;
+  }
+
+  .theme-switcher {
+    padding: 2px;
+    gap: 2px;
+  }
+
+  .theme-btn {
+    padding: 0.32rem 0.58rem;
+    font-size: 0.72rem;
+  }
+
   .desktop-only-theme,
   .btn-nav-download {
     display: flex !important;
+  }
+
+  .btn-nav-download {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.82rem;
+    height: 36px;
+    gap: 0.35rem;
   }
 
   .hamburger-btn,
@@ -2554,6 +2617,62 @@ input, select, textarea {
    Expands maximum container widths to 1280px with larger typography scale.
    -------------------------------------------------------------------------- */
 @media (min-width: 1280px) {
+  .nav-container {
+    padding: 0 1.5rem;
+    max-width: 1280px;
+    gap: 1.5rem;
+  }
+
+  .brand {
+    font-size: 1.5rem;
+    gap: 0.75rem;
+  }
+
+  .brand-logo {
+    width: 44px;
+    height: 44px;
+  }
+
+  .brand-badge {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    margin-left: 0.25rem;
+  }
+
+  .nav-links {
+    gap: 1.85rem;
+  }
+
+  .nav-link {
+    font-size: 0.95rem;
+  }
+
+  .nav-demo-short,
+  .nav-btn-short {
+    display: none;
+  }
+
+  .nav-demo-full,
+  .nav-btn-full {
+    display: inline;
+  }
+
+  .nav-actions {
+    gap: 1rem;
+  }
+
+  .theme-btn {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.75rem;
+  }
+
+  .btn-nav-download {
+    padding: 0.55rem 1.15rem;
+    font-size: 0.9rem;
+    height: 40px;
+    gap: 0.5rem;
+  }
+
   .hero-container {
     max-width: 1280px;
     gap: 3.5rem;
