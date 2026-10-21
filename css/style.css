@@ -420,6 +420,7 @@ button {
 .hero {
   position: relative;
   min-height: calc(100vh - 72px);
+  max-height: 980px;
   display: flex;
   align-items: center;
   padding: 1.25rem 0 2rem;
@@ -2098,10 +2099,40 @@ button {
 }
 
 @media (max-width: 640px) {
+  .navbar {
+    padding: 0.5rem 0;
+  }
+
   .nav-container {
     flex-wrap: nowrap;
     justify-content: space-between;
-    padding: 0.6rem 1rem;
+    padding: 0.45rem 1rem;
+    width: 100%;
+  }
+
+  .brand {
+    font-size: 1.25rem;
+    gap: 0.55rem;
+  }
+
+  .brand-logo {
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-badge {
+    font-size: 0.62rem;
+    padding: 0.15rem 0.35rem;
+  }
+
+  .hamburger-btn {
+    width: 36px;
+    height: 36px;
+    padding: 6px;
+  }
+
+  section[id] {
+    scroll-margin-top: 4.25rem;
   }
 
   .nav-actions {
@@ -2266,13 +2297,23 @@ button {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 0.35rem;
-    flex-wrap: wrap;
+    gap: 0.25rem;
+    width: 100%;
   }
 
   .player-pill {
-    font-size: 0.68rem;
-    padding: 0.25rem 0.55rem;
+    font-size: 0.64rem;
+    padding: 0.24rem 0.45rem;
+    white-space: nowrap;
+    gap: 0.2rem;
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+
+  .player-pill i,
+  .player-pill svg {
+    width: 12px;
+    height: 12px;
   }
 
   .player-artwork {
@@ -2554,5 +2595,91 @@ button {
 .faq-toggle-icon:active {
   transform: scale(0.97) !important;
   transition: transform 0.08s ease-out;
+}
+
+/* ==========================================================================
+   LARGE & 4K/2K ULTRA-WIDE DISPLAYS (MIN-WIDTH: 1600px, e.g. 2560x1738)
+   ========================================================================== */
+@media (min-width: 1600px) {
+  .nav-container {
+    max-width: 1560px;
+    padding: 0 2rem;
+  }
+
+  .hero {
+    max-height: 1050px;
+    padding: 2.5rem 0 3.5rem;
+  }
+
+  .hero-container {
+    max-width: 1560px;
+    gap: 4.5rem;
+  }
+
+  .hero-title {
+    font-size: clamp(3.2rem, 3.2vw, 4.25rem);
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    line-height: 1.55;
+    max-width: 85%;
+  }
+
+  .btn-primary, .btn-secondary {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+  }
+
+  .hero-feature-pills {
+    gap: 0.75rem;
+  }
+
+  .hero-pill-item {
+    font-size: 0.9rem;
+    padding: 0.45rem 1rem;
+  }
+
+  .phone-showcase-wrapper {
+    max-width: 420px;
+  }
+
+  .phone-device {
+    width: 320px;
+    height: 640px;
+    border-radius: 48px;
+    padding: 10px;
+  }
+
+  .phone-dynamic-island {
+    width: 96px;
+    height: 25px;
+    top: 20px;
+  }
+
+  .phone-tabs-bar {
+    padding: 0.35rem 0.5rem;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .phone-tab-btn {
+    padding: 0.45rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .purity-container,
+  .player-demo-grid,
+  .philosophy-grid,
+  .features-grid,
+  .download-grid,
+  .faq-container,
+  .footer-container {
+    max-width: 1560px;
+  }
+
+  .player-demo-grid {
+    gap: 3.5rem;
+  }
 }
 
