@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initChecksumModal();
   initApkGuideModal();
   initMobileHamburger();
+  initCommunityDropdown();
   initLatestReleaseSync();
 });
 
@@ -851,5 +852,45 @@ function initMobileHamburger() {
   // Close menu when any nav link is clicked
   navLinks.forEach(link => {
     link.addEventListener('click', closeMenu);
+  });
+}
+
+/* ==========================================================================
+   8. COMMUNITY DROPDOWN (KEYBOARD & TOUCH ACCESSIBILITY)
+   ========================================================================== */
+function initCommunityDropdown() {
+  const dropdownItem = document.querySelector('.nav-dropdown-item');
+  const dropdownBtn = document.getElementById('community-dropdown-btn');
+  if (!dropdownBtn || !dropdownItem) return;
+
+  dropdownBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = dropdownItem.classList.toggle('is-open');
+    dropdownBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+
+  // Close when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!dropdownItem.contains(e.target)) {
+      dropdownItem.classList.remove('is-open');
+      dropdownBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && dropdownItem.classList.contains('is-open')) {
+      dropdownItem.classList.remove('is-open');
+      dropdownBtn.setAttribute('aria-expanded', 'false');
+      dropdownBtn.focus();
+    }
+  });
+
+  // Close on link click
+  dropdownItem.querySelectorAll('.dropdown-link').forEach((link) => {
+    link.addEventListener('click', () => {
+      dropdownItem.classList.remove('is-open');
+      dropdownBtn.setAttribute('aria-expanded', 'false');
+    });
   });
 }

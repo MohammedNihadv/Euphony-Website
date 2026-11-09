@@ -142,17 +142,46 @@
 
       <nav aria-label="Main Navigation">
         <ul class="nav-links">
-          <li><a href="#demo" class="nav-link"><span class="nav-demo-full">Interactive Demo</span><span class="nav-demo-short">Demo</span></a></li>
-          <li><a href="#philosophy" class="nav-link">Why Free?</a></li>
           <li><a href="#features" class="nav-link">Features</a></li>
-          <li><a href="#download" class="nav-link">Downloads</a></li>
-          <li><a href="#sponsor" class="nav-link">Sponsor</a></li>
-          <li><a href="#contribute" class="nav-link">Contribute</a></li>
-          <li><a href="#faq" class="nav-link">FAQ</a></li>
-          <li>
-            <a href="https://github.com/MohammedNihadv/Euphony" target="_blank" rel="noopener noreferrer" class="nav-link">
-              GitHub <i data-lucide="star" class="eu-icon"></i>
-            </a>
+          <li><a href="#philosophy" class="nav-link">Why Free?</a></li>
+          <li><a href="#demo" class="nav-link"><span class="nav-demo-short">Demo</span><span class="nav-demo-full">Interactive Demo</span></a></li>
+          <li class="nav-dropdown-item">
+            <button type="button" class="nav-link nav-dropdown-btn" aria-haspopup="true" aria-expanded="false" id="community-dropdown-btn">
+              <span>Community</span>
+              <i data-lucide="chevron-down" class="eu-icon nav-dropdown-chevron"></i>
+            </button>
+            <div class="nav-dropdown-menu" id="community-dropdown" role="menu" aria-labelledby="community-dropdown-btn">
+              <a href="#sponsor" class="dropdown-link" role="menuitem">
+                <div class="dropdown-link-icon dropdown-icon-heart"><i data-lucide="heart"></i></div>
+                <div class="dropdown-link-text">
+                  <strong>Sponsor Euphony</strong>
+                  <span>Keep music free &amp; independent</span>
+                </div>
+              </a>
+              <a href="#contribute" class="dropdown-link" role="menuitem">
+                <div class="dropdown-link-icon dropdown-icon-code"><i data-lucide="git-pull-request"></i></div>
+                <div class="dropdown-link-text">
+                  <strong>Contribute</strong>
+                  <span>Code, bug reports &amp; ideas</span>
+                </div>
+              </a>
+              <a href="#faq" class="dropdown-link" role="menuitem">
+                <div class="dropdown-link-icon dropdown-icon-faq"><i data-lucide="help-circle"></i></div>
+                <div class="dropdown-link-text">
+                  <strong>FAQ</strong>
+                  <span>Frequently asked questions</span>
+                </div>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="https://github.com/MohammedNihadv/Euphony" target="_blank" rel="noopener noreferrer" class="dropdown-link dropdown-gh" role="menuitem">
+                <div class="dropdown-link-icon dropdown-icon-gh"><i data-lucide="star"></i></div>
+                <div class="dropdown-link-text">
+                  <strong>Star on GitHub</strong>
+                  <span>Official repository</span>
+                </div>
+                <i data-lucide="external-link" class="eu-icon dropdown-ext"></i>
+              </a>
+            </div>
           </li>
         </ul>
       </nav>

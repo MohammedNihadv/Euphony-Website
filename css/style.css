@@ -234,12 +234,13 @@ input, select, textarea {
 }
 
 .nav-container {
-  max-width: 1280px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1rem;
 }
 
 .brand {
@@ -2455,6 +2456,8 @@ input, select, textarea {
     font-size: 0.82rem;
     height: 36px;
     gap: 0.35rem;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   .hamburger-btn,
@@ -3027,4 +3030,179 @@ input, select, textarea {
 
 .contribute-link:hover {
   color: var(--eu-accent-hover);
+}
+
+/* ==========================================================================
+   NAVBAR COMMUNITY DROPDOWN (NEO-BRUTALIST POPOVER)
+   ========================================================================== */
+
+.nav-dropdown-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-dropdown-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--eu-text);
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 0.92rem;
+  transition: color 0.15s ease;
+}
+
+.nav-dropdown-btn:hover {
+  color: var(--eu-accent);
+}
+
+.nav-dropdown-chevron {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.22s var(--eu-ease-spring);
+}
+
+.nav-dropdown-item:hover .nav-dropdown-chevron,
+.nav-dropdown-item.is-open .nav-dropdown-chevron {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  min-width: 290px;
+  background-color: var(--eu-card-bg);
+  border: var(--eu-border);
+  border-radius: var(--eu-radius);
+  box-shadow: var(--eu-shadow-lg);
+  padding: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s var(--eu-ease-spring), visibility 0.2s;
+  z-index: 1050;
+}
+
+/* Caret indicator */
+.nav-dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 14px;
+  height: 14px;
+  background-color: var(--eu-card-bg);
+  border-left: var(--eu-border);
+  border-top: var(--eu-border);
+}
+
+.nav-dropdown-item:hover .nav-dropdown-menu,
+.nav-dropdown-item:focus-within .nav-dropdown-menu,
+.nav-dropdown-item.is-open .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: var(--eu-radius-sm);
+  text-decoration: none;
+  color: var(--eu-text);
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.dropdown-link:hover {
+  background-color: var(--eu-container);
+  transform: translateX(2px);
+}
+
+.dropdown-link-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: var(--eu-border-thin);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dropdown-link-icon i {
+  width: 17px;
+  height: 17px;
+}
+
+.dropdown-icon-heart {
+  background-color: #FDF2F8;
+  color: #EA4AAA;
+}
+
+[data-theme="dark"] .dropdown-icon-heart,
+[data-theme="amoled"] .dropdown-icon-heart {
+  background-color: rgba(234, 74, 170, 0.22);
+  color: #EA4AAA;
+}
+
+.dropdown-icon-code {
+  background-color: var(--eu-container-high);
+  color: var(--eu-accent);
+}
+
+.dropdown-icon-faq {
+  background-color: var(--eu-container);
+  color: var(--eu-text);
+}
+
+.dropdown-icon-gh {
+  background-color: var(--eu-highlight);
+  color: var(--eu-on-highlight);
+}
+
+.dropdown-link-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.dropdown-link-text strong {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--eu-text);
+}
+
+.dropdown-link-text span {
+  font-size: 0.75rem;
+  color: var(--eu-text-muted);
+}
+
+.dropdown-divider {
+  height: 1px;
+  background-color: var(--eu-ink);
+  opacity: 0.12;
+  margin: 0.25rem 0.5rem;
+}
+
+.dropdown-ext {
+  width: 14px;
+  height: 14px;
+  color: var(--eu-text-muted);
+  flex-shrink: 0;
 }
