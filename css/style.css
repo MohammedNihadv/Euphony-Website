@@ -2803,3 +2803,228 @@ input, select, textarea {
   }
 }
 
+
+/* ==========================================================================
+   SPONSORS & CONTRIBUTING SECTIONS (NEO-BRUTALIST COMMUNITY)
+   ========================================================================== */
+
+.sponsor-section,
+.contribute-section {
+  padding: 5rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sponsor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.sponsor-card {
+  position: relative;
+  background-color: var(--eu-card-bg);
+  border: var(--eu-border);
+  border-radius: var(--eu-radius-lg);
+  box-shadow: var(--eu-shadow-lg);
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  transition: transform 0.25s var(--eu-ease-spring), box-shadow 0.25s var(--eu-ease-spring), border-color 0.25s ease;
+}
+
+.sponsor-card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: var(--eu-shadow-xl);
+}
+
+.sponsor-card-top {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.sponsor-icon-badge {
+  width: 54px;
+  height: 54px;
+  border-radius: var(--eu-radius);
+  border: var(--eu-border);
+  box-shadow: var(--eu-shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+
+.sponsor-icon-gh {
+  background-color: #EA4AAA;
+  color: #FFFFFF;
+}
+
+.sponsor-icon-upi {
+  background-color: #6366F1;
+  color: #FFFFFF;
+}
+
+.sponsor-badge-pill {
+  display: inline-block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 800;
+  font-size: 0.72rem;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--eu-text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.sponsor-card-title {
+  font-size: 1.45rem;
+  font-weight: 900;
+  margin: 0;
+}
+
+.sponsor-card-desc {
+  font-size: 0.95rem;
+  color: var(--eu-text-muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.sponsor-perks {
+  list-style: none;
+  padding: 0.85rem 0;
+  margin: 0;
+  border-top: var(--eu-border-thin);
+  border-bottom: var(--eu-border-thin);
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  font-size: 0.9rem;
+  color: var(--eu-text);
+  font-weight: 600;
+}
+
+.sponsor-perks li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.sponsor-perks li i {
+  color: #10B981;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.btn-sponsor-gh,
+.btn-sponsor-upi {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.95rem 1.4rem;
+  border-radius: var(--eu-radius);
+  border: var(--eu-border);
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: var(--eu-shadow);
+  transition: transform 0.15s var(--eu-ease-spring), box-shadow 0.15s var(--eu-ease-spring);
+}
+
+.btn-sponsor-gh {
+  background-color: #EA4AAA;
+  color: #FFFFFF;
+}
+
+.btn-sponsor-upi {
+  background-color: #6366F1;
+  color: #FFFFFF;
+}
+
+.btn-sponsor-gh:hover,
+.btn-sponsor-upi:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--eu-shadow-lg);
+}
+
+.btn-sponsor-gh:active,
+.btn-sponsor-upi:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--eu-ink);
+}
+
+/* Contribute Grid */
+.contribute-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.contribute-card {
+  background-color: var(--eu-card-bg);
+  border: var(--eu-border);
+  border-radius: var(--eu-radius-lg);
+  box-shadow: var(--eu-shadow);
+  padding: 1.85rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  transition: transform 0.22s var(--eu-ease-spring), box-shadow 0.22s var(--eu-ease-spring);
+}
+
+.contribute-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--eu-shadow-lg);
+}
+
+.contribute-icon-badge {
+  width: 46px;
+  height: 46px;
+  border-radius: var(--eu-radius);
+  border: var(--eu-border);
+  box-shadow: var(--eu-shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+}
+
+.contribute-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.contribute-desc {
+  font-size: 0.9rem;
+  color: var(--eu-text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.contribute-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 800;
+  font-size: 0.9rem;
+  color: var(--eu-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease;
+}
+
+.contribute-link:hover {
+  color: var(--eu-accent-hover);
+}
