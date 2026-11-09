@@ -4,6 +4,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initCleanAnchorNavigation();
   initThemeSwitcher();
   initOsDetection();
   initPhoneMockupTabs();
@@ -892,5 +893,78 @@ function initCommunityDropdown() {
       dropdownItem.classList.remove('is-open');
       dropdownBtn.setAttribute('aria-expanded', 'false');
     });
+  });
+}
+
+/* ==========================================================================
+   9. CLEAN URL ANCHOR NAVIGATION (NO # IN URL)
+   Smoothly scrolls to sections when navigation links are clicked while keeping
+   the browser address bar completely clean without hash fragments (#features).
+   ========================================================================== */
+function initCleanAnchorNavigation() {
+  // If the page loaded with a hash in the address bar, smoothly scroll to that section and strip the hash
+  if (window.location.hash) {
+    const targetId = window.location.hash.slice(1);
+    const targetEl = document.getElementById(targetId);
+    if (targetEl) {
+      setTimeout(() => {
+        targetEl.scrollIntoView({ behavior: 'smooth' });
+      }, 80);
+    }
+    history.replaceState(null, '', window.location.pathname + window.location.search);
+  }
+
+  // Intercept all in-page anchor clicks
+  document.addEventListener('click', (e) => {
+    const anchor = e.target.closest('a[href^="#"]');
+    if (!anchor) return;
+
+    // Checksum verification modal trigger handles its own modal logic
+    if (anchor.classList.contains('checksum-link')) return;
+
+    const href = anchor.getAttribute('href');
+    if (!href) return;
+
+    if (href === '#') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+      return;
+    }
+
+    const targetId = href.slice(1);
+    const targetEl = document.getElementById(targetId);
+    if (targetEl) {
+      e.preventDefault();
+      targetEl.scrollIntoView({ behavior: 'smooth' });
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+
+      // Close mobile drawer if open
+      const hamburgerBtn = document.getElementById('btn-hamburger');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileMenu && mobileMenu.classList.contains('open')) {
+        mobileMenu.classList.remove('open');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+        if (hamburgerBtn) {
+          hamburgerBtn.classList.remove('active');
+          hamburgerBtn.setAttribute('aria-expanded', 'false');
+        }
+      }
+
+      // Close community dropdown if open
+      const dropdownItem = document.querySelector('.nav-dropdown-item');
+      const dropdownBtn = document.getElementById('community-dropdown-btn');
+      if (dropdownItem && dropdownItem.classList.contains('is-open')) {
+        dropdownItem.classList.remove('is-open');
+        if (dropdownBtn) dropdownBtn.setAttribute('aria-expanded', 'false');
+      }
+    }
+  });
+
+  // Watch for any hashchange event to keep the address bar clean
+  window.addEventListener('hashchange', () => {
+    if (window.location.hash) {
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
   });
 }
