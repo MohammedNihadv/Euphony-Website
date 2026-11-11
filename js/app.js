@@ -6,6 +6,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   initCleanAnchorNavigation();
   initThemeSwitcher();
+  initLatestReleaseSync();
   initOsDetection();
   initPhoneMockupTabs();
   initMiniPlayer();
@@ -14,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initApkGuideModal();
   initMobileHamburger();
   initCommunityDropdown();
-  initLatestReleaseSync();
 });
 
 /* ==========================================================================
@@ -26,45 +26,82 @@ document.addEventListener('DOMContentLoaded', () => {
    ========================================================================== */
 function initLatestReleaseSync() {
   const REPO = 'MohammedNihadv/Euphony';
+  const defaultTag = 'v1.0.4';
+  const cachedTag = localStorage.getItem('euphony-latest-tag') || defaultTag;
 
-  fetch(`https://api.github.com/repos/${REPO}/releases/latest`, {
-    headers: { Accept: 'application/vnd.github+json' },
-  })
-    .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
-    .then((release) => {
-      const tag = release.tag_name; // e.g. "v0.2.11"
-      if (!tag) return;
-      const assets = release.assets || [];
+  function updateDomWithVersion(tag, assets) {
+    if (!tag) return;
+    window.currentReleaseTag = tag;
+    localStorage.setItem('euphony-latest-tag', tag);
 
-      // 1. Repoint every download link (APK, Windows .zip, macOS .zip, Linux
-      //    .tar.gz) at the matching latest asset. Asset filenames are stable
-      //    across releases, so match by the filename in the current href.
+    // 1. Brand badges and version badges
+    document
+      .querySelectorAll(
+        '.brand-badge, #js-version-badge, #js-release-version, #js-apk-pill, #js-status-version'
+      )
+      .forEach((el) => {
+        el.textContent = tag;
+      });
+
+    // 2. Hero capsule badge ticker (EUPHONY V1.0.4 • OPEN SOURCE MUSIC PLAYER)
+    const heroCapsule =
+      document.getElementById('hero-capsule-version') ||
+      document.querySelector('.hero-capsule-badge span:last-child');
+    if (heroCapsule) {
+      heroCapsule.textContent = `EUPHONY ${tag.toUpperCase()} • OPEN SOURCE MUSIC PLAYER`;
+    }
+
+    // 3. Mini-player mock track artist / version
+    document
+      .querySelectorAll('.playlist-item-artist, #miniplayer-artist-version')
+      .forEach((el) => {
+        if (/v\d+\.\d+\.\d+/.test(el.textContent)) {
+          el.textContent = el.textContent.replace(/v\d+\.\d+\.\d+/g, tag);
+        }
+      });
+
+    // 4. Version pills & OS indicators across cards and hero
+    document
+      .querySelectorAll('.version-pill, #hero-os-detected, #hero-os-name')
+      .forEach((el) => {
+        if (/v\d+\.\d+\.\d+/.test(el.textContent)) {
+          el.textContent = el.textContent.replace(/v\d+\.\d+\.\d+/g, tag);
+        }
+      });
+
+    // 5. Repoint download links if assets are available
+    if (assets && assets.length) {
       document.querySelectorAll('a[href*="releases/download/"]').forEach((a) => {
         const href = a.getAttribute('href');
         const fname = href.substring(href.lastIndexOf('/') + 1);
         const asset = assets.find((x) => x.name === fname);
         if (asset) a.setAttribute('href', asset.browser_download_url);
       });
+    }
 
-      // 2. Point the "view release" links at the current release page.
-      document.querySelectorAll('a[href*="/releases/tag/"]').forEach((a) => {
-        if (release.html_url) a.setAttribute('href', release.html_url);
-      });
+    // 6. Point release page links
+    document.querySelectorAll('a[href*="/releases/tag/"]').forEach((a) => {
+      a.setAttribute('href', `https://github.com/${REPO}/releases/tag/${tag}`);
+      if (/v\d+\.\d+\.\d+/.test(a.textContent)) {
+        a.textContent = a.textContent.replace(/v\d+\.\d+\.\d+/g, tag);
+      }
+    });
+  }
 
-      // 3. Refresh visible version labels to the latest tag.
-      document.querySelectorAll('.brand-badge').forEach((el) => {
-        el.textContent = tag;
-      });
-      document
-        .querySelectorAll('.version-pill, #hero-os-detected, #hero-os-name')
-        .forEach((el) => {
-          if (/v\d+\.\d+\.\d+/.test(el.textContent)) {
-            el.textContent = el.textContent.replace(/v\d+\.\d+\.\d+/g, tag);
-          }
-        });
+  // Apply immediately with cached or default version
+  updateDomWithVersion(cachedTag);
+
+  // Fetch live latest release from GitHub API
+  fetch(`https://api.github.com/repos/${REPO}/releases/latest`, {
+    headers: { Accept: 'application/vnd.github.v3+json' },
+  })
+    .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
+    .then((release) => {
+      const tag = release.tag_name;
+      if (tag) updateDomWithVersion(tag, release.assets);
     })
     .catch(() => {
-      /* Offline or rate-limited: the hardcoded version in the HTML stands. */
+      /* Offline or rate-limited: cached or fallback tag stands */
     });
 }
 /* ==========================================================================
@@ -130,27 +167,33 @@ function initOsDetection() {
   const heroOsBadge = document.getElementById('hero-os-name');
 
   if (heroOsBadge) {
+    const curTag =
+      window.currentReleaseTag ||
+      localStorage.getItem('euphony-latest-tag') ||
+      'v1.0.4';
+
     const osNames = {
-      android: 'Android (v1.0.1)',
-      ios: 'iOS (v1.0.1)',
-      windows: 'Windows (v1.0.1)',
-      macos: 'macOS (v1.0.1)',
-      linux: 'Linux (v1.0.1)',
-      source: 'Source Code'
+      android: `Android (${curTag})`,
+      ios: `iOS (${curTag})`,
+      windows: `Windows (${curTag})`,
+      macos: `macOS (${curTag})`,
+      linux: `Linux (${curTag})`,
+      source: 'Source Code',
     };
     heroOsBadge.textContent = osNames[detectedOs] || 'Free';
 
     const heroOsDetectedEl = document.getElementById('hero-os-detected');
     if (heroOsDetectedEl) {
       const osStatusMsg = {
-        android: 'Android APK (Ready to Download • v1.0.1)',
-        ios: 'iOS IPA — sideload with AltStore / Sideloadly (v1.0.1)',
-        windows: 'Windows Desktop (Ready to Download • v1.0.1)',
-        macos: 'macOS Desktop (Ready to Download • v1.0.1)',
-        linux: 'Linux Desktop — .deb & AppImage (Ready to Download • v1.0.1)',
-        source: 'All platforms (Ready to Download • v1.0.1)'
+        android: `Android APK (Ready to Download • ${curTag})`,
+        ios: `iOS IPA — sideload with AltStore / Sideloadly (${curTag})`,
+        windows: `Windows Desktop (Ready to Download • ${curTag})`,
+        macos: `macOS Desktop (Ready to Download • ${curTag})`,
+        linux: `Linux Desktop — .deb & AppImage (Ready to Download • ${curTag})`,
+        source: `All platforms (Ready to Download • ${curTag})`,
       };
-      heroOsDetectedEl.textContent = osStatusMsg[detectedOs] || 'Ready to Download • v1.0.1';
+      heroOsDetectedEl.textContent =
+        osStatusMsg[detectedOs] || `Ready to Download • ${curTag}`;
     }
   }
 
@@ -234,7 +277,11 @@ function initMiniPlayer() {
     },
     {
       title: 'Neon Skyline (Offline Edition)',
-      artist: 'Euphony Sound • v1.0.1',
+      artist:
+        'Euphony Sound • ' +
+        (window.currentReleaseTag ||
+          localStorage.getItem('euphony-latest-tag') ||
+          'v1.0.4'),
       duration: '3:45',
       durationSeconds: 225,
       frequency: 174.61,
